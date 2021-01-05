@@ -1,31 +1,93 @@
 <template>
-  <div class="aboutus--container">
-      <h1>Vår idé</h1>
-      <p>Idén med Tassa kommer från ett problem som lyftes av en bekant till oss, som uttryckte oro och otrygghet inför sena kvällspromenader med hund när det nu är mörkt ute större delen av dygnet.</p>
+
+   <b-container class="bv-example-row aboutus--container">
+        <b-row class="text-center">
+    <b-col></b-col>
+    <b-col cols="8">
+        <h1>Vår idé</h1>
+    </b-col>
+    <b-col></b-col>
+  </b-row>
+  <b-row class="text-center">
+    <b-col>
+    </b-col>
+    <b-col cols="8">
+          <p>Idén med Tassa kommer från ett problem som lyftes av en bekant till oss, som uttryckte oro och otrygghet inför sena kvällspromenader med hund när det nu är mörkt ute större delen av dygnet.</p>
       <p>Lösningen blev då en portal där hundägare kan mötas och knyta kontakter.</p>
       <p>Tassa skapades som ett projekt i vårt examensarbete under början av 2021.</p>
-         <div class="picture-container">
-             <div class="pictures">
-                 <img class="mickis" alt="mickis"/>
-                
-                 <img class="gabbi" alt="gabbi"/>
-             </div>
-        </div>
-        <div class="contactUs-container">
-            <h2>Kontakta oss</h2>
-            <div class="social-media">
-                 <img src="tassa/src/assets/facebook.svg"/>
-                 <p class="contactUs">/TassaApp</p>
-                 <img src="tassa/src/assets/instagram.svg">
-                 <p class="contactUs">/tassaapp</p>
-                 <img src="tassa/src/assets/twitter.svg">
-                 <p class="contactUs">TassaApp</p>
-            </div>     
-        </div>
-  </div>
- 
-
-
+    </b-col>
+    <b-col></b-col>
+  </b-row>
+            <b-row class="bv-example-row-flex-cols"> 
+                <b-col  sm="4" align-self="end">
+                </b-col>
+                  <b-col sm="4" align-self="center"></b-col>
+                <b-col sm="4" align-self="end">
+                    <div class="pictureM">
+                        <iframe class="mickis" alt="mickis" frameBorder="0"/>
+                    </div>
+                </b-col>
+                <b-col sm="4" ></b-col>
+            </b-row>
+             <b-row>
+                 <b-col sm="4" ></b-col>
+                <b-col sm="4" align-self="end">
+                    <div class="pictureG">
+                     <iframe class="gabbi" alt="gabbi" frameBorder="0"/>
+                     </div>
+                </b-col>
+                  <b-col sm="4" align-self="center"></b-col>
+                <b-col sm="4" align-self="start">
+                </b-col>
+            </b-row>
+            <b-row class="text-center">
+                <b-col></b-col>
+                <b-col cols="6">
+                <h2>Kontakta oss</h2>
+                </b-col>
+                <b-col></b-col>
+            </b-row>
+            <b-row class="text-center">
+                <b-col></b-col>
+                <b-col cols="4">
+                 <img class="facebook" alt="facebook"  />
+                 <font-awesome-icon :icon="{
+                    prefix: 'fab',
+                    iconName: 'facebook-square',
+                    }"/>
+                </b-col>
+                <b-col cols="4">
+                    <p class="contactUs">TassaApp</p>
+                    </b-col>
+            </b-row>
+              <b-row class="text-center">
+                <b-col></b-col>
+                <b-col cols="4">
+                 <img class="instagram" alt="instagram"  />
+                 <font-awesome-icon :icon="{
+                    prefix: 'fab',
+                    iconName: 'instagram',
+                    }"/>
+                </b-col>
+                <b-col cols="4">
+                      <p class="contactUs">TassaApp</p>
+                </b-col>
+            </b-row>
+             <b-row class="text-center">
+                <b-col></b-col>
+                <b-col cols="4">
+                 <img class="twitter" alt="twitter"  />
+                 <font-awesome-icon :icon="{
+                    prefix: 'fab',
+                    iconName: 'twitter',
+                    }"/>
+                </b-col>
+                <b-col cols="4">
+                      <p class="contactUs">TassaApp</p>
+                </b-col>
+            </b-row>
+</b-container> 
+      
 </template>
 
 <script>
@@ -39,9 +101,9 @@ export default {
 
 
 h1
-    font-size: clamp(34px, 10vw, 54px)
+    font-size: clamp(34px, 9vw, 54px)
     color: white
-    line-height: 15vw   
+    line-height: 11vw   
     margin-bottom: 0.8em
     margin-top: 2em
 h2

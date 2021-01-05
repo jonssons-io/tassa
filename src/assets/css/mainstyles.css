@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap");
 h1,
 h2 {
@@ -20,15 +21,51 @@ label {
 	line-height: 1.5em;
 	font-size: 1em;
 }
-body {
+template {
 	background-color: #005b52;
 }
+
+.aboutus--container {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #005b52;
+}
+.contactUs {
+    color:white;
+    font-size:1.1em;
+    font-weight:400;
+    margin-bottom:0.7em; 
+    text-align: right;
+    margin-left: 30%;
+}
+iframe{
+  height: 20vh;
+}
+
+.pictureG{
+  background-color: #F4976C;
+  height: 18vh;
+  width: 110px;
+}
+.pictureM{
+  background-color: #B23850;
+  height: 18vh;
+  width: 110px;
+}
 .gabbi {
-	background-image: none, url(../Gabbi.svg);
-	height: 7em;
-	/*background-repeat: no-repeat;*/
+  background: none, url(../Gabbi.svg);
+  
+  position: absolute;
+  background-repeat: no-repeat;
+  left: -1vw
 }
+
+
 .mickis {
-	background-image: none, url(../Mickis.svg);
+  background: none, url(../Mickis.svg);
+  position: absolute;
+  background-repeat: no-repeat;
+  left: 10%;
 }
+
 /*# sourceMappingURL=mainstyles.css.map */
