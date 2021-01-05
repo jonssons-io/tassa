@@ -26,4 +26,19 @@ p, a, label {
   text-transform: uppercase;
   color: white;
 }
+
+.hero-banner--mobile {
+  background-image: url("./../MobileHeroBanner.jpg");
+}
+
+.login-register--container {
+  background-image: url("./../LogInRegisterBackground.png");
+}
+
+.login-register--container, .hero-banner--mobile {
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 /*# sourceMappingURL=mainstyles.css.map */
