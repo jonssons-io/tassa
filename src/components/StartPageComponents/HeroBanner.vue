@@ -6,6 +6,7 @@
 			nya kontakter. Vem tar du med på nästa promenad?
 		</p>
 		<button>Kom igång</button>
+		<a href="#">Redan medlem? Logga in</a>
 	</div>
 </template>
 
@@ -21,7 +22,7 @@ h1
 	color: white
 	line-height: 12vw
 	margin-bottom: 0.5em
-	margin-top: 1.7em
+	margin-top: 20vh
 
 p
 	color: white
@@ -31,11 +32,11 @@ p
 
 .hero-banner--container
 	display: flex
-	flex-flow: column wrap
+	flex-flow: column nowrap
 	justify-content: center
 	align-items: center
-	height: 100vh
 	padding: 0 1em
+	height: 90vh
 
 
 button
@@ -48,5 +49,8 @@ button
 	text-transform: uppercase
 	font-family: "Raleway", sans-serif
 	font-weight: 400
-	margin-top: 2em
+	margin: 5vh 0
+
+a
+	margin: 5vh 0
 </style>

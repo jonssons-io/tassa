@@ -9,8 +9,7 @@
 </template>
 
 <style lang="scss">
-@import "./assets/css/mainstyles.css";
-* {
+body {
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
