@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap");
 h1, h2 {
@@ -5,10 +6,59 @@ h1, h2 {
   text-transform: uppercase;
   font-weight: 500;
 }
-
-h3, h4, h5 {
-  font-family: "Raleway", sans-serif;
+h3,
+h4,
+h5 {
+	font-family: "Raleway", sans-serif;
 }
+
+p,
+a,
+label {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	line-height: 1.5em;
+	font-size: 1em;
+}
+template {
+	background-color: #005b52;
+}
+
+.aboutus--container {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #005b52;
+}
+.contactUs {
+    color:white;
+    font-size:1.1em;
+    font-weight:400;
+    margin-bottom:0.7em; 
+    text-align: right;
+    margin-left: 30%;
+}
+iframe{
+  height: 20vh;
+}
+
+.pictureG{
+  background-color: #F4976C;
+  height: 18vh;
+  width: 110px;
+}
+.pictureM{
+  background-color: #B23850;
+  height: 18vh;
+  width: 110px;
+}
+.gabbi {
+  background: none, url(../Gabbi.svg);
+  
+  position: absolute;
+  background-repeat: no-repeat;
+  left: -1vw
+}
+
 
 p, a, label {
   font-family: "Open Sans", sans-serif;
@@ -41,4 +91,11 @@ p, a, label {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.mickis {
+  background: none, url(../Mickis.svg);
+  position: absolute;
+  background-repeat: no-repeat;
+  left: 10%;
+}
+
 /*# sourceMappingURL=mainstyles.css.map */
