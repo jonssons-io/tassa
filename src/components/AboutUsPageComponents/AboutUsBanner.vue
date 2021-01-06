@@ -19,25 +19,17 @@
     <b-col></b-col>
   </b-row>
             <b-row class="bv-example-row-flex-cols"> 
-                <b-col  sm="4" align-self="end">
-                </b-col>
-                  <b-col sm="4" align-self="center"></b-col>
-                <b-col sm="4" align-self="end">
+                <b-col sm="12" align-self="end">
                     <div class="pictureM">
                         <iframe class="mickis" alt="mickis" frameBorder="0"/>
                     </div>
                 </b-col>
-                <b-col sm="4" ></b-col>
             </b-row>
              <b-row>
-                 <b-col sm="4" ></b-col>
-                <b-col sm="4" align-self="end">
+                <b-col sm="12" align-self="end" class="float-right">
                     <div class="pictureG">
                      <iframe class="gabbi" alt="gabbi" frameBorder="0"/>
                      </div>
-                </b-col>
-                  <b-col sm="4" align-self="center"></b-col>
-                <b-col sm="4" align-self="start">
                 </b-col>
             </b-row>
             <b-row class="text-center">
