@@ -4,7 +4,7 @@
 		<img class="logo--img" src="./../assets/Logo.svg" alt="Tassa Logo" />
 	</div> -->
 	<b-navbar toggleable fixed="bottom">
-		<b-navbar-brand class="navbar-container" href="#"
+		<b-navbar-brand class="navbar-container" to="/"
 			><span class="logo--text">Tassa</span>
 			<img
 				class="logo--img"
@@ -20,9 +20,9 @@
 		</b-navbar-toggle>
 		<b-collapse id="navbar-toggle-collapse" is-nav>
 			<b-navbar-nav class="ml-auto">
-				<b-nav-item href="#">Link 1</b-nav-item>
-				<b-nav-item href="#">Link 2</b-nav-item>
-				<b-nav-item href="#" disabled>Disabled</b-nav-item>
+				<b-nav-item to="/">Hem</b-nav-item>
+				<b-nav-item to="/om-oss">Om oss</b-nav-item>
+				<b-nav-item to="/logga-in">Logga in</b-nav-item>
 			</b-navbar-nav>
 		</b-collapse>
 	</b-navbar>
@@ -36,7 +36,7 @@ export default {
 
 <style scoped lang="sass">
 .navbar
-    background-color: rgba(255, 255, 255, 0.2)
+    background-color: #006C61
 .navbar-container
     display: flex
     flex-direction: column nowrap
