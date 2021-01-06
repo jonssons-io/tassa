@@ -1,8 +1,10 @@
 <template>
-	<div class="home hero-banner--mobile">
+	<!-- <div class="home hero-banner--mobile"> -->
+	<b-container fluid class="hero-banner--mobile mh-100 mw-100">
 		<HeroBanner />
 		<NavBar />
-	</div>
+	</b-container>
+	<!-- </div> -->
 </template>
 
 <script>
