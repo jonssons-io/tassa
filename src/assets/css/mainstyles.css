@@ -24,18 +24,13 @@ template {
 	background-color: #005b52;
 }
 
-.aboutus--container {
-    display: flex;
-    flex-flow: column wrap;
-    background-color: #005b52;
-}
+
 .contactUs {
     color:white;
     font-size:1.1em;
     font-weight:400;
-    margin-bottom:0.7em; 
-    text-align: right;
-    margin-left: 30%;
+    margin-bottom:0.3em; 
+    
 }
 iframe{
   height: 20vh;
@@ -44,19 +39,18 @@ iframe{
 .pictureG{
   background-color: #F4976C;
   height: 18vh;
-  width: 110px;
+  width: 60%;
 }
 .pictureM{
   background-color: #B23850;
   height: 18vh;
-  width: 110px;
+  width: 60%;
 }
 .gabbi {
   background: none, url(../Gabbi.svg);
   
   position: absolute;
   background-repeat: no-repeat;
-  left: -1vw
 }
 
 
@@ -95,7 +89,6 @@ p, a, label {
   background: none, url(../Mickis.svg);
   position: absolute;
   background-repeat: no-repeat;
-  left: 10%;
 }
 
 /*# sourceMappingURL=mainstyles.css.map */

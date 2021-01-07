@@ -3,7 +3,7 @@
    <b-container class="bv-example-row aboutus--container">
         <b-row class="text-center">
     <b-col></b-col>
-    <b-col cols="8">
+    <b-col cols="12">
         <h1>Vår idé</h1>
     </b-col>
     <b-col></b-col>
@@ -11,7 +11,7 @@
   <b-row class="text-center">
     <b-col>
     </b-col>
-    <b-col cols="8">
+    <b-col cols="12">
           <p>Idén med Tassa kommer från ett problem som lyftes av en bekant till oss, som uttryckte oro och otrygghet inför sena kvällspromenader med hund när det nu är mörkt ute större delen av dygnet.</p>
       <p>Lösningen blev då en portal där hundägare kan mötas och knyta kontakter.</p>
       <p>Tassa skapades som ett projekt i vårt examensarbete under början av 2021.</p>
@@ -19,64 +19,71 @@
     <b-col></b-col>
   </b-row>
             <b-row class="bv-example-row-flex-cols"> 
-                <b-col sm="12" align-self="end">
-                    <div class="pictureM">
-                        <iframe class="mickis" alt="mickis" frameBorder="0"/>
+                <b-col col-sm="6" col-md="6" col-lg="6"></b-col>
+                <b-col col-sm="6" col-md="6" col-lg="6" align-self="end">
+                    <div class="pictureM float-left">
+                        <div class="test float-left">
+                            <iframe class="mickis" alt="mickis" frameBorder="0"/>
+                        </div>     
                     </div>
                 </b-col>
             </b-row>
              <b-row>
-                <b-col sm="12" align-self="end" class="float-right">
-                    <div class="pictureG">
-                     <iframe class="gabbi" alt="gabbi" frameBorder="0"/>
+               
+                <b-col col-sm="6" col-md="6" col-lg="6" align-self="end" class="float-end" >
+                    <div class="pictureG float-right">
+                        <div class="test float-left">
+                            <iframe class="gabbi" alt="gabbi" frameBorder="0" />
+                        </div>
                      </div>
                 </b-col>
+                <b-col col-sm="6" col-md="6" col-lg="6"></b-col>
             </b-row>
             <b-row class="text-center">
                 <b-col></b-col>
-                <b-col cols="6">
+                <b-col cols="12">
                 <h2>Kontakta oss</h2>
                 </b-col>
                 <b-col></b-col>
             </b-row>
             <b-row class="text-center">
-                <b-col></b-col>
-                <b-col cols="4">
-                 <img class="facebook" alt="facebook"  />
+                 <b-col col-sm="3"></b-col>
+                <b-col col-sm="3" class="float-right">
                  <font-awesome-icon :icon="{
                     prefix: 'fab',
                     iconName: 'facebook-square',
                     }"/>
                 </b-col>
-                <b-col cols="4">
+                <b-col col-sm="3" col-md="6" col-lg="6" class="float-left">
                     <p class="contactUs">TassaApp</p>
                     </b-col>
+                     <b-col col-sm="3"></b-col>
             </b-row>
               <b-row class="text-center">
-                <b-col></b-col>
-                <b-col cols="4">
-                 <img class="instagram" alt="instagram"  />
+                  <b-col col-sm="3"></b-col>
+                <b-col cols="3" class="float-right">
                  <font-awesome-icon :icon="{
                     prefix: 'fab',
                     iconName: 'instagram',
                     }"/>
                 </b-col>
-                <b-col cols="4">
-                      <p class="contactUs">TassaApp</p>
+                <b-col col-sm="3" class="float-left">
+                    <p class="contactUs">TassaApp</p>
                 </b-col>
+                 <b-col col-sm="3"></b-col>
             </b-row>
              <b-row class="text-center">
-                <b-col></b-col>
-                <b-col cols="4">
-                 <img class="twitter" alt="twitter"  />
+                 <b-col col-sm="3"></b-col>
+                <b-col col-sm="3" class="float-right">
                  <font-awesome-icon :icon="{
                     prefix: 'fab',
                     iconName: 'twitter',
                     }"/>
                 </b-col>
-                <b-col cols="4">
-                      <p class="contactUs">TassaApp</p>
-                </b-col>
+                    <b-col col-sm="3" class="float-left">
+                    <p class="contactUs">TassaApp</p>
+                    </b-col>
+                     <b-col col-sm="3"></b-col>
             </b-row>
 </b-container> 
       
