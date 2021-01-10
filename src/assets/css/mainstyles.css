@@ -1,15 +1,23 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap");
-h1, h2 {
-  font-family: "Raleway", sans-serif;
-  text-transform: uppercase;
-  font-weight: 500;
+h1,
+h2 {
+	font-family: "Raleway", sans-serif;
+	text-transform: uppercase;
+	font-weight: 500;
 }
 h3,
 h4,
 h5 {
 	font-family: "Raleway", sans-serif;
+	font-size: 1rem;
+	color: white;
+}
+
+h6 {
+	font-family: "Open Sans", sans-serif;
+	font-size: 0.5rem;
+	color: white;
 }
 
 p,
@@ -24,71 +32,113 @@ template {
 	background-color: #005b52;
 }
 
-
 .contactUs {
-    color:white;
-    font-size:1.1em;
-    font-weight:400;
-    margin-bottom:0.3em; 
-    
+	color: white;
+	font-size: 1.1em;
+	font-weight: 400;
+	margin-bottom: 0.3em;
 }
-iframe{
-  height: 20vh;
+.icons {
+	left: 15%;
 }
 
-.pictureG{
-  background-color: #F4976C;
-  height: 18vh;
-  width: 60%;
+.fa-sm {
+	font-size: 1.8rem;
 }
-.pictureM{
-  background-color: #B23850;
-  height: 18vh;
-  width: 60%;
+/*.md{
+  font-size: 2.7rem;
+}
+.lg{
+  font-size: 3rem;
+  line-height: 1.3rem;
+}
+*/
+
+iframe {
+	height: 23vh;
+}
+
+.pictureG {
+	background-color: #f4976c;
+	height: 18vh;
+	width: 70%;
+	border-radius: 11px 11px 0px 0px;
+}
+.pictureM {
+	background-color: #b23850;
+	height: 18vh;
+	width: 70%;
+	border-radius: 11px 11px 0px 0px;
 }
 .gabbi {
-  background: none, url(../Gabbi.svg);
-  
-  position: absolute;
-  background-repeat: no-repeat;
+	background: none, url(../Gabbi.svg);
+
+	position: absolute;
+	background-repeat: no-repeat;
 }
 
-
-p, a, label {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  line-height: 1.5em;
-  font-size: 1em;
-  text-decoration: none;
-  color: white;
+p,
+a,
+label {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	line-height: 1.5em;
+	font-size: 1em;
+	text-decoration: none;
+	color: white;
 }
 
 .logo--text {
-  font-family: "Exo", sans-serif;
-  font-weight: 600;
-  font-size: 1.4em;
-  text-transform: uppercase;
-  color: white;
+	font-family: "Exo", sans-serif;
+	font-weight: 600;
+	font-size: 1.4em;
+	text-transform: uppercase;
+	color: white;
 }
 
 .hero-banner--mobile {
-  background-image: url("./../MobileHeroBanner.jpg");
+	background-image: url("./../MobileHeroBanner.jpg");
 }
 
 .login-register--container {
-  background-image: url("./../LogInRegisterBackground.png");
+	background-image: url("./../LogInRegisterBackground.png");
 }
 
-.login-register--container, .hero-banner--mobile {
-  width: 100vw;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
+.login-register--container,
+.hero-banner--mobile {
+	width: 100vw;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .mickis {
-  background: none, url(../Mickis.svg);
-  position: absolute;
-  background-repeat: no-repeat;
+	background: none, url(../Mickis.svg);
+	position: absolute;
+	background-repeat: no-repeat;
 }
 
+.textBox_container-right {
+	width: 80%;
+	height: 10vh;
+	background-color: #f4976c;
+	border-radius: 0px 0px 11px 11px;
+	margin-left: 10%;
+}
+.textBox_container-left {
+	width: 80%;
+	height: 10vh;
+	background-color: #b23850;
+	border-radius: 0px 0px 11px 11px;
+	margin-left: 40%;
+}
+.textBox_header {
+	font-size: 1rem;
+	color: white;
+}
+.textBox_title {
+	font-size: 0.7rem;
+	color: white;
+	text-align: left;
+	padding-left: 5%;
+}
 /*# sourceMappingURL=mainstyles.css.map */
