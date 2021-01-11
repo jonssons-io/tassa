@@ -24,43 +24,34 @@
                     <div class="pictureM float-left">
                         <div class="test float-left">
                             <iframe class="mickis" alt="mickis" frameBorder="0"/>
-                        </div> 
-                    </div>
-                    
-                </b-col>
-            </b-row>
-            <b-row class="bv-example-row-flex-cols">
-            <b-col col-sm="6" col-md="6" col-lg="6"></b-col>
-            <b-col col-sm="6" col-md="6" col-lg="6" align-self="start">
-                <div class="textBox_container-right float-left">
+                             <div class="textBox_container-right float-left">
                     <div class="textBox_items">
                         <h5 class="textBox_header">Mikaela Fryklund</h5>
                          <h6 class="textBox_title">Frontend utvecklare </h6>
                     </div>
                 </div>
-            </b-col>
-            </b-row>     
+                        </div> 
+                    </div>
+                    
+                </b-col>
+            </b-row>    
                <b-row class="bv-example-row-flex-cols">
                 <b-col col-sm="6" col-md="6" col-lg="6" align-self="end" class="float-end" >
                     <div class="pictureG float-right">
                         <div class="test float-left">
                             <iframe class="gabbi" alt="gabbi" frameBorder="0" />
-                        </div>
-                     </div>
-                </b-col>
-                <b-col col-sm="6" col-md="6" col-lg="6"></b-col>
-            </b-row>
-              <b-row class="bv-example-row-flex-cols">
-            <b-col col-sm="6" col-md="6" col-lg="6" align-self="start" class="float-right">
-                <div class="textBox_container-left float-left">
+                              <div class="textBox_container-left float-left">
                     <div class="textBox_items">
                         <h5 class="textBox_header">Gabrielle Jonsson</h5>
                          <h6 class="textBox_title">Frontend utvecklare </h6>
                     </div>
                 </div>
-            </b-col>
-             <b-col col-sm="6" col-md="6" col-lg="6"></b-col>
-            </b-row> 
+                        </div>
+                     </div>
+
+                </b-col>
+                <b-col col-sm="6" col-md="6" col-lg="6"></b-col>
+            </b-row>
             <b-row class="text-center">
                 <b-col></b-col>
                 <b-col cols="12">

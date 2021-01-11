@@ -60,13 +60,14 @@ iframe {
 
 .pictureG {
 	background-color: #f4976c;
-	height: 18vh;
+	height: 24vh;
 	width: 70%;
-	border-radius: 11px 11px 0px 0px;
+  border-radius: 11px 11px 0px 0px;
+  
 }
 .pictureM {
 	background-color: #b23850;
-	height: 18vh;
+	height: 24vh;
 	width: 70%;
 	border-radius: 11px 11px 0px 0px;
 }
@@ -118,22 +119,27 @@ label {
 }
 
 .textBox_container-right {
-	width: 80%;
-	height: 10vh;
+	width: 65%;
+	height: 8vh;
 	background-color: #f4976c;
 	border-radius: 0px 0px 11px 11px;
-	margin-left: 10%;
+  margin-left: 7%;
+  top:75%;
+  position: absolute;
 }
 .textBox_container-left {
-	width: 80%;
-	height: 10vh;
+	width: 65%;
+	height: 8vh;
 	background-color: #b23850;
 	border-radius: 0px 0px 11px 11px;
-	margin-left: 40%;
+  margin-left: 7%;
+  top: 75%;
+  position: absolute;
 }
 .textBox_header {
-	font-size: 1rem;
-	color: white;
+	font-size: 0.9rem;
+  color: white;
+  padding-top: 4%;
 }
 .textBox_title {
 	font-size: 0.7rem;
