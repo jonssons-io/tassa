@@ -23,9 +23,8 @@ export default {
 
 <style >
 .aboutus--container {
-    display: flex;
-    flex-flow: column wrap;
     background-color: #005b52;
+    height: 100vh;
 }
 
 </style>
