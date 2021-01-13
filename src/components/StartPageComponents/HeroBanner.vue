@@ -1,13 +1,19 @@
 <template>
-	<div class="hero-banner--container">
-		<h1>Välkommen till tassa</h1>
-		<p>
-			Hitta hundägare i ditt närområde, få sällskap på promenaden och knyt
-			nya kontakter. Vem tar du med på nästa promenad?
-		</p>
-		<button>Kom igång</button>
-		<a href="#">Redan medlem? Logga in</a>
-	</div>
+	<b-row align-v="center" align-h="center" class="h-100">
+		<b-col>
+			<h1>Välkommen till tassa</h1>
+			<p>
+				Hitta hundägare i ditt närområde, få sällskap på promenaden och
+				knyt nya kontakter. <br />Vem tar du med på nästa promenad?
+			</p>
+
+			<b-button variant="outline-startpagebtn" size="lg"
+				>Kom igång</b-button
+			>
+			<div class="clearfix"></div>
+			<b-link to="/logga-in">Redan medlem? Logga in</b-link>
+		</b-col>
+	</b-row>
 </template>
 
 <script>
@@ -22,35 +28,25 @@ h1
 	color: white
 	line-height: 12vw
 	margin-bottom: 0.5em
-	margin-top: 20vh
 
 p
-	color: white
 	font-size: 1.1em
-	font-weight: 400
 
-
-.hero-banner--container
-	display: flex
-	flex-flow: column nowrap
-	justify-content: center
-	align-items: center
-	padding: 0 1em
-	height: 90vh
+// .hero-banner--container
+// 	display: flex
+// 	flex-flow: column nowrap
+// 	justify-content: center
+// 	align-items: center
+// 	padding: 0 1em
+// 	height: 90vh
 
 
 button
-	background: rgba(35, 35, 35, 0.3)
-	border: 3px solid #ffffff
-	border-radius: 11px
-	padding: 0.2em 1em
-	font-size: 2em
-	color: white
-	text-transform: uppercase
+
 	font-family: "Raleway", sans-serif
 	font-weight: 400
-	margin: 5vh 0
+	margin: 3vh 0
 
-a
-	margin: 5vh 0
+.clearfix
+	margin: 3em 0 8em 0
 </style>

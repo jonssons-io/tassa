@@ -1,7 +1,21 @@
+<<<<<<< HEAD
 
 /* Bootstrap */
 @import "../node_modules/bootstrap/scss/bootstrap";
 /* Typography */
+=======
+// Bootstrap
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+$theme-colors: ("startpagebtn": #fff)
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+    
+// Typography
+>>>>>>> dev
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap');
 
@@ -25,6 +39,9 @@ p, a, label
     text-decoration: none
     color: white
 
+a:hover
+    color: darken(white, 15%)
+
 .logo--text
     font-family: $logo-font
     font-weight: 600
@@ -39,9 +56,28 @@ p, a, label
 .login-register--container
     background-image: url("./../LogInRegisterBackground.png")
 .login-register--container, .hero-banner--mobile
-	width: 100vw
-	height: 100vh
 	background-repeat: no-repeat
 	background-size: cover
 body
     background-color: #005B52
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+// Navigation
+
+.navbar-light .navbar-nav .nav-link
+    color: white
+
+.navbar-nav
+    justify-content: end
+    text-align: right
+
+button:focus
+	outline: none
+>>>>>>> dev
