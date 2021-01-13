@@ -1,5 +1,5 @@
 <template>
-<div class="aboutus--container">
+<div class="aboutUs_banner">
   <AboutUsBanner />
    <NavBar />
 </div>
@@ -22,9 +22,9 @@ export default {
 </script>
 
 <style >
-.aboutus--container {
-    background-color: #005b52;
-    height: 100vh;
+.aboutUs_banner{
+  background-color: #005b52;
+  height: 100vh;
 }
 
 </style>
