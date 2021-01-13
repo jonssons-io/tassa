@@ -19,7 +19,7 @@
     <b-col cols="6" >
         <div class="pictureG float-right">
                         <div class="test float-left">
-                            
+                              <iframe class="gabbi" alt="gabbi" frameBorder="0" />
                               <div class="textBox_container-left float-left">
                     <div class="textBox_items">
                         <h5 class="textBox_header">Gabrielle Jonsson</h5>
@@ -32,7 +32,7 @@
     <b-col cols="6">
          <div class="pictureM float-left">
                         <div class="test float-left">
-                            
+                             <iframe class="mickis" alt="mickis" frameBorder="0"/>
                              <div class="textBox_container-right float-left">
                     <div class="textBox_items">
                         <h5 class="textBox_header">Mikaela Fryklund</h5>
