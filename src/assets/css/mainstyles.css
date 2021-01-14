@@ -1,3 +1,5 @@
+@import "./aboutUsPage.css";
+@import "./matchingPage.css";
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -11008,19 +11010,20 @@ a:hover {
 }
 
 .logo--text {
-	font-family: "Exo", sans-serif;
-	font-weight: 600;
-	font-size: 1.4em;
-	text-transform: uppercase;
-	color: white;
+  font-family: "Exo", sans-serif;
+  font-weight: 600;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  color: white;
 }
 
+/* Backgrounds */
 .hero-banner--mobile {
-	background-image: url("./../MobileHeroBanner.jpg");
+  background-image: url("./../MobileHeroBanner.jpg");
 }
 
 .login-register--container {
-	background-image: url("./../LogInRegisterBackground.png");
+  background-image: url("./../LogInRegisterBackground.png");
 }
 
 .login-register--container, .hero-banner--mobile {
