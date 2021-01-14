@@ -11107,4 +11107,10 @@ button:focus {
   letter-spacing: 0.1em;
   margin-top: 2em;
 }
+
+.btn-outline-startpagebtn {
+  border-color: #fff;
+  color: #fff;
+  padding: 8px 1.2em;
+}
 /*# sourceMappingURL=mainstyles.css.map */
