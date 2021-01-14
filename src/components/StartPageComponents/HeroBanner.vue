@@ -32,15 +32,6 @@ h1
 p
 	font-size: 1.1em
 
-// .hero-banner--container
-// 	display: flex
-// 	flex-flow: column nowrap
-// 	justify-content: center
-// 	align-items: center
-// 	padding: 0 1em
-// 	height: 90vh
-
-
 button
 
 	font-family: "Raleway", sans-serif

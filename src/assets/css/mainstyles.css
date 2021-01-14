@@ -11014,11 +11014,11 @@ a:hover {
 }
 
 .logo--text {
-	font-family: "Exo", sans-serif;
-	font-weight: 600;
-	font-size: 1.4em;
-	text-transform: uppercase;
-	color: white;
+  font-family: "Exo", sans-serif;
+  font-weight: 600;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  color: white;
 }
 
 body {
@@ -11026,11 +11026,11 @@ body {
 }
 
 .hero-banner--mobile {
-	background-image: url("./../MobileHeroBanner.jpg");
+  background-image: url("./../MobileHeroBanner.jpg");
 }
 
 .login-register--container {
-	background-image: url("./../LogInRegisterBackground.png");
+  background-image: url("./../LogInRegisterBackground.png");
 }
 
 .login-register--container, .hero-banner--mobile {
@@ -11106,5 +11106,11 @@ button:focus {
   font-weight: 600;
   letter-spacing: 0.1em;
   margin-top: 2em;
+}
+
+.btn-outline-startpagebtn {
+  border-color: #fff;
+  color: #fff;
+  padding: 8px 1.2em;
 }
 /*# sourceMappingURL=mainstyles.css.map */
