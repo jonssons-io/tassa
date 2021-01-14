@@ -1,29 +1,30 @@
+h1{
+    font-size: clamp(1.5rem, 4vw, 1.9rem);
+    color: white;
+    padding-top: 2rem;
+    padding-bottom: 2em;
+}
 .B-C {
-  background-color: #00554c;
-  height: 15vh;
+    background-color: #00554c;
+    height: 15vh;
 }
-
 .B-C-A {
-  background-color: #005b52;
-  height: 15vh;
+background-color: #005b52;
+height: 15vh;
 }
-
 .match-list {
-  color: white;
-  font-size: 0.9rem;
-  text-align: left;
-  padding-top: 2rem;
+color: white;
+font-size: 0.9rem;
+text-align: left;
+padding-top: 2rem;
 }
-
-.match-label {
-  font-size: 1.3rem;
-  color: white;
-  margin-top: 5%;
-  text-align: left;
+.match-label{
+font-size: 1.3rem;
+    color: white;
+    margin-top: 5%;
+    text-align: left;
 }
-
-.match-header {
+.match-header{
   font-family: "Raleway", sans-serif;
   font-size: 1.8rem;
 }
-/*# sourceMappingURL=matchingPage.css.map */

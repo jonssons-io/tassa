@@ -46,19 +46,16 @@
 </template>
 
 <script>
+
 export default {
     name: "Match"
+
 }
+
 </script>
 
-<style scoped lang="sass">
+<style scoped>
 
-h1
-    font-size: clamp(1.5rem, 4vw, 1.9rem)
-    color: white
-    padding-top: 2rem
-    padding-bottom: 2em
-
-
+@import "./../../assets/css/matchingPage.css";
 
 </style>

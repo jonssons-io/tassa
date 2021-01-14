@@ -68,7 +68,7 @@ iframe {
 }
 
 .icons {
-  left: 10%;
+  left: 8%;
 }
 
 .aboutUs_Header {
@@ -86,6 +86,15 @@ iframe {
 .aboutus_h2 {
   font-size: 1.2rem;
   color: white;
-  padding-top: 1.5rem;
+  margin-top: 3rem;
+}
+
+.social-media-icons {
+  margin-bottom: 13vh;
+}
+
+.icon_color {
+  color: #F4976C;
+  margin-right: 3%;
 }
 /*# sourceMappingURL=aboutUsPage.css.map */
