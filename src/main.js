@@ -16,7 +16,7 @@ import {
 	faAt,
 	faLock,
 	faChevronDown,
-	faChevronUp
+	faTimes
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -27,7 +27,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faAt, faLock, faChevronDown, faChevronUp);
+library.add(faAt, faLock, faChevronDown, faTimes);
 library.add(faFacebookSquare, faFacebookF, faTwitter, faInstagram);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
