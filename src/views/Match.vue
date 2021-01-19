@@ -23,7 +23,7 @@ export default {
 
 <style >
 .matching--container {
-    background-color: #005b52;
+    background-color:  #005b52;
     height: 100%;
 }
 
