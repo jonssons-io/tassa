@@ -1,7 +1,16 @@
+.header_container{
+  padding-top: 1.3rem;
+}
+
 .editProfile_change-Header {
    font-size: clamp(1.4rem, 3vw, 1.6rem);
     color: white;
-    padding-top: 2rem;
+    padding-top: 1.4rem;
+}
+.editProfile_change-HeaderSecond{
+  color: white;
+  padding-top: 2rem;
+  float: left;
 }
 
 .editProfile_change-location{
@@ -23,10 +32,22 @@
 }
 .editProfile_changePresentation-Header{
   color: white;
+  font-size: clamp(1.1rem, 1vw, 1.3rem);
+  margin-top: 1.1rem;
+  
 }
+
 .editProfile_changePresentation-text{
   color: white;
+  text-align: left;
+  
 }
+.editProfile_changePresentation-last{
+  color: white;
+  padding-left: 4%;
+  width: 12%;
+}
+
 button{
    color: white;
    background-color: #B23850;
@@ -35,5 +56,16 @@ button{
    font-size: 14px;
    border-radius: 15px 15px 15px 15px;
 }
+  .information_changePresentationGender{
+    padding-top: 1.1rem;
+  }
+  .information_gender, .information_container{
+    padding-left: 4%;
+  }
 
+   .information_size{
+    padding-left: 4%;
+    width: 85%;
+    text-align: left;
+  }
 /*# sourceMappingURL=profilePage.css.map */
