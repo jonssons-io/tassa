@@ -18,7 +18,6 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
 <style >
 .matching--container {
     background-color:  #005b52;
@@ -26,6 +25,3 @@ export default {
 }
 
 </style>
-=======
-<style></style>
->>>>>>> 44557a543bf1c9249eadb8f3c7f02cadf46b21e0
