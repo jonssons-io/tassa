@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import StartPage from "../views/StartPage.vue";
 
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -27,7 +26,7 @@ const routes = [
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: () =>
-			import(/* webpackChunkName: "matching" */ "../views/Match.vue")
+			import(/* webpackChunkName: "match" */ "../views/Match.vue")
 	},
 	{
 		path: "/editera-profil",
@@ -44,6 +43,22 @@ const routes = [
 		name: "LogIn",
 		component: () =>
 			import(/* webpackChunkName: "login" */ "../views/LogIn.vue")
+	},
+	{
+		path: "/registrera",
+		name: "RegisterUser",
+		component: () =>
+			import(
+				/* webpackChunkName: "registeruser" */ "../views/RegisterUser.vue"
+			)
+	},
+	{
+		path: "/registrera-hund",
+		name: "RegisterDog",
+		component: () =>
+			import(
+				/* webpackChunkName: "registerdog" */ "../views/RegisterDog.vue"
+			)
 	}
 ];
 
