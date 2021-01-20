@@ -1,30 +1,58 @@
 <template>
 	<b-form>
 		<b-form-group
-			id="register-name-formgroup"
-			label="Namn"
-			label-for="register-name"
+			id="register-firstname-formgroup"
+			label="Förnamn"
+			label-for="register-firstname"
 			label-align="left"
 		>
 			<b-input-group>
 				<b-input-group-prepend is-text>
-					<font-awesome-icon icon="at"></font-awesome-icon>
+					<font-awesome-icon icon="id-card"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
-					id="register-name"
+					id="register-firstname"
 					type="text"
-					name="register-name"
-					v-model="$v.registeruserform.name.$model"
-					:state="validateState('name')"
-					aria-describedby="register-name-live-feedback"
-					placeholder="Ange ditt för- och efternamn"
+					name="register-firstname"
+					v-model="$v.registeruserform.firstname.$model"
+					:state="validateState('firstname')"
+					aria-describedby="register-firstname-live-feedback"
+					placeholder="Ange ditt förnamn"
 					trim
 				></b-form-input>
 				<b-form-invalid-feedback
-					id="register-name-live-feedback"
-					v-if="!$v.registeruserform.name.required"
+					id="register-name-firstlive-feedback"
+					v-if="!$v.registeruserform.firstname.required"
 				>
-					{{ this.registeruserformErrorMsg.name.isRequired }}
+					{{ this.registeruserformErrorMsg.firstname.isRequired }}
+				</b-form-invalid-feedback>
+			</b-input-group>
+		</b-form-group>
+		<b-form-group
+			id="register-lastname-formgroup"
+			label="Efternamn"
+			label-for="register-lastname"
+			label-align="left"
+		>
+			<b-input-group>
+				<b-input-group-prepend is-text>
+					<font-awesome-icon icon="id-card"></font-awesome-icon>
+				</b-input-group-prepend>
+				<b-form-input
+					id="register-lastname"
+					type="text"
+					name="register-lastname"
+					v-model="$v.registeruserform.lastname.$model"
+					:state="validateState('lastname')"
+					aria-describedby="register-lastname-live-feedback"
+					placeholder="Ange ditt efternamn"
+					trim
+				></b-form-input>
+				<b-form-invalid-feedback
+					id="register-name-lastlive-feedback"
+					v-if="!$v.registeruserform.lastname.required"
+				>
+					{{ this.registeruserformErrorMsg.lastname.isRequired }}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
@@ -66,7 +94,7 @@
 		>
 			<b-input-group>
 				<b-input-group-prepend is-text>
-					<font-awesome-icon icon="at"></font-awesome-icon>
+					<font-awesome-icon icon="mobile-alt"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
 					id="register-phone"
@@ -139,7 +167,7 @@
 		>
 			<b-input-group>
 				<b-input-group-prepend is-text>
-					<font-awesome-icon icon="at"></font-awesome-icon>
+					<font-awesome-icon icon="lock"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
 					id="register-password"
@@ -167,7 +195,7 @@
 		>
 			<b-input-group>
 				<b-input-group-prepend is-text>
-					<font-awesome-icon icon="at"></font-awesome-icon>
+					<font-awesome-icon icon="lock"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
 					id="register-repeat-password"
@@ -225,7 +253,8 @@ export default {
 	data() {
 		return {
 			registeruserform: {
-				name: null,
+				firstname: null,
+				lastname: null,
 				email: null,
 				phone: null,
 				gender: null,
@@ -234,8 +263,11 @@ export default {
 				repeatPassword: null
 			},
 			registeruserformErrorMsg: {
-				name: {
-					isRequired: "Du måste ange ditt för- och efternamn."
+				firstname: {
+					isRequired: "Du måste ange ditt förnamn."
+				},
+				lastname: {
+					isRequired: "Du måste ange ditt efternamn."
 				},
 				email: {
 					isRequired: "Du måste ange din e-postadress.",
@@ -278,7 +310,10 @@ export default {
 	},
 	validations: {
 		registeruserform: {
-			name: {
+			firstname: {
+				required
+			},
+			lastname: {
 				required
 			},
 			email: {
@@ -319,5 +354,9 @@ export default {
 <style scoped>
 #register-gender {
 	text-align: left;
+}
+
+.input-group-text {
+	min-width: 40px;
 }
 </style>
