@@ -6,7 +6,6 @@
 				id="registered-email-formgroup"
 				label="E-postadress"
 				label-for="registered-email"
-				label-size="lg"
 				label-align="left"
 			>
 				<b-input-group>
@@ -44,7 +43,6 @@
 				id="registered-password-formgroup"
 				label="Lösenord"
 				label-for="registered-password"
-				label-size="lg"
 				label-align="left"
 				class="formgroup--middle"
 			>

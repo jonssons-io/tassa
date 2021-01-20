@@ -16,7 +16,7 @@ $theme-colors: ("tassabtnred": #B23850)
     
 // Typography
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap');
 
 $heading-font: "Raleway", sans-serif
@@ -29,6 +29,7 @@ h1, h2,
     font-family: $heading-font
     text-transform: uppercase
     font-weight: 500
+    color: white
 
 h3, h4, h5
     font-family: $heading-font
@@ -53,6 +54,9 @@ a:hover
     font-size: 1.4em
     text-transform: uppercase
     color: white
+
+.segment--title
+    padding: 2em 0 0.5em 0
 
 // Backgrounds
 
@@ -95,6 +99,21 @@ button:focus
     color: $icon-color
     border: none
 
+.custom-select
+    background-color: $form-background
+    font-family: $normal-font
+    &.is-valid
+        background-color: $form-background
+        font-family: $normal-font
+        color: #FFF
+    &:focus
+        color: #383838
+
+option:disabled
+    color: #5f5f5f
+    font-weight: 300
+    font-style: italic
+
 .form-control
     color: #ffffff
     background-color: $form-background
@@ -103,11 +122,12 @@ button:focus
 .form-control::placeholder
     color: #e4e4e4
     font-family: $normal-font
+    font-size: 1em
 
 .form-control.checkbox-form-control
     background-color: transparent
 
-.custom-control
+.custom-control, .custom-select
     padding-left: 2.1em
 
 // Buttons
@@ -124,3 +144,11 @@ button:focus
     border-color: #fff
     color: #fff
     padding: 8px 1.2em
+
+.btn-outline-tassabtnred
+    width: 200px
+    border-radius: 20px
+    font-family: $normal-font
+    font-weight: 600
+    letter-spacing: 0.1em
+    margin-top: 2em

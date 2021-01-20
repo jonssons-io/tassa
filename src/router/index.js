@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import StartPage from "../views/StartPage.vue";
 
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -43,6 +42,22 @@ const routes = [
 		name: "LogIn",
 		component: () =>
 			import(/* webpackChunkName: "login" */ "../views/LogIn.vue")
+	},
+	{
+		path: "/register",
+		name: "RegisterUser",
+		component: () =>
+			import(
+				/* webpackChunkName: "registeruser" */ "../views/RegisterUser.vue"
+			)
+	},
+	{
+		path: "/register-dog",
+		name: "RegisterDog",
+		component: () =>
+			import(
+				/* webpackChunkName: "registerdog" */ "../views/RegisterDog.vue"
+			)
 	}
 ];
 
