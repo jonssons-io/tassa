@@ -11075,18 +11075,19 @@ button:focus {
 }
 
 .input-group-text {
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.247);
   color: #fffdf7;
   border: none;
 }
 
 .custom-select {
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.247);
   font-family: "Open Sans", sans-serif;
+  color: #e7e7e7;
 }
 
 .custom-select.is-valid {
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.247);
   font-family: "Open Sans", sans-serif;
   color: #FFF;
 }
@@ -11096,14 +11097,14 @@ button:focus {
 }
 
 option:disabled {
-  color: #5f5f5f;
+  color: #c2c2c2;
   font-weight: 300;
   font-style: italic;
 }
 
 .form-control {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.247);
   border: none;
 }
 
@@ -11139,6 +11140,11 @@ option:disabled {
   padding-left: 2.1em;
 }
 
+select option {
+  background-color: #005B52;
+  color: white;
+}
+
 .btn-tassabtnred {
   width: 200px;
   border-radius: 20px;
@@ -11161,5 +11167,7 @@ option:disabled {
   font-weight: 600;
   letter-spacing: 0.1em;
   margin-top: 2em;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-width: 2px;
 }
 /*# sourceMappingURL=mainstyles.css.map */

@@ -11,19 +11,17 @@ $theme-colors: ("tassabtnred": #B23850)
     padding-bottom: 0 !important
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
-
-.form-control
-    
-// Typography
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap');
+
+// Variables and mixins
 
 $heading-font: "Raleway", sans-serif
 $normal-font: "Open Sans", sans-serif
 $logo-font: "Exo", sans-serif
 $icon-color: #fffdf7
-$form-background: rgba(255, 255, 255, 0.35)
+$form-background: rgba(255, 255, 255, 0.247)
+$green-color: #005B52
 
 @mixin no-scroll
     height: calc(var(--vh, 1vh) * 100)
@@ -34,6 +32,8 @@ $form-background: rgba(255, 255, 255, 0.35)
 @mixin no-x-scroll
     width: calc(var(--vw, 1vw) * 100)
     overflow-x: hidden
+
+// Typography
 
 h1, h2, 
     font-family: $heading-font
@@ -71,7 +71,7 @@ a:hover
 // Backgrounds
 
 body
-    background-color: #005B52
+    background-color: $green-color
     box-sizing: border-box
 
 .hero-banner--mobile
@@ -116,6 +116,7 @@ button:focus
 .custom-select
     background-color: $form-background
     font-family: $normal-font
+    color: #e7e7e7
     &.is-valid
         background-color: $form-background
         font-family: $normal-font
@@ -124,7 +125,7 @@ button:focus
         color: #383838
 
 option:disabled
-    color: #5f5f5f
+    color: #c2c2c2
     font-weight: 300
     font-style: italic
 
@@ -143,6 +144,10 @@ option:disabled
 
 .custom-control, .custom-select
     padding-left: 2.1em
+
+select option
+    background-color: $green-color
+    color: white
 
 // Buttons
 
@@ -166,3 +171,5 @@ option:disabled
     font-weight: 600
     letter-spacing: 0.1em
     margin-top: 2em
+    background-color: rgba(0, 0, 0, 0.15)
+    border-width: 2px

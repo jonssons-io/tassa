@@ -137,7 +137,7 @@
 			</b-form-invalid-feedback>
 		</b-form-group>
 		<b-form-group
-			label="Område"
+			label="Kommun"
 			label-for="register-area"
 			label-align="left"
 			class="formgroup-middle"
@@ -148,7 +148,6 @@
 				name="register-area"
 				:state="validateState('area')"
 				aria-describedby="register-area-live-feedback"
-				placeholder="Välj område"
 			></b-form-select>
 			<b-form-invalid-feedback
 				id="register-area-live-feedback"
@@ -297,14 +296,12 @@ export default {
 				{ text: "Annat", value: "other" }
 			],
 			areas: [
-				{ text: "-- Välj ett område --", value: null, disabled: true },
-				{ text: "Norra Norrland", value: "north_norrland" },
-				{ text: "Södra Norrland", value: "south_norrland" },
-				{ text: "Östra Svealand", value: "east_svealand" },
-				{ text: "Västra Svealand", value: "west_svealand" },
-				{ text: "Norra Götaland", value: "north_gotaland" },
-				{ text: "Södra Götaland", value: "south_gotaland" },
-				{ text: "Gotland", value: "gotland" }
+				{ text: "-- Ange din kommun --", value: null, disabled: true },
+				{ text: "Botkyrka", value: "botkyrka" },
+				{ text: "Huddinge", value: "huddinge" },
+				{ text: "Solna", value: "solna" },
+				{ text: "Sundbyberg", value: "sundbyberg" },
+				{ text: "Ekerö", value: "ekero" }
 			]
 		};
 	},
