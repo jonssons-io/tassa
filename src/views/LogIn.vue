@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid class="login-register--container mh-100 mw-100">
+	<b-container fluid class="login-register--container">
 		<h3 class="formtitle">Logga in</h3>
 		<b-form @submit="onSubmit">
 			<b-form-group

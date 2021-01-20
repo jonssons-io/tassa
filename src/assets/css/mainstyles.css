@@ -11029,6 +11029,8 @@ a:hover {
 
 body {
   background-color: #005B52;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .hero-banner--mobile {
@@ -11042,8 +11044,15 @@ body {
 .login-register--container, .hero-banner--mobile {
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: calc(var(--vw, 1vw) * 100);
+  overflow: hidden;
+  overflow: -moz-hidden-unscrollable;
+}
+
+.aboutUs_banner, .matching--container {
+  width: calc(var(--vw, 1vw) * 100);
+  overflow-x: hidden;
 }
 
 .display--block {

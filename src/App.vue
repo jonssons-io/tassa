@@ -13,6 +13,7 @@ body {
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
+	height: calc(var(--vh, 1vh) * 100);
 }
 
 #app {

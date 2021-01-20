@@ -35,6 +35,12 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+let vw = window.innerWidth * 0.01;
+document.documentElement.style.setProperty("--vw", `${vw}px`);
+
 new Vue({
 	router,
 	store,
