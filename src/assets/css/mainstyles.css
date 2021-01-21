@@ -10995,9 +10995,17 @@ h1, h2 {
   color: white;
 }
 
+h2 {
+  padding: 2em 0 0.5em 0;
+}
+
 h3, h4, h5 {
   font-family: "Raleway", sans-serif;
   color: white;
+}
+
+h3 {
+  padding: 1em 0 0.5em 0;
 }
 
 p, a, label, span {
@@ -11023,12 +11031,8 @@ a:hover {
   color: white;
 }
 
-.segment--title {
-  padding: 2em 0 0.5em 0;
-}
-
 body {
-  background-color: #005B52;
+  background-color: #003D37;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -11140,9 +11144,18 @@ option:disabled {
   padding-left: 2.1em;
 }
 
+.custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #28a745;
+}
+
 select option {
-  background-color: #005B52;
+  background-color: #003D37;
   color: white;
+}
+
+.invalid-feedback {
+  color: #FF2942;
+  letter-spacing: 0.12em;
 }
 
 .btn-tassabtnred {

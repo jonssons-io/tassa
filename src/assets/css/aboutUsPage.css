@@ -1,16 +1,18 @@
 .pictureG {
-  background-color: #f4976c;
-  height: 18vh;
+  background-color: #b23850;
+  height: 22vh;
   width: 60%;
   border-radius: 11px 11px 0px 0px;
+  border-top: 1em solid #b23850;
   margin-top: 30%;
 }
 
 .pictureM {
   background-color: #b23850;
-  height: 18vh;
+  height: 22vh;
   width: 60%;
   border-radius: 11px 11px 0px 0px;
+  border-top: 1em solid #b23850;
 }
 
 iframe {
@@ -21,19 +23,24 @@ iframe {
 .gabbi {
   background: none, url(../Gabbi.svg);
   position: absolute;
-  background-repeat: no-repeat;
 }
 
 .mickis {
   background: none, url(../Mickis.svg);
   position: absolute;
-  background-repeat: no-repeat;
+}
+
+.aboutUs_banner {
+  height: calc(var(--vh, 1vh) * 100);
+  width: calc(var(--vw, 1vw) * 100);
+  overflow: hidden;
+  overflow: -moz-hidden-unscrollable;
 }
 
 .textBox_container-right {
   width: 53%;
   height: 30%;
-  background-color: #f4976c;
+  background-color: #F4976C;
   border-radius: 0px 0px 11px 11px;
   margin-left: 7%;
   top: 55%;
@@ -41,13 +48,17 @@ iframe {
 }
 
 .textBox_container-left {
-  width: 52%;
+  width: 53%;
   height: 30%;
-  background-color: #b23850;
+  background-color: #F4976C;
   border-radius: 0px 0px 11px 11px;
   margin-left: 7%;
   top: 80%;
   position: absolute;
+}
+
+.selfie-container {
+  margin-top: 2em;
 }
 
 .textBox_header {
@@ -57,44 +68,32 @@ iframe {
 }
 
 .textBox_title {
-  font-size: 0.50rem;
-  color: #636363;
   text-align: left;
   padding-left: 9%;
+  color: #181E03;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.5em;
 }
 
-.fa-sm {
-  font-size: 1.4rem;
-}
-
-.icons {
-  left: 8%;
-}
-
-.aboutUs_Header {
-  font-size: 1.7rem;
-  padding-top: 2rem;
-  color: white;
-}
-
-.aboutUs_p {
-  font-size: 1rem;
-  text-align: left;
-  padding-left: 1rem;
-}
-
-.aboutus_h2 {
-  font-size: 1.2rem;
-  color: white;
-  margin-top: 3rem;
+.col-12 p {
+  margin: 0 0.5em;
+  margin-bottom: 1em;
 }
 
 .social-media-icons {
-  margin-bottom: 13vh;
+  margin-bottom: 15vh;
 }
 
 .icon_color {
   color: #F4976C;
-  margin-right: 3%;
+  margin-right: 0.1em;
+  margin: 0 1em;
+}
+
+.fa-sm {
+  font-size: 2rem;
 }
 /*# sourceMappingURL=aboutUsPage.css.map */

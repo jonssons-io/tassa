@@ -16,22 +16,8 @@ $theme-colors: ("tassabtnred": #B23850)
 
 // Variables and mixins
 
-$heading-font: "Raleway", sans-serif
-$normal-font: "Open Sans", sans-serif
-$logo-font: "Exo", sans-serif
-$icon-color: #fffdf7
-$form-background: rgba(255, 255, 255, 0.247)
-$green-color: #005B52
-
-@mixin no-scroll
-    height: calc(var(--vh, 1vh) * 100)
-    width: calc(var(--vw, 1vw) * 100)
-    overflow: hidden
-    overflow: -moz-hidden-unscrollable
-
-@mixin no-x-scroll
-    width: calc(var(--vw, 1vw) * 100)
-    overflow-x: hidden
+@import "_variables.sass"
+@import "_mixins.sass"
 
 // Typography
 
@@ -41,9 +27,16 @@ h1, h2,
     font-weight: 500
     color: white
 
+h2
+    @include segment-title
+    
+
 h3, h4, h5
     font-family: $heading-font
     color: white
+
+h3
+    @include sub-title
 
 p, a, label, span
     font-family: $normal-font
@@ -65,13 +58,10 @@ a:hover
     text-transform: uppercase
     color: white
 
-.segment--title
-    padding: 2em 0 0.5em 0
-
 // Backgrounds
 
 body
-    background-color: $green-color
+    background-color: $tassa-green
     box-sizing: border-box
 
 .hero-banner--mobile
@@ -145,9 +135,17 @@ option:disabled
 .custom-control, .custom-select
     padding-left: 2.1em
 
+.custom-control-input:checked ~ .custom-control-label::before
+        border-color#28a745
+        background-color: #28a745
+
 select option
-    background-color: $green-color
+    background-color: $tassa-green
     color: white
+
+.invalid-feedback
+    color: #FF2942
+    letter-spacing: 0.12em
 
 // Buttons
 
