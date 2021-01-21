@@ -1,30 +1,58 @@
 <template>
 	<b-form>
 		<b-form-group
-			id="register-name-formgroup"
-			label="Namn"
-			label-for="register-name"
+			id="register-firstname-formgroup"
+			label="Förnamn"
+			label-for="register-firstname"
 			label-align="left"
 		>
 			<b-input-group>
 				<b-input-group-prepend is-text>
-					<font-awesome-icon icon="at"></font-awesome-icon>
+					<font-awesome-icon icon="id-card"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
-					id="register-name"
+					id="register-firstname"
 					type="text"
-					name="register-name"
-					v-model="$v.registeruserform.name.$model"
-					:state="validateState('name')"
-					aria-describedby="register-name-live-feedback"
-					placeholder="Ange ditt för- och efternamn"
+					name="register-firstname"
+					v-model="$v.registeruserform.firstname.$model"
+					:state="validateState('firstname')"
+					aria-describedby="register-firstname-live-feedback"
+					placeholder="Ange ditt förnamn"
 					trim
 				></b-form-input>
 				<b-form-invalid-feedback
-					id="register-name-live-feedback"
-					v-if="!$v.registeruserform.name.required"
+					id="register-name-firstlive-feedback"
+					v-if="!$v.registeruserform.firstname.required"
 				>
-					{{ this.registeruserformErrorMsg.name.isRequired }}
+					{{ this.registeruserformErrorMsg.firstname.isRequired }}
+				</b-form-invalid-feedback>
+			</b-input-group>
+		</b-form-group>
+		<b-form-group
+			id="register-lastname-formgroup"
+			label="Efternamn"
+			label-for="register-lastname"
+			label-align="left"
+		>
+			<b-input-group>
+				<b-input-group-prepend is-text>
+					<font-awesome-icon icon="id-card"></font-awesome-icon>
+				</b-input-group-prepend>
+				<b-form-input
+					id="register-lastname"
+					type="text"
+					name="register-lastname"
+					v-model="$v.registeruserform.lastname.$model"
+					:state="validateState('lastname')"
+					aria-describedby="register-lastname-live-feedback"
+					placeholder="Ange ditt efternamn"
+					trim
+				></b-form-input>
+				<b-form-invalid-feedback
+					id="register-name-lastlive-feedback"
+					v-if="!$v.registeruserform.lastname.required"
+				>
+					{{ this.registeruserformErrorMsg.lastname.isRequired }}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
@@ -66,7 +94,7 @@
 		>
 			<b-input-group>
 				<b-input-group-prepend is-text>
-					<font-awesome-icon icon="at"></font-awesome-icon>
+					<font-awesome-icon icon="mobile-alt"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
 					id="register-phone"
@@ -109,7 +137,7 @@
 			</b-form-invalid-feedback>
 		</b-form-group>
 		<b-form-group
-			label="Område"
+			label="Kommun"
 			label-for="register-area"
 			label-align="left"
 			class="formgroup-middle"
@@ -120,7 +148,6 @@
 				name="register-area"
 				:state="validateState('area')"
 				aria-describedby="register-area-live-feedback"
-				placeholder="Välj område"
 			></b-form-select>
 			<b-form-invalid-feedback
 				id="register-area-live-feedback"
@@ -139,7 +166,7 @@
 		>
 			<b-input-group>
 				<b-input-group-prepend is-text>
-					<font-awesome-icon icon="at"></font-awesome-icon>
+					<font-awesome-icon icon="lock"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
 					id="register-password"
@@ -156,6 +183,17 @@
 				>
 					{{ this.registeruserformErrorMsg.password.isRequired }}
 				</b-form-invalid-feedback>
+				<b-form-invalid-feedback
+					id="register-password-live-feedback"
+					v-if="
+						$v.registeruserform.password.required &&
+							!$v.registeruserform.password.goodPassword
+					"
+				>
+					{{
+						this.registeruserformErrorMsg.password.isNotGoodPassword
+					}}
+				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
 		<b-form-group
@@ -167,7 +205,7 @@
 		>
 			<b-input-group>
 				<b-input-group-prepend is-text>
-					<font-awesome-icon icon="at"></font-awesome-icon>
+					<font-awesome-icon icon="lock"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
 					id="register-repeat-password"
@@ -225,7 +263,8 @@ export default {
 	data() {
 		return {
 			registeruserform: {
-				name: null,
+				firstname: null,
+				lastname: null,
 				email: null,
 				phone: null,
 				gender: null,
@@ -234,8 +273,11 @@ export default {
 				repeatPassword: null
 			},
 			registeruserformErrorMsg: {
-				name: {
-					isRequired: "Du måste ange ditt för- och efternamn."
+				firstname: {
+					isRequired: "Du måste ange ditt förnamn."
+				},
+				lastname: {
+					isRequired: "Du måste ange ditt efternamn."
 				},
 				email: {
 					isRequired: "Du måste ange din e-postadress.",
@@ -251,7 +293,9 @@ export default {
 					isRequired: "Du måste ange område."
 				},
 				password: {
-					isRequired: "Du måste ange ett lösenord."
+					isRequired: "Du måste ange ett lösenord.",
+					isNotGoodPassword:
+						"Lösenordet måste vara minst 10 tecken, innehålla en gemen, en versal, en siffra och ett specialtecken."
 				},
 				repeatPassword: {
 					isRequired: "Du måste upprepa lösenordet.",
@@ -265,20 +309,21 @@ export default {
 				{ text: "Annat", value: "other" }
 			],
 			areas: [
-				{ text: "-- Välj ett område --", value: null, disabled: true },
-				{ text: "Norra Norrland", value: "north_norrland" },
-				{ text: "Södra Norrland", value: "south_norrland" },
-				{ text: "Östra Svealand", value: "east_svealand" },
-				{ text: "Västra Svealand", value: "west_svealand" },
-				{ text: "Norra Götaland", value: "north_gotaland" },
-				{ text: "Södra Götaland", value: "south_gotaland" },
-				{ text: "Gotland", value: "gotland" }
+				{ text: "-- Ange din kommun --", value: null, disabled: true },
+				{ text: "Botkyrka", value: "botkyrka" },
+				{ text: "Huddinge", value: "huddinge" },
+				{ text: "Solna", value: "solna" },
+				{ text: "Sundbyberg", value: "sundbyberg" },
+				{ text: "Ekerö", value: "ekero" }
 			]
 		};
 	},
 	validations: {
 		registeruserform: {
-			name: {
+			firstname: {
+				required
+			},
+			lastname: {
 				required
 			},
 			email: {
@@ -295,7 +340,12 @@ export default {
 				required
 			},
 			password: {
-				required
+				required,
+				goodPassword: password => {
+					return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ !@#$%^&*])(?=.{10,}$)/.test(
+						password
+					);
+				}
 			},
 			repeatPassword: {
 				required,
@@ -319,5 +369,9 @@ export default {
 <style scoped>
 #register-gender {
 	text-align: left;
+}
+
+.input-group-text {
+	min-width: 40px;
 }
 </style>

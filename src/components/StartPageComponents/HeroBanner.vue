@@ -7,7 +7,7 @@
 				knyt nya kontakter. <br />Vem tar du med på nästa promenad?
 			</p>
 
-			<b-button variant="outline-startpagebtn" size="lg" to="/register"
+			<b-button variant="outline-startpagebtn" size="lg" to="/registrera"
 				>Kom igång</b-button
 			>
 			<div class="clearfix"></div>

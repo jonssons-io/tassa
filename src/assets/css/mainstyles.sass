@@ -11,29 +11,15 @@ $theme-colors: ("tassabtnred": #B23850)
     padding-bottom: 0 !important
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
-
-.form-control
-    
-// Typography
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap');
 
-$heading-font: "Raleway", sans-serif
-$normal-font: "Open Sans", sans-serif
-$logo-font: "Exo", sans-serif
-$icon-color: #fffdf7
-$form-background: rgba(255, 255, 255, 0.35)
+// Variables and mixins
 
-@mixin no-scroll
-    height: calc(var(--vh, 1vh) * 100)
-    width: calc(var(--vw, 1vw) * 100)
-    overflow: hidden
-    overflow: -moz-hidden-unscrollable
+@import "_variables.sass"
+@import "_mixins.sass"
 
-@mixin no-x-scroll
-    width: calc(var(--vw, 1vw) * 100)
-    overflow-x: hidden
+// Typography
 
 h1, h2, 
     font-family: $heading-font
@@ -41,9 +27,16 @@ h1, h2,
     font-weight: 500
     color: white
 
+h2
+    @include segment-title
+    
+
 h3, h4, h5
     font-family: $heading-font
     color: white
+
+h3
+    @include sub-title
 
 p, a, label, span
     font-family: $normal-font
@@ -65,13 +58,10 @@ a:hover
     text-transform: uppercase
     color: white
 
-.segment--title
-    padding: 2em 0 0.5em 0
-
 // Backgrounds
 
 body
-    background-color: #005B52
+    background-color: $tassa-green
     box-sizing: border-box
 
 .hero-banner--mobile
@@ -116,6 +106,7 @@ button:focus
 .custom-select
     background-color: $form-background
     font-family: $normal-font
+    color: #e7e7e7
     &.is-valid
         background-color: $form-background
         font-family: $normal-font
@@ -124,7 +115,7 @@ button:focus
         color: #383838
 
 option:disabled
-    color: #5f5f5f
+    color: #c2c2c2
     font-weight: 300
     font-style: italic
 
@@ -143,6 +134,18 @@ option:disabled
 
 .custom-control, .custom-select
     padding-left: 2.1em
+
+.custom-control-input:checked ~ .custom-control-label::before
+        border-color#28a745
+        background-color: #28a745
+
+select option
+    background-color: $tassa-green
+    color: white
+
+.invalid-feedback
+    color: #FF2942
+    letter-spacing: 0.12em
 
 // Buttons
 
@@ -166,3 +169,5 @@ option:disabled
     font-weight: 600
     letter-spacing: 0.1em
     margin-top: 2em
+    background-color: rgba(0, 0, 0, 0.15)
+    border-width: 2px
