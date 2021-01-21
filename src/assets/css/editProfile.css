@@ -1,5 +1,6 @@
 .header_container{
   padding-top: 1.3rem;
+  padding-left: 4%;
 }
 
 .editProfile_change-Header {
@@ -10,7 +11,7 @@
 .editProfile_change-HeaderSecond{
   color: white;
   padding-top: 2rem;
-  float: left;
+  padding-left: 4%;
 }
 
 .editProfile_change-location{
