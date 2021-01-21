@@ -1,5 +1,5 @@
 <template>
-	<b-form>
+	<b-form @submit.stop.prevent="onSubmit">
 		<b-form-group
 			id="register-firstname-formgroup"
 			label="Förnamn"
@@ -20,12 +20,14 @@
 					placeholder="Ange ditt förnamn"
 					trim
 				></b-form-input>
+				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
 					id="register-name-firstname-live-feedback"
 					v-if="!$v.registeruserform.firstname.required"
 				>
 					{{ this.registeruserformErrorMsg.firstname.isRequired }}
 				</b-form-invalid-feedback>
+				<!-- Shows validation errormessage if field is filled in, but does not meet the length criteria -->
 				<b-form-invalid-feedback
 					id="register-name-firstname-live-feedback"
 					v-if="
@@ -40,6 +42,7 @@
 							.isNotCorrectLength
 					}}
 				</b-form-invalid-feedback>
+				<!-- Shows validation errormessage if field is filled in, correct length but has characters that are not UNICODE-approved letters -->
 				<b-form-invalid-feedback
 					id="register-name-firstname-live-feedback"
 					v-if="
@@ -73,12 +76,14 @@
 					placeholder="Ange ditt efternamn"
 					trim
 				></b-form-input>
+				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
 					id="register-name-lastname-live-feedback"
 					v-if="!$v.registeruserform.lastname.required"
 				>
 					{{ this.registeruserformErrorMsg.lastname.isRequired }}
 				</b-form-invalid-feedback>
+				<!-- Shows validation errormessage if field is filled in, but does not meet the length criteria -->
 				<b-form-invalid-feedback
 					id="register-name-lastname-live-feedback"
 					v-if="
@@ -93,6 +98,7 @@
 							.isNotCorrectLength
 					}}
 				</b-form-invalid-feedback>
+				<!-- Shows validation errormessage if field is filled in, correct length but has characters that are not UNICODE-approved letters -->
 				<b-form-invalid-feedback
 					id="register-name-lastname-live-feedback"
 					v-if="
@@ -127,11 +133,22 @@
 					placeholder="Ange din e-postadress"
 					trim
 				></b-form-input>
+				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
 					id="register-email-live-feedback"
 					v-if="!$v.registeruserform.email.required"
 				>
 					{{ this.registeruserformErrorMsg.email.isRequired }}
+				</b-form-invalid-feedback>
+				<!-- Shows validation errormessage if field is filled in, but does not meet the criteria for being an e-mailadress -->
+				<b-form-invalid-feedback
+					id="register-email-live-feedback"
+					v-if="
+						$v.registeruserform.email.required &&
+							$v.registeruserform.email.email
+					"
+				>
+					{{ this.registeruserformErrorMsg.email.isNotEmail }}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
@@ -156,12 +173,14 @@
 					placeholder="Ange ditt mobilnummer"
 					trim
 				></b-form-input>
+				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
 					id="register-phone-live-feedback"
 					v-if="!$v.registeruserform.phone.required"
 				>
 					{{ this.registeruserformErrorMsg.phone.isRequired }}
 				</b-form-invalid-feedback>
+				<!-- Shows validation errormessage if field is filled in, but does not contain a valid swedish cellphone number -->
 				<b-form-invalid-feedback
 					id="register-phone-live-feedback"
 					v-if="
@@ -189,6 +208,7 @@
 				aria-describedby="register-gender-live-feedback"
 			>
 			</b-form-radio-group>
+			<!-- Shows validation errormessage if field is blank after being touched -->
 			<b-form-invalid-feedback
 				id="register-gender-live-feedback"
 				v-if="!$v.registeruserform.gender.required"
@@ -209,6 +229,7 @@
 				:state="validateState('area')"
 				aria-describedby="register-area-live-feedback"
 			></b-form-select>
+			<!-- Shows validation errormessage if field is blank after being touched -->
 			<b-form-invalid-feedback
 				id="register-area-live-feedback"
 				v-if="!$v.registeruserform.area.required"
@@ -237,12 +258,14 @@
 					aria-describedby="register-password-live-feedback"
 					placeholder="Ange önskat lösenord"
 				></b-form-input>
+				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
 					id="register-password-live-feedback"
 					v-if="!$v.registeruserform.password.required"
 				>
 					{{ this.registeruserformErrorMsg.password.isRequired }}
 				</b-form-invalid-feedback>
+				<!-- Shows validation errormessage if field is filled in, but does not meet the criteria for a strong password. -->
 				<b-form-invalid-feedback
 					id="register-password-live-feedback"
 					v-if="
@@ -276,6 +299,7 @@
 					aria-describedby="register-repeat-password-live-feedback"
 					placeholder="Ange lösenordet igen"
 				></b-form-input>
+				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
 					id="register-repeat-password-live-feedback"
 					v-if="!$v.registeruserform.repeatPassword.required"
@@ -284,6 +308,7 @@
 						this.registeruserformErrorMsg.repeatPassword.isRequired
 					}}
 				</b-form-invalid-feedback>
+				<!-- Shows validation errormessage if field is filled in, but does not match the previous "Password"-field -->
 				<b-form-invalid-feedback
 					id="register-repeat-password-live-feedback"
 					v-if="
@@ -310,6 +335,15 @@
 				>
 			</b-form-checkbox-group>
 		</b-form-group>
+		<b-button type="submit" variant="outline-tassabtnred"
+			>Ladda upp bild</b-button
+		>
+		<b-button
+			type="submit"
+			variant="tassabtnred"
+			class="btn-register--bottom"
+			>{{ ctabtntext }}</b-button
+		>
 	</b-form>
 </template>
 
@@ -338,6 +372,7 @@ export default {
 				password: null,
 				repeatPassword: null
 			},
+			// Validation error messages to be shown if validation fails.
 			registeruserformErrorMsg: {
 				firstname: {
 					isRequired: "Du måste ange ditt förnamn.",
@@ -392,10 +427,11 @@ export default {
 			]
 		};
 	},
+	props: ["ctabtntext"],
 	validations: {
 		registeruserform: {
 			firstname: {
-				// Kontrollerar så att namnet enbart innehåller bokstäver enligt UNICODE's bokstavsblock, inkluderar europeiska specialbokstäver.
+				// Checks so the name only contains UNICODE-approved letters
 				validFirstName: firstname => {
 					return /^[\p{L} .'-]+$/gu.test(firstname);
 				},
@@ -404,7 +440,7 @@ export default {
 				required
 			},
 			lastname: {
-				// Kontrollerar så att namnet enbart innehåller bokstäver enligt UNICODE's bokstavsblock, inkluderar europeiska specialbokstäver.
+				// Checks so the name only contains UNICODE-approved letters
 				validLastName: lastname => {
 					return /^[\p{L} .'-]+$/gu.test(lastname);
 				},
@@ -418,9 +454,11 @@ export default {
 			},
 			phone: {
 				minLength: minLength(10),
-				// Tar bort alla specialtecken och whitespaces, kontrollerar sedan om numret börjar på 0046, 0 eller 46, följt av 7, följt av 8 siffror 0-9.
+				// Removes all special characters and whitespaces if phone is not null. Then checks if the number starts with 0046, 0 or 46, followed by 7, followed by 8 digits 0-9.
 				swedishPhoneNumber: phone => {
-					phone = phone.replace(/-|\s|\+/g, "");
+					if (phone != null) {
+						phone = phone.replace(/-|\s|\+/g, "");
+					}
 					return /^(?:0046|0|46)7(\d{8})$/.test(phone);
 				},
 				required
@@ -433,6 +471,7 @@ export default {
 			},
 			password: {
 				required,
+				// Checks so the password contains at least one lowercase letter, one uppercase letter, one digit and a special character. Password also has to be a minimum of 10 characters.
 				goodPassword: password => {
 					return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ !@#$%^&*])(?=.{10,}$)/.test(
 						password
@@ -441,18 +480,43 @@ export default {
 			},
 			repeatPassword: {
 				required,
+				// Checks so the repeated password is an exact match for previously input password.
 				sameAsPassword: sameAs("password")
 			}
 		}
 	},
 	methods: {
+		// Changes color on label to notify user of invalid checkbox state.
+		checkboxLabelColor(newColor) {
+			let inputElement = document.getElementById("consent");
+			let labelElement = inputElement.nextElementSibling;
+			labelElement.style.color = newColor;
+		},
+		// Validates the userinput in all fields connected to this method.
 		validateState(inputResponse) {
 			const { $dirty, $error } = this.$v.registeruserform[inputResponse];
 			return $dirty ? !$error : null;
 		},
-		onSubmit(event) {
-			event.preventDefault();
-			alert(JSON.stringify(this.registeruserform));
+		onSubmit() {
+			this.$v.registeruserform.$touch();
+			let registeruserform = this.registeruserform;
+			// Changes color of checkboxlabel to red if state is unchecked.
+			if (this.consent == false) {
+				this.checkboxLabelColor("#FF2942");
+			}
+			// Changes color of checkboxlabel to white if state is checked, but the form has other invalid fields.
+			else if (this.$v.registeruserform.$anyError) {
+				this.checkboxLabelColor("white");
+			}
+			// Sends userinput to Store, sets color of checkboxlabel to white and re-routes user to RegisterDog-view.
+			else {
+				this.$store.commit({
+					type: "saveUserForm",
+					registeruserform
+				});
+				this.checkboxLabelColor("white");
+				this.$router.push("/registrera-hund");
+			}
 		}
 	}
 };
@@ -465,5 +529,9 @@ export default {
 
 .input-group-text {
 	min-width: 40px;
+}
+
+.btn-register--bottom {
+	margin: 1em 0 13vh 0;
 }
 </style>
