@@ -1,9 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,EAAE,CAAC;EACC,KAAK,EAAE,KAAK;CAAG",
+    "mappings": "AAAA,AAAA,EAAE,CAAC;EACC,KAAK,EAAE,KAAK;CAAG;;AAEnB,AAAA,EAAE,CAAC;EACC,KAAK,EAAE,KAAK;CAAG;;AAEnB,AAAA,+BAA+B,CAAC;EAC5B,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;CAAG",
     "sources": [
-        "profilePage.sass"
+        "editProfile.sass"
     ],
     "names": [],
-    "file": "profilePage.css"
+    "file": "editProfile.css"
 }

@@ -1,39 +1,14 @@
-.editProfile_change-Header {
-   font-size: clamp(1.4rem, 3vw, 1.6rem);
-    color: white;
-    padding-top: 2rem;
-}
-
-.editProfile_change-location{
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
+h1 {
   color: white;
 }
-.editProfile_change-picture{
-  width: 60%;
-  height: 140%;
-  border-radius: 100%;
-  background-color: violet;
-  margin-top: 10%;
+
+h2 {
+  color: white;
 }
 
 .editProfile_header--background {
-    background-color: #00554c;
-    width: 100%;
-    height: 147px;
+  background-color: #00554c;
+  widht: 100%;
+  height: 147px;
 }
-.editProfile_changePresentation-Header{
-  color: white;
-}
-.editProfile_changePresentation-text{
-  color: white;
-}
-button{
-   color: white;
-   background-color: #B23850;
-   width: 110%;
-   height: 95%;
-   font-size: 14px;
-   border-radius: 15px 15px 15px 15px;
-}
-
-/*# sourceMappingURL=profilePage.css.map */
+/*# sourceMappingURL=editProfile.css.map */
