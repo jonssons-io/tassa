@@ -37,7 +37,6 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "profile" */ "../views/EditProfile.vue")
 	},
-	
 	{
 		path: "/logga-in",
 		name: "LogIn",
