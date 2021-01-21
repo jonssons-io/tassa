@@ -183,6 +183,17 @@
 				>
 					{{ this.registeruserformErrorMsg.password.isRequired }}
 				</b-form-invalid-feedback>
+				<b-form-invalid-feedback
+					id="register-password-live-feedback"
+					v-if="
+						$v.registeruserform.password.required &&
+							!$v.registeruserform.password.goodPassword
+					"
+				>
+					{{
+						this.registeruserformErrorMsg.password.isNotGoodPassword
+					}}
+				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
 		<b-form-group
@@ -282,7 +293,9 @@ export default {
 					isRequired: "Du måste ange område."
 				},
 				password: {
-					isRequired: "Du måste ange ett lösenord."
+					isRequired: "Du måste ange ett lösenord.",
+					isNotGoodPassword:
+						"Lösenordet måste vara minst 10 tecken, innehålla en gemen, en versal, en siffra och ett specialtecken."
 				},
 				repeatPassword: {
 					isRequired: "Du måste upprepa lösenordet.",
@@ -327,7 +340,12 @@ export default {
 				required
 			},
 			password: {
-				required
+				required,
+				goodPassword: password => {
+					return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ !@#$%^&*])(?=.{10,}$)/.test(
+						password
+					);
+				}
 			},
 			repeatPassword: {
 				required,
