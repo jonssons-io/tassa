@@ -21,10 +21,35 @@
 					trim
 				></b-form-input>
 				<b-form-invalid-feedback
-					id="register-name-firstlive-feedback"
+					id="register-name-firstname-live-feedback"
 					v-if="!$v.registeruserform.firstname.required"
 				>
 					{{ this.registeruserformErrorMsg.firstname.isRequired }}
+				</b-form-invalid-feedback>
+				<b-form-invalid-feedback
+					id="register-name-firstname-live-feedback"
+					v-if="
+						($v.registeruserform.firstname.required &&
+							!$v.registeruserform.firstname.minLength) ||
+							($v.registeruserform.firstname.required &&
+								!$v.registeruserform.firstname.maxLength)
+					"
+				>
+					{{
+						this.registeruserformErrorMsg.firstname
+							.isNotCorrectLength
+					}}
+				</b-form-invalid-feedback>
+				<b-form-invalid-feedback
+					id="register-name-firstname-live-feedback"
+					v-if="
+						$v.registeruserform.firstname.required &&
+							$v.registeruserform.firstname.minLength &&
+							$v.registeruserform.firstname.maxLength &&
+							!$v.registeruserform.firstname.validFirstName
+					"
+				>
+					{{ this.registeruserformErrorMsg.firstname.isNotValidName }}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
@@ -49,10 +74,35 @@
 					trim
 				></b-form-input>
 				<b-form-invalid-feedback
-					id="register-name-lastlive-feedback"
+					id="register-name-lastname-live-feedback"
 					v-if="!$v.registeruserform.lastname.required"
 				>
 					{{ this.registeruserformErrorMsg.lastname.isRequired }}
+				</b-form-invalid-feedback>
+				<b-form-invalid-feedback
+					id="register-name-lastname-live-feedback"
+					v-if="
+						($v.registeruserform.lastname.required &&
+							!$v.registeruserform.lastname.minLength) ||
+							($v.registeruserform.lastname.required &&
+								!$v.registeruserform.lastname.maxLength)
+					"
+				>
+					{{
+						this.registeruserformErrorMsg.lastname
+							.isNotCorrectLength
+					}}
+				</b-form-invalid-feedback>
+				<b-form-invalid-feedback
+					id="register-name-lastname-live-feedback"
+					v-if="
+						$v.registeruserform.lastname.required &&
+							$v.registeruserform.lastname.minLength &&
+							$v.registeruserform.lastname.maxLength &&
+							!$v.registeruserform.lastname.validLastName
+					"
+				>
+					{{ this.registeruserformErrorMsg.lastname.isNotValidName }}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
@@ -111,6 +161,16 @@
 					v-if="!$v.registeruserform.phone.required"
 				>
 					{{ this.registeruserformErrorMsg.phone.isRequired }}
+				</b-form-invalid-feedback>
+				<b-form-invalid-feedback
+					id="register-phone-live-feedback"
+					v-if="
+						$v.registeruserform.phone.required &&
+							(!$v.registeruserform.phone.minLength ||
+								!$v.registeruserform.phone.swedishPhoneNumber)
+					"
+				>
+					{{ this.registeruserformErrorMsg.phone.isNotValidPhone }}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
@@ -255,7 +315,13 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import { required, email, sameAs } from "vuelidate/lib/validators";
+import {
+	required,
+	email,
+	sameAs,
+	minLength,
+	maxLength
+} from "vuelidate/lib/validators";
 
 export default {
 	name: "RegisterUserForm",
@@ -274,17 +340,25 @@ export default {
 			},
 			registeruserformErrorMsg: {
 				firstname: {
-					isRequired: "Du måste ange ditt förnamn."
+					isRequired: "Du måste ange ditt förnamn.",
+					isNotCorrectLength:
+						"Förnamn måste vara mellan 2-256 bokstäver.",
+					isNotValidName: "Förnamn får endast innehålla bokstäver."
 				},
 				lastname: {
-					isRequired: "Du måste ange ditt efternamn."
+					isRequired: "Du måste ange ditt efternamn.",
+					isNotCorrectLength:
+						"Efternamn måste vara mellan 2-256 bokstäver.",
+					isNotValidName: "Efternamn får endast innehålla bokstäver."
 				},
 				email: {
 					isRequired: "Du måste ange din e-postadress.",
 					isNotEmail: "E-postadressen är inte giltig."
 				},
 				phone: {
-					isRequired: "Du måste ange ditt mobilnummer."
+					isRequired: "Du måste ange ditt mobilnummer.",
+					isNotValidPhone:
+						"Telefonnumret måste vara 10 siffror utan mellanslag och bindestreck."
 				},
 				gender: {
 					isRequired: "Du måste ange kön."
@@ -321,9 +395,21 @@ export default {
 	validations: {
 		registeruserform: {
 			firstname: {
+				// Kontrollerar så att namnet enbart innehåller bokstäver enligt UNICODE's bokstavsblock, inkluderar europeiska specialbokstäver.
+				validFirstName: firstname => {
+					return /^[\p{L} .'-]+$/gu.test(firstname);
+				},
+				minLength: minLength(2),
+				maxLength: maxLength(256),
 				required
 			},
 			lastname: {
+				// Kontrollerar så att namnet enbart innehåller bokstäver enligt UNICODE's bokstavsblock, inkluderar europeiska specialbokstäver.
+				validLastName: lastname => {
+					return /^[\p{L} .'-]+$/gu.test(lastname);
+				},
+				minLength: minLength(2),
+				maxLength: maxLength(256),
 				required
 			},
 			email: {
@@ -331,6 +417,12 @@ export default {
 				email
 			},
 			phone: {
+				minLength: minLength(10),
+				// Tar bort alla specialtecken och whitespaces, kontrollerar sedan om numret börjar på 0046, 0 eller 46, följt av 7, följt av 8 siffror 0-9.
+				swedishPhoneNumber: phone => {
+					phone = phone.replace(/-|\s|\+/g, "");
+					return /^(?:0046|0|46)7(\d{8})$/.test(phone);
+				},
 				required
 			},
 			gender: {
