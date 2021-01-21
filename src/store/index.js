@@ -5,9 +5,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		loggedIn: false
+		loggedIn: false,
+		userRegistration: {
+			firstname: "",
+			lastname: "",
+			email: "",
+			phone: "",
+			gender: "",
+			area: "",
+			password: "",
+			repeatPassword: ""
+		}
 	},
-	mutations: {},
+	mutations: {
+		saveUserForm(state, payload) {
+			state.userRegistration = payload.registeruserform;
+		}
+	},
 	actions: {},
 	modules: {}
 });
