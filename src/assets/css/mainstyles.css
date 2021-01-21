@@ -11100,6 +11100,10 @@ button:focus {
   color: #383838;
 }
 
+.custom-select.is-invalid {
+  background-color: rgba(255, 255, 255, 0.247);
+}
+
 option:disabled {
   color: #c2c2c2;
   font-weight: 300;
