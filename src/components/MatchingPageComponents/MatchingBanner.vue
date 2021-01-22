@@ -1,65 +1,93 @@
 <template>
 	<b-container class="bv-example-row">
 		<b-col>
-			<h1 class="match-header">Matchningar</h1>
+			<h2 class="segment--title">Matchningar</h2>
 		</b-col>
 		<b-row>
 			<b-col>
-				<lable class="match-label">Namn</lable>
+				<label class="match-label">Namn</label>
 			</b-col>
 			<b-col>
-				<lable class="match-label">Område</lable>
+				<label class="match-label">Område</label>
 			</b-col>
 			<b-col>
-				<lable class="match-label">Familj</lable>
+				<label class="match-label">Familj</label>
 			</b-col>
 			<div class="w-100"></div>
-			<b-col class="B-C-A"><h6 class="match-list">A.Svensson</h6></b-col>
-			<b-col class="B-C-A"><h6 class="match-list">Ö.Svealand</h6></b-col>
 			<b-col class="B-C-A"
-				><h6 class="match-list">Boppe, 6 år, Basset-Hane</h6></b-col
+				><span class="match-list">A.Svensson</span></b-col
 			>
-			<div class="w-100"></div>
-			<b-col class="B-C"><h6 class="match-list">P.Josefsson</h6></b-col>
-			<b-col class="B-C"><h6 class="match-list">Ö.Svealand</h6></b-col>
-			<b-col class="B-C"
-				><h6 class="match-list">Tilda, 3 år, Greyhound-Tik</h6></b-col
-			>
-			<div class="w-100"></div>
-			<b-col class="B-C-A"><h6 class="match-list">J.Andersson</h6></b-col>
-			<b-col class="B-C-A"><h6 class="match-list">Ö.Svealand</h6></b-col>
 			<b-col class="B-C-A"
-				><h6 class="match-list">Snowy, 6 år, Chihuahua-Tik</h6></b-col
+				><span class="match-list">Ö.Svealand</span></b-col
+			>
+			<b-col class="B-C-A"
+				><span class="match-list">Boppe, 6 år, Basset-Hane</span></b-col
 			>
 			<div class="w-100"></div>
-			<b-col class="B-C"><h6 class="match-list">R.Larsson</h6></b-col>
-			<b-col class="B-C"><h6 class="match-list">Ö.Svealand</h6></b-col>
 			<b-col class="B-C"
-				><h6 class="match-list">
+				><span class="match-list">P.Josefsson</span></b-col
+			>
+			<b-col class="B-C"
+				><span class="match-list">Ö.Svealand</span></b-col
+			>
+			<b-col class="B-C"
+				><span class="match-list"
+					>Tilda, 3 år, Greyhound-Tik</span
+				></b-col
+			>
+			<div class="w-100"></div>
+			<b-col class="B-C-A"
+				><span class="match-list">J.Andersson</span></b-col
+			>
+			<b-col class="B-C-A"
+				><span class="match-list">Ö.Svealand</span></b-col
+			>
+			<b-col class="B-C-A"
+				><span class="match-list"
+					>Snowy, 6 år, Chihuahua-Tik</span
+				></b-col
+			>
+			<div class="w-100"></div>
+			<b-col class="B-C"><span class="match-list">R.Larsson</span></b-col>
+			<b-col class="B-C"
+				><span class="match-list">Ö.Svealand</span></b-col
+			>
+			<b-col class="B-C"
+				><span class="match-list">
 					Happy, 2 år, Gand Danois-Hane
-				</h6></b-col
+				</span></b-col
 			>
 			<div class="w-100"></div>
-			<b-col class="B-C-A"><h6 class="match-list">P.Karlsson</h6></b-col>
-			<b-col class="B-C-A"><h6 class="match-list">Ö.Svealand</h6></b-col>
 			<b-col class="B-C-A"
-				><h6 class="match-list">Kuma, 3 år, Podengo-Hane</h6></b-col
+				><span class="match-list">P.Karlsson</span></b-col
+			>
+			<b-col class="B-C-A"
+				><span class="match-list">Ö.Svealand</span></b-col
+			>
+			<b-col class="B-C-A"
+				><span class="match-list">Kuma, 3 år, Podengo-Hane</span></b-col
 			>
 			<div class="w-100"></div>
-			<b-col class="B-C"><h6 class="match-list">C.Ohlsson</h6></b-col>
-			<b-col class="B-C"><h6 class="match-list">Ö.Svealand</h6></b-col>
+			<b-col class="B-C"><span class="match-list">C.Ohlsson</span></b-col>
 			<b-col class="B-C"
-				><h6 class="match-list">
+				><span class="match-list">Ö.Svealand</span></b-col
+			>
+			<b-col class="B-C"
+				><span class="match-list">
 					Bullen, 8 år, Norwhich Terrier-Hane
-				</h6></b-col
+				</span></b-col
 			>
 			<div class="w-100"></div>
-			<b-col class="B-C-A"><h6 class="match-list">H.Persson</h6></b-col>
-			<b-col class="B-C-A"><h6 class="match-list">Ö.Svealand</h6></b-col>
 			<b-col class="B-C-A"
-				><h6 class="match-list">
+				><span class="match-list">H.Persson</span></b-col
+			>
+			<b-col class="B-C-A"
+				><span class="match-list">Ö.Svealand</span></b-col
+			>
+			<b-col class="B-C-A last-result"
+				><span class="match-list">
 					Lilly, 4 år, Golden Retriver-Hane
-				</h6></b-col
+				</span></b-col
 			>
 		</b-row>
 	</b-container>
