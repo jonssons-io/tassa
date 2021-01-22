@@ -231,13 +231,6 @@
 					{{ this.genders.other }}
 				</b-form-radio>
 			</div>
-			<!-- Shows validation errormessage if field is blank after being touched -->
-			<b-form-invalid-feedback
-				id="register-gender-live-feedback"
-				v-if="!$v.registeruserform.gender.required"
-			>
-				{{ this.registeruserformErrorMsg.gender.isRequired }}
-			</b-form-invalid-feedback>
 		</b-form-group>
 		<b-form-group
 			label="Kommun"
