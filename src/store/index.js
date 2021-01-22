@@ -5,7 +5,16 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		loggedIn: false,
+		currentUser: {
+			authstatus: false,
+			id: "1",
+			firstname: "",
+			lastname: "",
+			email: "",
+			phone: "",
+			gender: "",
+			area: ""
+		},
 		userRegistration: {
 			firstname: "",
 			lastname: "",

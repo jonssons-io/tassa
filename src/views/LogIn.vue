@@ -1,6 +1,6 @@
 <template>
 	<b-container fluid class="login-register--container">
-		<h3 class="formtitle">Logga in</h3>
+		<h2 class="segment--title">Logga in</h2>
 		<b-form @submit="onSubmit">
 			<b-form-group
 				id="registered-email-formgroup"

@@ -31,7 +31,10 @@
 						icon="times"
 						v-if="expandMenu"
 					></font-awesome-icon>
-					<b-nav-item v-if="expandMenu" class="nav--subitem"
+					<b-nav-item
+						v-if="expandMenu"
+						class="nav--subitem"
+						:to="`profil/${loggedInUser}`"
 						>Visa Profil</b-nav-item
 					>
 					<b-nav-item v-if="expandMenu" class="nav--subitem"
@@ -70,12 +73,16 @@ export default {
 	name: "NavBar",
 	data() {
 		return {
-			expandMenu: false
+			expandMenu: false,
+			routerlink: ""
 		};
 	},
 	computed: {
 		loggedInStatus() {
-			return this.$store.state.loggedIn;
+			return this.$store.state.currentUser.authstatus;
+		},
+		loggedInUser() {
+			return this.$store.state.loggedIn.id;
 		}
 	},
 	methods: {

@@ -58,6 +58,14 @@ const routes = [
 			import(
 				/* webpackChunkName: "registerdog" */ "../views/RegisterDog.vue"
 			)
+	},
+	{
+		path: "/profil/:id",
+		name: "ProfilePage",
+		component: () =>
+			import(
+				/* webpackChunkName: "profilepage" */ "../views/ProfilePage.vue"
+			)
 	}
 ];
 
