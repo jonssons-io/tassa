@@ -1,22 +1,22 @@
 <template>
-	<b-container fluid class="login-register--container mh-100 mw-100">
+	<b-container fluid class="mh-100 mw-100">
 		<RegisterTitle title="Registrera din hund" />
-		<RegisterDogForm />
-		<RegisterButtons ctabtntext="Gå med" />
+		<RegisterDogForm ctabtntext="Gå med" />
+		<NavBar />
 	</b-container>
 </template>
 
 <script>
-import RegisterButtons from "@/components/RegisterComponents/RegisterButtons";
 import RegisterDogForm from "@/components/RegisterComponents/RegisterDogForm";
 import RegisterTitle from "@/components/RegisterComponents/RegisterTitle";
+import NavBar from "@/components/NavBar";
 
 export default {
 	name: "RegisterDog",
 	components: {
-		RegisterButtons,
 		RegisterDogForm,
-		RegisterTitle
+		RegisterTitle,
+		NavBar
 	}
 };
 </script>
