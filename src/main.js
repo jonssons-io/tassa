@@ -18,7 +18,10 @@ import {
 	faChevronDown,
 	faTimes,
 	faIdCard,
-	faMobileAlt
+	faMobileAlt,
+	faCalendarAlt,
+	faDog,
+	faPaw
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -29,7 +32,17 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faAt, faLock, faChevronDown, faTimes, faIdCard, faMobileAlt);
+library.add(
+	faAt,
+	faLock,
+	faChevronDown,
+	faTimes,
+	faIdCard,
+	faMobileAlt,
+	faCalendarAlt,
+	faDog,
+	faPaw
+);
 library.add(faFacebookSquare, faFacebookF, faTwitter, faInstagram);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
