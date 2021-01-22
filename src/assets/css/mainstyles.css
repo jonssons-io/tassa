@@ -11162,6 +11162,15 @@ select option {
   letter-spacing: 0.12em;
 }
 
+.flex-radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 .btn-tassabtnred {
   width: 200px;
   border-radius: 20px;

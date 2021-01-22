@@ -198,16 +198,39 @@
 			label-for="register-gender"
 			label-align="left"
 			class="formgroup-middle"
-		>
-			<b-form-radio-group
-				id="register-gender"
-				v-model="$v.registeruserform.gender.$model"
-				:options="genders"
-				name="register-gender"
-				:state="validateState('gender')"
-				aria-describedby="register-gender-live-feedback"
-			>
-			</b-form-radio-group>
+			id="formgroup--gender"
+			><div class="flex-radio">
+				<b-form-radio
+					id="register-gender-male"
+					v-model="$v.registeruserform.gender.$model"
+					name="register-gender"
+					:state="validateState('gender')"
+					aria-describedby="register-gender-live-feedback"
+					value="male"
+				>
+					{{ this.genders.male }}
+				</b-form-radio>
+				<b-form-radio
+					id="register-gender-female"
+					v-model="$v.registeruserform.gender.$model"
+					name="register-gender"
+					:state="validateState('gender')"
+					aria-describedby="register-gender-live-feedback"
+					value="female"
+				>
+					{{ this.genders.female }}
+				</b-form-radio>
+				<b-form-radio
+					id="register-gender-other"
+					v-model="$v.registeruserform.gender.$model"
+					name="register-gender"
+					:state="validateState('gender')"
+					aria-describedby="register-gender-live-feedback"
+					value="other"
+				>
+					{{ this.genders.other }}
+				</b-form-radio>
+			</div>
 			<!-- Shows validation errormessage if field is blank after being touched -->
 			<b-form-invalid-feedback
 				id="register-gender-live-feedback"
@@ -412,11 +435,11 @@ export default {
 				}
 			},
 			consent: false,
-			genders: [
-				{ text: "Man", value: "male" },
-				{ text: "Kvinna", value: "female" },
-				{ text: "Annat", value: "other" }
-			],
+			genders: {
+				male: "Man",
+				female: "Kvinna",
+				other: "Annat"
+			},
 			areas: [
 				{ text: "-- Ange din kommun --", value: null, disabled: true },
 				{ text: "Botkyrka", value: "botkyrka" },
