@@ -8,12 +8,13 @@ export default new Vuex.Store({
 		currentUser: {
 			authstatus: false,
 			id: "1",
-			firstname: "",
-			lastname: "",
+			firstname: "Anna",
+			lastname: "Andersson",
 			email: "",
 			phone: "",
 			gender: "",
-			area: ""
+			area: "Huddinge",
+			profilepicture: require("@/assets/DefaultPicture.svg")
 		},
 		userRegistration: {
 			firstname: "",

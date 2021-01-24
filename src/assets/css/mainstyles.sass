@@ -38,6 +38,14 @@ h3, h4, h5
 h3
     @include sub-title
 
+h6
+    font-family: $normal-font
+    font-size: 1em
+    color: white
+    line-height: 2em
+    letter-spacing: 0.08em
+    text-transform: uppercase
+
 p, a, label, span
     font-family: $normal-font
     font-weight: 400
@@ -75,7 +83,7 @@ body
     background-size: cover
     @include no-scroll
 
-.aboutUs_banner, .matching--container
+.aboutUs_banner, .matching--container, .profile--container
     @include no-x-scroll
     
 
@@ -177,3 +185,12 @@ select option
     margin-top: 2em
     background-color: rgba(0, 0, 0, 0.15)
     border-width: 2px
+
+// Containers
+.profile--container
+    margin: 0
+    padding: 0
+
+.profile-header--container, .profile-family--container
+    @include no-x-scroll
+    

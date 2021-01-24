@@ -11008,6 +11008,15 @@ h3 {
   padding: 1em 0 0.5em 0;
 }
 
+h6 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  color: white;
+  line-height: 2em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 p, a, label, span {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -11054,7 +11063,7 @@ body {
   overflow: -moz-hidden-unscrollable;
 }
 
-.aboutUs_banner, .matching--container {
+.aboutUs_banner, .matching--container, .profile--container {
   width: calc(var(--vw, 1vw) * 100);
   overflow-x: hidden;
 }
@@ -11195,5 +11204,15 @@ select option {
   margin-top: 2em;
   background-color: rgba(0, 0, 0, 0.15);
   border-width: 2px;
+}
+
+.profile--container {
+  margin: 0;
+  padding: 0;
+}
+
+.profile-header--container, .profile-family--container {
+  width: calc(var(--vw, 1vw) * 100);
+  overflow-x: hidden;
 }
 /*# sourceMappingURL=mainstyles.css.map */

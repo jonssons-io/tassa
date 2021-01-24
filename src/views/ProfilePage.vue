@@ -1,5 +1,5 @@
 <template>
-	<b-container class="fluid">
+	<b-container class="profile--container">
 		<ProfileHeader />
 		<ProfileFamily />
 		<ProfileDescription />
