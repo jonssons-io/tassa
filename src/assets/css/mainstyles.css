@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap");
 .col-form-label-lg {
   padding-bottom: 0 !important;
@@ -11008,6 +11008,16 @@ h3 {
   padding: 1em 0 0.5em 0;
 }
 
+h4 {
+  font-size: 1.9em;
+}
+
+h5 {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: 1.5em;
+}
+
 h6 {
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
@@ -11027,6 +11037,11 @@ p, a, label, span {
   padding-bottom: 0;
 }
 
+p {
+  line-height: 1.7em;
+  color: #e6e6e6;
+}
+
 a:hover {
   color: #d9d9d9;
   text-decoration: none;
@@ -11038,6 +11053,19 @@ a:hover {
   font-size: 1.4em;
   text-transform: uppercase;
   color: white;
+}
+
+.subtitle-extended {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: #adadad;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.9em;
+}
+
+.dog-name {
+  font-size: 1.2em;
 }
 
 body {
@@ -11209,10 +11237,19 @@ select option {
 .profile--container {
   margin: 0;
   padding: 0;
-}
-
-.profile-header--container, .profile-family--container {
   width: calc(var(--vw, 1vw) * 100);
   overflow-x: hidden;
+}
+
+.profile-header--container, .profile-family--container, .profile-desc--container {
+  padding: 2em 1em 1em 1em;
+}
+
+.profile-family--container {
+  background-color: #004942;
+}
+
+.profile-desc--container {
+  margin-bottom: 15vh;
 }
 /*# sourceMappingURL=mainstyles.css.map */

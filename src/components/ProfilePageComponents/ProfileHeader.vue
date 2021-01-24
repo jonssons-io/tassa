@@ -27,13 +27,13 @@ export default {
 
 <style scoped>
 .profile-header--container {
-	padding: 2em 1em 1em 1em;
 	display: flex;
 	box-shadow: 0 6px 8px rgba(24, 24, 24, 0.5);
 }
 
 .profile--picture {
 	flex: 1 1 30%;
+	max-width: 30vw;
 }
 
 .profile--name-area {
