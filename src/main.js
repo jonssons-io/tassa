@@ -7,6 +7,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import { BootstrapVue, BootstrapVueIcons, IconsPlugin } from "bootstrap-vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import "./assets/css/mainstyles.css";
+import axios from "axios";
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
@@ -45,6 +46,7 @@ library.add(
 );
 library.add(faFacebookSquare, faFacebookF, faTwitter, faInstagram);
 
+Vue.prototype.$http = axios;
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.use(BootstrapVue);
