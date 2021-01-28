@@ -18,9 +18,9 @@
       </h6>
     </div>
     </b-row>
-    <div class="information_changePresentationGender"> 
-      <b-row>
-        <b-col class="editProfile_changePresentation-text "
+    <div class="information_changePresentationGender "> 
+      <b-row >
+        <b-col cols="4" sm="2" md="2" lg="2" class="editProfile_changePresentation-text  "
           ><input
             type="checkbox"
             id="gender1"
@@ -28,7 +28,7 @@
             value="female"
           /><lable for="gender1"> Kvinnor</lable></b-col
         >
-        <b-col class="editProfile_changePresentation-text "
+        <b-col cols="4" sm="2" md="2" lg="2" class="editProfile_changePresentation-text "
           ><input
             type="checkbox"
             id="gender2"
@@ -36,7 +36,7 @@
             value="Male"
           /><lable for="gender2"> Män </lable></b-col
         >
-        <b-col class="editProfile_changePresentation-text "
+        <b-col cols="4" sm="2" md="2" lg="2" class="editProfile_changePresentation-text "
           ><input
             type="checkbox"
             id="gender3"
@@ -47,7 +47,7 @@
       </b-row>
     </div>
     <b-row> 
-    <div class="information_gender">
+    <div class="information_gender " >
       <h6 class="editProfile_changePresentation-Header">
         Mina hundar kommer överens med
       </h6>
@@ -55,7 +55,7 @@
     </b-row>
     <div> 
       <b-row>
-        <b-col class="editProfile_changePresentation-text"
+        <b-col cols="4" md="2" lg="2" class="editProfile_changePresentation-text "
           ><input
             type="checkbox"
             id="dogGender1"
@@ -63,7 +63,7 @@
             value="female"
           /><lable for="dogGender1"> Tik </lable></b-col
         >
-        <b-col class="editProfile_changePresentation-text"
+        <b-col cols="4" md="2" lg="2" class="editProfile_changePresentation-text "
           ><input
             type="checkbox"
             id="dogGender2"
@@ -82,7 +82,7 @@
     </b-row>
     <div>
       <b-row>
-        <b-col class="editProfile_changePresentation-text"
+        <b-col cols="6" sm="2" md="2" lg="2" class="editProfile_changePresentation-text"
           ><input
             type="checkbox"
             id="size"
@@ -90,17 +90,17 @@
             value="SmallDog"
           /><lable for="size"> Små hundar </lable></b-col
         >
-        <b-col class="editProfile_changePresentation-text"
+        <b-col cols="6" sm="2" md="2" lg="2" class="editProfile_changePresentation-text"
           ><input
             type="checkbox"
             id="size"
             name="size"
             value="MiddleDog"
-          /><lable for="size"> Medelstora hundar</lable></b-col
+          /><lable for="size"> Medel hundar</lable></b-col
         >
       </b-row>
       <b-row>
-        <b-col class="editProfile_changePresentation-text"
+        <b-col cols="6" sm="2" md="2" lg="2" class="editProfile_changePresentation-text"
           ><input type="checkbox" id="size" name="size" value="BigDog" /><lable
             for="size"
           >
