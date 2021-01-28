@@ -2,23 +2,6 @@
   <b-container class="bv-example-row editProfile_header--background">
     <b-row>
       <b-col>
-        <img class="editProfile_change-picture float-right" />
-      </b-col>
-      <b-col>
-        <h4 class="editProfile_change-Header float-left">Bosse Nilsson</h4>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col> </b-col>
-      <b-col>
-        <h5 class="editProfile_change-location float-left">Östra Svealand</h5>
-      </b-col>
-    </b-row>
-    <b-row>
-      <b-col>
-        <img />
-      </b-col>
-      <b-col>
         <button class="editProfile-button float-right">Spara profil</button>
       </b-col>
       <b-col></b-col>

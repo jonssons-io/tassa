@@ -1,5 +1,6 @@
 <template>
   <div class="editProfile_banner">
+    <ProfileHeader />
     <EditProfileBanner />
     <NavBar />
   </div>
@@ -7,11 +8,13 @@
 
 <script>
 import EditProfileBanner from "@/components/EditProfileComponents/EditProfileBanner.vue";
+import ProfileHeader from "@/components/ProfilePageComponents/ProfileHeader.vue";
 import NavBar from "@/components/NavBar.vue";
 
 export default {
   name: "EditProfile",
   components: {
+    ProfileHeader,
     EditProfileBanner,
     NavBar
   }
