@@ -124,7 +124,7 @@
           id="information"
           name="information"
           value="month"
-        /><lable class="editProfile_changePresentation-text" for="information">
+        /><lable class="editProfile_changePresentation-text-last_text" for="information">
           Visa antalet månader sedan registrering
         </lable></b-row
       >
@@ -134,7 +134,7 @@
           id="information"
           name="information"
           value="contacts"
-        /><lable class="editProfile_changePresentation-text" for="information">
+        /><lable class="editProfile_changePresentation-text-last_text" for="information">
           Visa antalet nya kontakter sedan registrering
         </lable></b-row
       >
@@ -144,7 +144,7 @@
           id="information"
           name="information"
           value="contacts"
-        /><lable class="editProfile_changePresentation-text" for="information">
+        /><lable class="editProfile_changePresentation-text-last_text" for="information">
           Visa antalet promenader sedan registrering
         </lable></b-row
       >

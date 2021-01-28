@@ -32,13 +32,34 @@ h2 {
   background-color: violet;
   margin-top: 10%;
 }
+.information_gender{
+  margin-top: 2%;
+}
 
 .editProfile_changePresentation-Header{
   color: white;
+  margin-top: 2%;
 }
 .editProfile_changePresentation-text{
   color: white;
+  margin-top: 2%;
+  text-align: left;
 }
+
+.editProfile_changePresentation-last{
+margin-top:2%;
+margin-left: 1.5%;
+}
+.editProfile_changePresentation-text-last_text{
+  color: white;
+  margin-left: 2%;
+  margin-top: 1.5%;
+}
+
+.information_container{
+margin-top: 2%;
+}
+
 button{
    color: white;
    background-color: #B23850;
