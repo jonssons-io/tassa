@@ -82,7 +82,7 @@ export default {
 			return this.$store.state.currentUser.authstatus;
 		},
 		loggedInUser() {
-			return this.$store.state.loggedIn.id;
+			return this.$store.state.currentUser.id;
 		}
 	},
 	methods: {
