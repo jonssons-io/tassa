@@ -33,31 +33,35 @@ h2 {
   margin-top: 10%;
 }
 .information_gender{
-  margin-top: 2%;
+  margin-top: 1.5%;
 }
 
 .editProfile_changePresentation-Header{
   color: white;
-  margin-top: 2%;
+  margin-top: 1.5%;
+  text-align: left;
+  margin-left: 3.7%;
 }
 .editProfile_changePresentation-text{
   color: white;
-  margin-top: 2%;
+  margin-top: 1.5%;
   text-align: left;
 }
 
 .editProfile_changePresentation-last{
-margin-top:2%;
-margin-left: 1.5%;
+margin-top:1%;
+margin-left: 1.4%;
+
 }
 .editProfile_changePresentation-text-last_text{
   color: white;
-  margin-left: 2%;
-  margin-top: 1.5%;
+  margin-left: 0.5%;
+  margin-top: 0.6%;
 }
 
 .information_container{
 margin-top: 2%;
+padding-left: 1.3%;
 }
 
 button{
