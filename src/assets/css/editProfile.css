@@ -13,7 +13,7 @@ h2 {
 }
 .editProfile_change-HeaderSecond{
 
-  padding-top: 2rem;
+  padding-top: 1.4%;
   padding-left: 4%;
 }
 .editProfile_change-Header {
@@ -25,26 +25,19 @@ h2 {
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   color: white;
 }
-.editProfile_change-picture{
-  width: 60%;
-  height: 140%;
-  border-radius: 100%;
-  background-color: violet;
-  margin-top: 10%;
-}
 .information_gender{
   margin-top: 1.5%;
 }
 
 .editProfile_changePresentation-Header{
   color: white;
-  margin-top: 1.5%;
+  margin-top: 1.3%;
   text-align: left;
   margin-left: 3.7%;
 }
 .editProfile_changePresentation-text{
   color: white;
-  margin-top: 1.5%;
+  margin-top: 1.3%;
   text-align: left;
 }
 
@@ -60,7 +53,7 @@ margin-left: 1.4%;
 }
 
 .information_container{
-margin-top: 2%;
+margin-top: 1.5%;
 padding-left: 1.3%;
 }
 

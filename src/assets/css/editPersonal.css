@@ -1,0 +1,13 @@
+.editPersonal_changeLabel{
+    text-align: left;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    color: tomato;
+}
+.editPersonal_changeInput{
+    padding: 3%;
+    width: 25%;
+    background-color: teal;
+    color: tomato;
+    border-radius: 11px 11px 11px 11px;
+}
