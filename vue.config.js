@@ -22,7 +22,8 @@ module.exports = {
 					]
 				}
 			]
-		}
+		},
+		devtool: "source-map"
 		// ...
 	},
 	chainWebpack: config => {
@@ -30,5 +31,13 @@ module.exports = {
 			.rule("svg")
 			.test(() => false)
 			.use("file-loader");
+	},
+	devServer: {
+		proxy: {
+			"/api": {
+				target: "http://localhost:8080",
+				changeOrigin: true
+			}
+		}
 	}
 };
