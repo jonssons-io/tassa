@@ -79,7 +79,22 @@
 					>
 				</b-form-checkbox-group>
 			</b-form-group>
-			<b-button type="submit" variant="tassabtnred">Logga in</b-button>
+			<b-alert
+				variant="danger"
+				v-model="login.showLoginFailed"
+				dismissible
+				>{{ this.login.failedMsg }}</b-alert
+			>
+			<b-button
+				type="submit"
+				variant="tassabtnred"
+				:disabled="login.showBtnSpinner"
+				><b-spinner
+					style="width: 1.5em; height: 1.5em;"
+					v-if="login.showBtnSpinner"
+				></b-spinner
+				>{{ this.login.btnText }}</b-button
+			>
 		</b-form>
 		<span class="forgot-password">Glömt lösenord? Klicka här!</span>
 		<NavBar />
@@ -90,6 +105,7 @@
 import NavBar from "@/components/NavBar.vue";
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
+// import ApiHandler from "@/util/ApiHandler.js";
 
 export default {
 	name: "LogIn",
@@ -112,7 +128,13 @@ export default {
 					isRequired: "Du måste ange ditt lösenord."
 				}
 			},
-			rememberMe: false
+			rememberMe: false,
+			login: {
+				showLoginFailed: false,
+				failedMsg: "",
+				btnText: "Logga in",
+				showBtnSpinner: false
+			}
 		};
 	},
 	validations: {
@@ -133,7 +155,38 @@ export default {
 		},
 		onSubmit(event) {
 			event.preventDefault();
-			alert(JSON.stringify(this.loginform));
+			console.log(this.loginform.email);
+			this.login.btnText = "Laddar...";
+			this.login.showBtnSpinner = true;
+			this.$store
+				.dispatch("USER_AUTH", {
+					email: this.loginform.email,
+					password: this.loginform.password
+				})
+				.then(res => {
+					console.log(res);
+					this.$router.push({
+						name: "ProfilePage",
+						params: {
+							id: this.$store.state.currentUser.id
+						}
+					});
+				})
+				.catch(error => {
+					console.log("error ", error.response);
+					this.login.showLoginFailed = true;
+					this.login.showBtnSpinner = false;
+					this.login.btnText = "Logga in";
+					switch (error.response.status) {
+						case 401:
+							this.login.failedMsg = "Fel inloggningsuppgifter";
+							break;
+						default:
+							this.login.failedMsg =
+								"Det går inte att logga in just nu. Försök igen om en stund.";
+							break;
+					}
+				});
 		}
 	}
 };
@@ -153,5 +206,11 @@ export default {
 	left: 0;
 	right: 0;
 	margin: auto;
+}
+b-alert {
+	margin: 1em 0;
+}
+.spinner-border {
+	margin-right: 1em;
 }
 </style>
