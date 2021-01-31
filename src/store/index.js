@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -7,34 +8,17 @@ export default new Vuex.Store({
 	state: {
 		currentUser: {
 			authstatus: false,
-			id: "1",
-			firstname: "Anna",
-			lastname: "Andersson",
+			authtoken: "",
+			id: "",
+			firstname: "",
+			lastname: "",
 			email: "",
 			phone: "",
 			gender: "",
-			area: "Huddinge",
-			desc:
-				"Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+			area: "",
+			desc: "",
 			profilepicture: require("@/assets/DefaultPicture.svg"),
-			dogs: [
-				{
-					name: "maja",
-					gender: "tik",
-					age: "8",
-					size: "small",
-					breed: "Jack Russel",
-					dogpicture: require("@/assets/DefaultDog.svg")
-				},
-				{
-					name: "nisse",
-					gender: "hane",
-					age: "3",
-					size: "medium",
-					breed: "Drever",
-					dogpicture: require("@/assets/DefaultDog.svg")
-				}
-			]
+			dogs: []
 		},
 		userRegistration: {
 			firstname: "",
@@ -56,12 +40,32 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		saveUserForm(state, payload) {
-			state.userRegistration = payload.registeruserform;
+			state.userRegistration = payload;
 		},
 		saveDogForm(state, payload) {
 			state.dogRegistration = payload.registerdogform;
+		},
+		userLoggedIn(state, payload) {
+			console.log(payload);
+			state.currentUser.authstatus = true;
+			state.currentUser.authtoken = payload.data.result.token.token;
+			state.currentUser.id = payload.data.result.user._id;
 		}
 	},
-	actions: {},
+	actions: {
+		USER_AUTH({ commit }, loginform) {
+			return new Promise((resolve, reject) => {
+				axios
+					.post(`/api/v1/auth/login`, loginform)
+					.then(res => {
+						commit("userLoggedIn", res);
+						resolve(res);
+					})
+					.catch(error => {
+						reject(error);
+					});
+			});
+		}
+	},
 	modules: {}
 });
