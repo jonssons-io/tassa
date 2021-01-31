@@ -1,12 +1,34 @@
-.editPersonal_changeLabel{
-    text-align: left;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    margin-left:4%;
+.editPersonal_changeLabel {
+  text-align: left;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-left: 4%;
 }
-.editPersonal_changeInput{
-    padding-bottom: 3%;
-    width: 100%;
-    background-color: teal;
-    border-radius: 11px 11px 11px 11px;
+
+.editPersonal_changeInput {
+  padding-bottom: 3%;
+  width: 100%;
+  background-color: #006C61;
+  border-radius: 20px 20px 20px 20px;
 }
+
+input::-webkit-input-placeholder {
+  color: white;
+  padding-left: 4%;
+}
+
+input:-ms-input-placeholder {
+  color: white;
+  padding-left: 4%;
+}
+
+input::-ms-input-placeholder {
+  color: white;
+  padding-left: 4%;
+}
+
+input::placeholder {
+  color: white;
+  padding-left: 4%;
+}
+/*# sourceMappingURL=editPersonal.css.map */
