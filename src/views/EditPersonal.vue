@@ -1,18 +1,21 @@
 <template>
   <div class="editProfile_banner">
-    <EditProfileBanner />
+    <ProfileHeader />
+    <EditPersonalBanner />
     <NavBar />
   </div>
 </template>
 
 <script>
-import EditProfileBanner from "@/components/EditProfileComponents/EditProfileBanner.vue";
+import EditPersonalBanner from "@/components/EditProfileComponents/EditPersonalBanner.vue";
+import ProfileHeader from "@/components/ProfilePageComponents/ProfileHeader.vue";
 import NavBar from "@/components/NavBar.vue";
 
 export default {
-  name: "EditProfile",
+  name: "EditPersonal",
   components: {
-    EditProfileBanner,
+    ProfileHeader,
+    EditPersonalBanner,
     NavBar
   }
 };

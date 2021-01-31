@@ -5,21 +5,22 @@
 .B-C > span,
 .B-C-A > span {
   font-size: 0.8em;
+  padding: 7%;
 }
 
 .match-list {
   text-align: left;
-  padding-top: 2rem;
+  padding-top: 2.5rem;
 }
 
 .last-result {
-  margin-bottom: 15vh;
+  margin-bottom: 13vh;
 }
 
 .match-label {
   font-size: 1.3rem;
   color: white;
-  margin-top: 5%;
+  margin-top: 6%;
   text-align: left;
 }
 /*# sourceMappingURL=matchingPage.css.map */

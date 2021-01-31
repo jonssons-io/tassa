@@ -1,0 +1,12 @@
+.editPersonal_changeLabel{
+    text-align: left;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-left:4%;
+}
+.editPersonal_changeInput{
+    padding-bottom: 3%;
+    width: 100%;
+    background-color: teal;
+    border-radius: 11px 11px 11px 11px;
+}
