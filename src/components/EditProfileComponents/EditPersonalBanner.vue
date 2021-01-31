@@ -7,59 +7,59 @@
     </b-row>
     <b-row>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <label className="editPersonal_changeLabel">Telefonnummer</label>
+        <label class="editPersonal_changeLabel">Telefonnummer</label>
       </b-col>
       <b-col cols="6" sm="2" md="2" lg="2">
         <input
-          className="editPersonal_changeInput"
+          class="editPersonal_changeInput"
           placeholder="070-123 45 67"
         />
       </b-col>
     </b-row>
     <b-row>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <label className="editPersonal_changeLabel">E-postadress</label>
+        <label text-align="left" class="editPersonal_changeLabel">E-postadress</label>
       </b-col>
       <b-col cols="6" sm="2" md="2" lg="2">
         <input
-          className="editPersonal_changeInput"
+          class="editPersonal_changeInput"
           placeholder="namn@mail.se"
         />
       </b-col>
     </b-row>
     <b-row>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <label className="editPersonal_changeLabel">Geografiskt område</label>
+        <label class="editPersonal_changeLabel">Geografiskt område</label>
       </b-col>
       <b-col cols="6" sm="2" md="2" lg="2">
         <input
-          className="editPersonal_changeInput"
+          class="editPersonal_changeInput"
           placeholder="Östra Svealand"
         />
       </b-col>
     </b-row>
     <b-row>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <label className="editPersonal_changeLabel">Ändra efternamn</label>
+        <label class="editPersonal_changeLabel">Ändra efternamn</label>
       </b-col>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <input className="editPersonal_changeInput" placeholder="Namn Efternamn"
+        <input class="editPersonal_changeInput" placeholder="Namn Efternamn"
       /></b-col>
     </b-row>
     <b-row>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <label className="editPersonal_changeLabel">Byt profilbild</label>
+        <label class="editPersonal_changeLabel">Byt profilbild</label>
       </b-col>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <input className="editPersonal_changeInput" placeholder="Ladda upp bild"
+        <input class="editPersonal_changeInput" placeholder="Ladda upp bild"
       /></b-col>
     </b-row>
     <b-row>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <label className="editPersonal_changeLabel">Radera ditt konto</label>
+        <label class="editPersonal_changeLabel">Radera ditt konto</label>
       </b-col>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <input className="editPersonal_changeInput" placeholder="Radera" />
+        <input class="editPersonal_changeInput" placeholder="Radera" />
       </b-col>
     </b-row>
     <b-nav-item v-if="loggedInStatus" @click.stop="toggleProfileTab">
