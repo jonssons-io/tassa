@@ -37,6 +37,15 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "profile" */ "../views/EditPreferences.vue")
 	},
+	//{
+	//	path: "/editera-familjen",
+	//	name: "EditFamily",
+		// route level code-splitting
+		// this generates a separate chunk (about.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+	//	component: () =>
+	///		import(/* webpackChunkName: "familjen" */ "../views/EditFamily.vue")
+	//}
 	{
 		path: "/editera-personligt",
 		name: "EditPersonal",
