@@ -35,17 +35,17 @@ const routes = [
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: () =>
-			import(/* webpackChunkName: "profile" */ "../views/EditPreferences.vue")
+			import(/* webpackChunkName: "editpreferences" */ "../views/EditPreferences.vue")
 	},
-	//{
-	//	path: "/editera-familjen",
-	//	name: "EditFamily",
+	{
+		path: "/editera-familjen",
+		name: "EditFamily",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
-	//	component: () =>
-	///		import(/* webpackChunkName: "familjen" */ "../views/EditFamily.vue")
-	//}
+		component: () =>
+			import(/* webpackChunkName: "editfamily" */ "../views/EditFamily.vue")
+	},
 	{
 		path: "/editera-personligt",
 		name: "EditPersonal",
@@ -53,7 +53,7 @@ const routes = [
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: () =>
-			import(/* webpackChunkName: "family" */ "../views/EditPersonal.vue")
+			import(/* webpackChunkName: "editpersonal" */ "../views/EditPersonal.vue")
 	},
 	{
 		path: "/logga-in",
