@@ -2,11 +2,7 @@
 	<div class="profile-family--container">
 		<h5 class="profile--family-title">Familj</h5>
 		<div class="dogs--container">
-			<div
-				class="one-dog"
-				v-for="dog in currentUser.dogs"
-				:key="dog.name"
-			>
+			<div class="one-dog" v-for="dog in family" :key="dog.name">
 				<h6 class="dog-name">{{ dog.name }}, {{ dog.age }} ÅR</h6>
 				<p class="dog-info subtitle-extended">
 					{{ dog.breed }}-{{ dog.gender }}
@@ -21,12 +17,9 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
 	name: "ProfileFamily",
-	computed: {
-		...mapState(["currentUser"])
-	}
+	props: ["family"]
 };
 </script>
 

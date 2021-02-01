@@ -1,17 +1,14 @@
 <template>
 	<div class="profile-desc--container">
 		<h5 class="profile-desc-title">Beskrivning</h5>
-		<p class="profile-desc">{{ currentUser.desc }}</p>
+		<p class="profile-desc">{{ desc }}</p>
 	</div>
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
 	name: "ProfileDescription",
-	computed: {
-		...mapState(["currentUser"])
-	}
+	props: ["desc"]
 };
 </script>
 

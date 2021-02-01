@@ -531,7 +531,10 @@ export default {
 					registeruserform
 				});
 				this.checkboxLabelColor("white");
-				this.$router.push("/registrera-hund");
+				this.$router.push({
+					name: "RegisterDog",
+					params: { registeruserform }
+				});
 			}
 		}
 	}

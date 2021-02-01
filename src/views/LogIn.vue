@@ -173,7 +173,8 @@ export default {
 					});
 				})
 				.catch(error => {
-					console.log("error ", error.response);
+					console.log("errorresponse ", error.response);
+					console.log("error ", error);
 					this.login.showLoginFailed = true;
 					this.login.showBtnSpinner = false;
 					this.login.btnText = "Logga in";

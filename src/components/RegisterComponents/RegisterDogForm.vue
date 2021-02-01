@@ -1,5 +1,5 @@
 <template>
-	<b-form @submit.stop.prevent="onSubmit">
+	<b-form @submit="onSubmit">
 		<b-form-group
 			id="registerdog-name-formgroup"
 			label="Namn"
@@ -209,11 +209,22 @@
 		<b-button type="submit" variant="outline-tassabtnred"
 			>Ladda upp bild</b-button
 		>
+		<b-alert
+			variant="danger"
+			v-model="submit.showLoginFailed"
+			dismissible
+			>{{ this.submit.failedMsg }}</b-alert
+		>
 		<b-button
 			type="submit"
 			variant="tassabtnred"
 			class="btn-register--bottom"
-			>{{ ctabtntext }}</b-button
+			:disabled="submit.showBtnSpinner"
+			><b-spinner
+				style="width: 1.5em; height: 1.5em;"
+				v-if="submit.showBtnSpinner"
+			></b-spinner
+			>{{ this.submit.btnText }}</b-button
 		>
 	</b-form>
 </template>
@@ -221,6 +232,7 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { required, numeric } from "vuelidate/lib/validators";
+import ApiHandler from "../../util/ApiHandler";
 
 export default {
 	name: "RegisterDogForm",
@@ -262,10 +274,16 @@ export default {
 				small: "< 30 cm",
 				medium: "31-45 cm",
 				large: "> 46 cm"
+			},
+			submit: {
+				showLoginFailed: false,
+				failedMsg: "",
+				btnText: "Gå med",
+				showBtnSpinner: false
 			}
 		};
 	},
-	props: ["ctabtntext"],
+	props: ["ctabtntext", "userForm"],
 	validations: {
 		registerdogform: {
 			name: {
@@ -298,21 +316,57 @@ export default {
 			const { $dirty, $error } = this.$v.registerdogform[inputResponse];
 			return $dirty ? !$error : null;
 		},
-		onSubmit() {
+		async submitNewDog(doginfo) {
+			try {
+				const res = await ApiHandler.createDog(doginfo);
+				console.log("submit dogres ", res);
+			} catch (error) {
+				console.log("error in dogsubmit ", error);
+			}
+		},
+		async submitNewUser(userinfo) {
+			console.log("in submitnewuser ", userinfo);
+			try {
+				const userRes = await ApiHandler.createUser(userinfo);
+				const doginfo = {
+					accountId: userRes.result.__id,
+					name: this.registerdogform.name,
+					gender: this.registerdogform.gender,
+					age: this.registerdogform.age,
+					size: this.registerdogform.size,
+					breed: this.registerdogform.breed
+				};
+				const dogRes = await this.submitNewDog(doginfo);
+				console.log("end of submit ", dogRes);
+			} catch (error) {
+				console.log("error in submitnewuser ", error);
+			}
+		},
+		onSubmit(event) {
 			this.$v.registerdogform.$touch();
-			let registerdogform = this.registerdogform;
+			event.preventDefault();
+			this.submit.btnText = "Laddar...";
+			this.submit.showBtnSpinner = true;
+			// let registerdogform = this.registerdogform;
 			// Changes color of checkboxlabel to red if state is unchecked.
 			if (this.$v.registerdogform.$anyError) {
 				console.log("ERROR");
 			}
 			// Sends userinput to Store, sets color of checkboxlabel to white and re-routes user to RegisterDog-view.
 			else {
-				this.$store.commit({
-					type: "saveDogForm",
-					registerdogform
-				});
-				this.$router.push("/");
-				console.log("success!");
+				console.log("newuser ");
+				let userinfo = {
+					firstName: this.$route.params.registeruserform.firstname,
+					lastName: this.$route.params.registeruserform.lastname,
+					age: 15,
+					gender: "woman",
+					email: this.$route.params.registeruserform.email,
+					phoneNumber: this.$route.params.registeruserform.phone,
+					gdpr: true,
+					geoPosition: this.$route.params.registeruserform.area,
+					password: this.$route.params.registeruserform.password
+				};
+				this.submitNewUser(userinfo);
 			}
 		}
 	}
