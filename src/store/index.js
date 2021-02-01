@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
+import ApiHandler from "@/util/ApiHandler.js";
 
 Vue.use(Vuex);
 
@@ -9,16 +9,7 @@ export default new Vuex.Store({
 		currentUser: {
 			authstatus: false,
 			authtoken: "",
-			id: "",
-			firstname: "",
-			lastname: "",
-			email: "",
-			phone: "",
-			gender: "",
-			area: "",
-			desc: "",
-			profilepicture: require("@/assets/DefaultPicture.svg"),
-			dogs: []
+			id: ""
 		},
 		userRegistration: {
 			firstname: "",
@@ -28,7 +19,8 @@ export default new Vuex.Store({
 			gender: "",
 			area: "",
 			password: "",
-			repeatPassword: ""
+			repeatPassword: "",
+			gdpr: true
 		},
 		dogRegistration: {
 			name: "",
@@ -55,10 +47,22 @@ export default new Vuex.Store({
 	actions: {
 		USER_AUTH({ commit }, loginform) {
 			return new Promise((resolve, reject) => {
-				axios
-					.post(`/api/v1/auth/login`, loginform)
+				ApiHandler.userAuth(loginform)
 					.then(res => {
 						commit("userLoggedIn", res);
+						resolve(res);
+					})
+					.catch(error => {
+						console.log("in error");
+						reject(error);
+					});
+			});
+		},
+		GET_USER({ commit }, userid) {
+			return new Promise((resolve, reject) => {
+				return ApiHandler.getUser(userid)
+					.then(res => {
+						commit("updateUserInfo", res);
 						resolve(res);
 					})
 					.catch(error => {

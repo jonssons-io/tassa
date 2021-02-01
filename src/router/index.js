@@ -75,7 +75,8 @@ const routes = [
 		component: () =>
 			import(
 				/* webpackChunkName: "registerdog" */ "../views/RegisterDog.vue"
-			)
+			),
+		props: true
 	},
 	{
 		path: "/profil/:id",

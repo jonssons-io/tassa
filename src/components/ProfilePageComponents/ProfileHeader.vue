@@ -1,27 +1,28 @@
 <template>
 	<div class="profile-header--container">
 		<img
+			v-if="picture != 'default'"
 			class="profile--picture"
-			:src="currentUser.profilepicture"
+			:src="`${picture}`"
+			alt="Profile picture"
+		/>
+		<img
+			v-if="picture == 'default'"
+			class="profile--picture"
+			src="./../../assets/DefaultPicture.svg"
 			alt="Profile picture"
 		/>
 		<div class="profile--name-area">
-			<h4 class="profile--names">
-				{{ currentUser.firstname }} {{ currentUser.lastname }}
-			</h4>
-			<h6 class="profile--area">{{ currentUser.area }}</h6>
+			<h4 class="profile--names">{{ firstname }} {{ lastname }}</h4>
+			<h6 class="profile--area">{{ area }}</h6>
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
 	name: "ProfileHeader",
-	computed: {
-		...mapState(["currentUser"])
-	}
+	props: ["firstname", "lastname", "area", "picture"]
 };
 </script>
 
