@@ -30,7 +30,16 @@ function getUser(id) {
 	return getReq(`/account/${id}`);
 }
 
+function createUser(userInfo) {
+	return postReq(`/account`, userInfo);
+}
+function createDog(dogInfo) {
+	return postReq(`/dog`, dogInfo);
+}
+
 export default {
 	userAuth,
-	getUser
+	getUser,
+	createUser,
+	createDog
 };

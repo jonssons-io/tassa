@@ -19,7 +19,8 @@ export default new Vuex.Store({
 			gender: "",
 			area: "",
 			password: "",
-			repeatPassword: ""
+			repeatPassword: "",
+			gdpr: true
 		},
 		dogRegistration: {
 			name: "",
