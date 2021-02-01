@@ -1,7 +1,7 @@
 <template>
 	<b-container fluid class="mh-100 mw-100">
 		<RegisterTitle title="Registrera din hund" />
-		<RegisterDogForm ctabtntext="Gå med" />
+		<RegisterDogForm :userForm="userForm" ctabtntext="Gå med" />
 		<NavBar />
 	</b-container>
 </template>
@@ -17,7 +17,8 @@ export default {
 		RegisterDogForm,
 		RegisterTitle,
 		NavBar
-	}
+	},
+	props: ["userForm"]
 };
 </script>
 
