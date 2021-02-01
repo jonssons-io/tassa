@@ -51,7 +51,7 @@
         <label class="editPersonal_changeLabel">Byt profilbild</label>
       </b-col>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <input class="editPersonal_changeInput" placeholder="Ladda upp bild"
+        <button class="editPersonal_changeButton" placeholder="Ladda upp bild"
       /></b-col>
     </b-row>
     <b-row>
@@ -59,7 +59,7 @@
         <label class="editPersonal_changeLabel">Radera ditt konto</label>
       </b-col>
       <b-col cols="6" sm="2" md="2" lg="2">
-        <input class="editPersonal_changeInput" placeholder="Radera" />
+        <button class="editPersonal_changeButton" placeholder="Radera" />
       </b-col>
     </b-row>
     <b-nav-item v-if="loggedInStatus" @click.stop="toggleProfileTab">
