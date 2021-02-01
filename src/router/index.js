@@ -29,13 +29,22 @@ const routes = [
 			import(/* webpackChunkName: "match" */ "../views/Match.vue")
 	},
 	{
-		path: "/editera-profil",
-		name: "EditProfile",
+		path: "/editera-preferenser",
+		name: "EditPreferences",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: () =>
-			import(/* webpackChunkName: "profile" */ "../views/EditProfile.vue")
+			import(/* webpackChunkName: "profile" */ "../views/EditPreferences.vue")
+	},
+	{
+		path: "/editera-personligt",
+		name: "EditPersonal",
+		// route level code-splitting
+		// this generates a separate chunk (about.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+		component: () =>
+			import(/* webpackChunkName: "family" */ "../views/EditPersonal.vue")
 	},
 	{
 		path: "/logga-in",
