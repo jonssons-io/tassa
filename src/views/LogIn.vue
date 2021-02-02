@@ -208,10 +208,4 @@ export default {
 	right: 0;
 	margin: auto;
 }
-b-alert {
-	margin: 1em 0;
-}
-.spinner-border {
-	margin-right: 1em;
-}
 </style>
