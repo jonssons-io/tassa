@@ -1,100 +1,62 @@
 <template>
   <b-container>
-    <b-row>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <h3>Personligt</h3>
-      </b-col>
+      <h4 class="editPersonal_changeLabel">Personligt</h4>
+    <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in phone" :key="type">
+        <lable class="editLable" :for="`type-${type}`" >{{ type }}</lable>
+        <b-form-input placeholder="070-1234567" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input>
     </b-row>
-    <b-row>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <label class="editPersonal_changeLabel">Telefonnummer</label>
-      </b-col>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <input
-          class="editPersonal_changeInput"
-          placeholder="070-123 45 67"
-        />
-      </b-col>
+    <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in mail" :key="type">
+        <label class="editLable" :for="`type-${type}`">{{ type }}</label>
+        <b-form-input placeholder="Namn@mail.com" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input>
     </b-row>
-    <b-row>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <label text-align="left" class="editPersonal_changeLabel">E-postadress</label>
-      </b-col>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <input
-          class="editPersonal_changeInput"
-          placeholder="namn@mail.se"
-        />
-      </b-col>
+      <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in area" :key="type">
+        <label class="editLable" :for="`type-${type}`">{{ type }}</label>
+        <b-form-input placeholder="Östra svealand" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input>
     </b-row>
-    <b-row>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <label class="editPersonal_changeLabel">Geografiskt område</label>
-      </b-col>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <input
-          class="editPersonal_changeInput"
-          placeholder="Östra Svealand"
-        />
-      </b-col>
+     <b-row cols="2" sm="2" md="2" lg="2" class="my-4 "  v-for="type in name" :key="type">
+        <label :for="`type-${type}`">{{ type }}</label>
+        <b-form-input placeholder="Namn Efternamn" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input>
     </b-row>
-    <b-row>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <label class="editPersonal_changeLabel">Ändra efternamn</label>
-      </b-col>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <input class="editPersonal_changeInput" placeholder="Namn Efternamn"
-      /></b-col>
+    <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in picture" :key="type">
+         <label :for="`type-${type}`">{{ type }}</label>
+         <button
+         color="success"
+         class="btn btn-success">{{'Ladda upp bild'}}</button>
     </b-row>
-    <b-row>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <label class="editPersonal_changeLabel">Byt profilbild</label>
-      </b-col>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <button class="editPersonal_changeButton" placeholder="Ladda upp bild"
-      /></b-col>
+  <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in erease" :key="type">
+         <label :for="`type-${type}`">{{ type }}</label>
+         <button
+         color="success"
+         class="btn btn-danger">{{'Radera'}}</button>
     </b-row>
-    <b-row>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <label class="editPersonal_changeLabel">Radera ditt konto</label>
-      </b-col>
-      <b-col cols="6" sm="2" md="2" lg="2">
-        <button class="editPersonal_changeButton" placeholder="Radera" />
-      </b-col>
-    </b-row>
-    <b-nav-item v-if="loggedInStatus" @click.stop="toggleProfileTab">
-      Profil
-      <font-awesome-icon
-        icon="chevron-down"
-        v-if="!expandMenu"
-      ></font-awesome-icon>
-      <font-awesome-icon icon="times" v-if="expandMenu"></font-awesome-icon>
-      <b-nav-item
-        v-if="expandMenu"
-        class="nav--subitem"
-        :to="`profil/${loggedInUser}`"
-      >
-        Visa Profil
-      </b-nav-item>
-      <b-nav-item v-if="expandMenu" class="nav--subitem">
-        Lägg till hund
-      </b-nav-item>
-      <b-nav-item v-if="expandMenu" class="nav--subitem">
-        Ändra preferenser
-      </b-nav-item>
-      <b-nav-item v-if="expandMenu" class="nav--subitem">
-        Editera beskrivning och familj
-      </b-nav-item>
-      <b-nav-item v-if="expandMenu" class="nav--subitem">
-        Personliga inställningar
-      </b-nav-item>
-    </b-nav-item>
   </b-container>
 </template>
 
 <script>
 export default {
-  name: "EditPersonal"
+  name: "EditPersonal",
+  data() {
+      return {
+          phone:[
+        'Telefonnummer'
+          ],
+          mail:[
+        'E-postadress'
+          ],
+          area:[
+        'Geografiskt område'
+          ],
+        name: [
+            'Ändra namn'
+        ],
+        picture: [
+            'Byt profilbild'
+        ],
+        erease: [
+            'Radera ditt konto'
+        ]
+      }
+    }
 };
 import "./../../assets/css/editPersonal.css";
 </script>
