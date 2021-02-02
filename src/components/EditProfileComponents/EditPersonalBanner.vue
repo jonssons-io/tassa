@@ -1,33 +1,33 @@
 <template>
   <b-container>
       <h4 class="editPersonal_changeLabel">Personligt</h4>
-    <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in phone" :key="type">
-        <lable class="editLable" :for="`type-${type}`" >{{ type }}</lable>
-        <b-form-input placeholder="070-1234567" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input>
+    <b-row  class="my-4" v-for="type in phone" :key="type"> 
+     <b-col cols="6"><lable  class="editLable" :for="`type-${type}`" >{{ type }}</lable> </b-col> 
+     <b-col cols="6"><b-form-input cols="6" placeholder="070-1234567" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input></b-col>
     </b-row>
-    <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in mail" :key="type">
-        <label class="editLable" :for="`type-${type}`">{{ type }}</label>
-        <b-form-input placeholder="Namn@mail.com" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input>
+    <b-row  class="my-4" v-for="type in mail" :key="type">
+     <b-col cols="6"><label class="editLable" :for="`type-${type}`">{{ type }}</label></b-col>
+     <b-col cols="6"><b-form-input placeholder="Namn@mail.com" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input></b-col>
     </b-row>
-      <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in area" :key="type">
-        <label class="editLable" :for="`type-${type}`">{{ type }}</label>
-        <b-form-input placeholder="Östra svealand" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input>
+      <b-row  class="my-4" v-for="type in area" :key="type">
+       <b-col cols="6"><label class="editLable" :for="`type-${type}`">{{ type }}</label></b-col>
+       <b-col cols="6"><b-form-input placeholder="Östra svealand" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input></b-col>
     </b-row>
-     <b-row cols="2" sm="2" md="2" lg="2" class="my-4 "  v-for="type in name" :key="type">
-        <label :for="`type-${type}`">{{ type }}</label>
-        <b-form-input placeholder="Namn Efternamn" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input>
+     <b-row  class="my-4 "  v-for="type in name" :key="type">
+      <b-col cols="6"><label class="editLable" :for="`type-${type}`">{{ type }}</label></b-col>  
+      <b-col cols="6"><b-form-input placeholder="Namn Efternamn" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input></b-col>  
     </b-row>
-    <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in picture" :key="type">
-         <label :for="`type-${type}`">{{ type }}</label>
-         <button
+    <b-row  class="my-4" v-for="type in picture" :key="type">
+     <b-col cols="6"><label class="editLable" :for="`type-${type}`">{{ type }}</label></b-col>    
+     <b-col cols="6"><button
          color="success"
-         class="btn btn-success">{{'Ladda upp bild'}}</button>
+         class="btn btn-success">{{'Ladda upp bild'}}</button></b-col>    
     </b-row>
-  <b-row cols="2" sm="2" md="2" lg="2" class="my-4" v-for="type in erease" :key="type">
-         <label :for="`type-${type}`">{{ type }}</label>
-         <button
+  <b-row  class="my-4" v-for="type in erease" :key="type">
+   <b-col cols="6"><label class="editLable" :for="`type-${type}`">{{ type }}</label></b-col>      
+   <b-col cols="6"><button
          color="success"
-         class="btn btn-danger">{{'Radera'}}</button>
+         class="btn btn-danger">{{'Radera'}}</button></b-col>      
     </b-row>
   </b-container>
 </template>

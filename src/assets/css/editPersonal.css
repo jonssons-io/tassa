@@ -6,7 +6,7 @@
 .editLable {
     font-size: 1rem;
     color: white;
-    justify-self: left;
+    float: left;
     padding-top: 3%;
 }
 .editPersonal_changeInput {
@@ -17,6 +17,7 @@
 }
 .btn{
     border-radius: 20px 20px 20px 20px;
+    width: 100%;
 }
 .my-4{
     padding-top: 3%;

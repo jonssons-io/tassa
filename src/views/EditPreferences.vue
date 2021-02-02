@@ -26,8 +26,9 @@ export default {
 		ApiHandler.getPrefe(this.$store.state.currentUser.id).then(res => {
 			console.log("res", res);
 			this.profileHeader.firstname = res.data.result.firstName;
-			this.profileHeader.lastname = res.data.result.lastName;
-		});
+      this.profileHeader.lastname = res.data.result.lastName;
+    });
+    
 	},
 	data() {
 		return {
