@@ -106,11 +106,16 @@ import NavBar from "@/components/NavBar.vue";
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
 // import ApiHandler from "@/util/ApiHandler.js";
+import CookieHandler from "@/util/CookieHandler.js";
 
 export default {
 	name: "LogIn",
 	components: {
 		NavBar
+	},
+	mounted() {
+		let email = CookieHandler.getCookie("userEmail");
+		this.loginform.email = email;
 	},
 	mixins: [validationMixin],
 	data() {
@@ -158,6 +163,9 @@ export default {
 			console.log(this.loginform.email);
 			this.login.btnText = "Laddar...";
 			this.login.showBtnSpinner = true;
+			if (this.rememberMe) {
+				CookieHandler.setCookie("userEmail", this.loginform.email);
+			}
 			this.$store
 				.dispatch("USER_AUTH", {
 					email: this.loginform.email,

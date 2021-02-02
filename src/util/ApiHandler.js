@@ -3,6 +3,7 @@ import store from "./../store/index.js";
 
 const BASE_URL = "/api/v1";
 
+// TODO: Flytta token osv till annan storage
 function getAuthHeader() {
 	let token = store.state.currentUser.authtoken;
 	if (token != "") {

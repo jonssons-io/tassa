@@ -11,17 +11,6 @@ export default new Vuex.Store({
 			authtoken: "",
 			id: ""
 		},
-		userRegistration: {
-			firstname: "",
-			lastname: "",
-			email: "",
-			phone: "",
-			gender: "",
-			area: "",
-			password: "",
-			repeatPassword: "",
-			gdpr: true
-		},
 		dogRegistration: {
 			name: "",
 			gender: "",
@@ -31,9 +20,6 @@ export default new Vuex.Store({
 		}
 	},
 	mutations: {
-		saveUserForm(state, payload) {
-			state.userRegistration = payload;
-		},
 		saveDogForm(state, payload) {
 			state.dogRegistration = payload.registerdogform;
 		},
