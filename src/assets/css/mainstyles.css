@@ -11252,4 +11252,12 @@ select option {
 .profile-desc--container {
   margin-bottom: 15vh;
 }
+
+.alert {
+  margin: 1em 0;
+}
+
+.spinner-border {
+  margin-right: 1em;
+}
 /*# sourceMappingURL=mainstyles.css.map */

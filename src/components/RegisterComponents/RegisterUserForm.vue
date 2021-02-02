@@ -1,9 +1,9 @@
 <template>
 	<b-form @submit.stop.prevent="onSubmit">
 		<b-form-group
-			id="register-firstname-formgroup"
+			id="register-firstName-formgroup"
 			label="Förnamn"
-			label-for="register-firstname"
+			label-for="register-firstName"
 			label-align="left"
 		>
 			<b-input-group>
@@ -11,55 +11,55 @@
 					<font-awesome-icon icon="id-card"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
-					id="register-firstname"
+					id="register-firstName"
 					type="text"
-					name="register-firstname"
-					v-model="$v.registeruserform.firstname.$model"
-					:state="validateState('firstname')"
-					aria-describedby="register-firstname-live-feedback"
+					name="register-firstName"
+					v-model="$v.registeruserform.firstName.$model"
+					:state="validateState('firstName')"
+					aria-describedby="register-firstName-live-feedback"
 					placeholder="Ange ditt förnamn"
 					trim
 				></b-form-input>
 				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
-					id="register-name-firstname-live-feedback"
-					v-if="!$v.registeruserform.firstname.required"
+					id="register-name-firstName-live-feedback"
+					v-if="!$v.registeruserform.firstName.required"
 				>
-					{{ this.registeruserformErrorMsg.firstname.isRequired }}
+					{{ this.registeruserformErrorMsg.firstName.isRequired }}
 				</b-form-invalid-feedback>
 				<!-- Shows validation errormessage if field is filled in, but does not meet the length criteria -->
 				<b-form-invalid-feedback
-					id="register-name-firstname-live-feedback"
+					id="register-name-firstName-live-feedback"
 					v-if="
-						($v.registeruserform.firstname.required &&
-							!$v.registeruserform.firstname.minLength) ||
-							($v.registeruserform.firstname.required &&
-								!$v.registeruserform.firstname.maxLength)
+						($v.registeruserform.firstName.required &&
+							!$v.registeruserform.firstName.minLength) ||
+							($v.registeruserform.firstName.required &&
+								!$v.registeruserform.firstName.maxLength)
 					"
 				>
 					{{
-						this.registeruserformErrorMsg.firstname
+						this.registeruserformErrorMsg.firstName
 							.isNotCorrectLength
 					}}
 				</b-form-invalid-feedback>
 				<!-- Shows validation errormessage if field is filled in, correct length but has characters that are not UNICODE-approved letters -->
 				<b-form-invalid-feedback
-					id="register-name-firstname-live-feedback"
+					id="register-name-firstName-live-feedback"
 					v-if="
-						$v.registeruserform.firstname.required &&
-							$v.registeruserform.firstname.minLength &&
-							$v.registeruserform.firstname.maxLength &&
-							!$v.registeruserform.firstname.validFirstName
+						$v.registeruserform.firstName.required &&
+							$v.registeruserform.firstName.minLength &&
+							$v.registeruserform.firstName.maxLength &&
+							!$v.registeruserform.firstName.validFirstName
 					"
 				>
-					{{ this.registeruserformErrorMsg.firstname.isNotValidName }}
+					{{ this.registeruserformErrorMsg.firstName.isNotValidName }}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
 		<b-form-group
-			id="register-lastname-formgroup"
+			id="register-lastName-formgroup"
 			label="Efternamn"
-			label-for="register-lastname"
+			label-for="register-lastName"
 			label-align="left"
 		>
 			<b-input-group>
@@ -67,48 +67,48 @@
 					<font-awesome-icon icon="id-card"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
-					id="register-lastname"
+					id="register-lastName"
 					type="text"
-					name="register-lastname"
-					v-model="$v.registeruserform.lastname.$model"
-					:state="validateState('lastname')"
-					aria-describedby="register-lastname-live-feedback"
+					name="register-lastName"
+					v-model="$v.registeruserform.lastName.$model"
+					:state="validateState('lastName')"
+					aria-describedby="register-lastName-live-feedback"
 					placeholder="Ange ditt efternamn"
 					trim
 				></b-form-input>
 				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
-					id="register-name-lastname-live-feedback"
-					v-if="!$v.registeruserform.lastname.required"
+					id="register-name-lastName-live-feedback"
+					v-if="!$v.registeruserform.lastName.required"
 				>
-					{{ this.registeruserformErrorMsg.lastname.isRequired }}
+					{{ this.registeruserformErrorMsg.lastName.isRequired }}
 				</b-form-invalid-feedback>
 				<!-- Shows validation errormessage if field is filled in, but does not meet the length criteria -->
 				<b-form-invalid-feedback
-					id="register-name-lastname-live-feedback"
+					id="register-name-lastName-live-feedback"
 					v-if="
-						($v.registeruserform.lastname.required &&
-							!$v.registeruserform.lastname.minLength) ||
-							($v.registeruserform.lastname.required &&
-								!$v.registeruserform.lastname.maxLength)
+						($v.registeruserform.lastName.required &&
+							!$v.registeruserform.lastName.minLength) ||
+							($v.registeruserform.lastName.required &&
+								!$v.registeruserform.lastName.maxLength)
 					"
 				>
 					{{
-						this.registeruserformErrorMsg.lastname
+						this.registeruserformErrorMsg.lastName
 							.isNotCorrectLength
 					}}
 				</b-form-invalid-feedback>
 				<!-- Shows validation errormessage if field is filled in, correct length but has characters that are not UNICODE-approved letters -->
 				<b-form-invalid-feedback
-					id="register-name-lastname-live-feedback"
+					id="register-name-lastName-live-feedback"
 					v-if="
-						$v.registeruserform.lastname.required &&
-							$v.registeruserform.lastname.minLength &&
-							$v.registeruserform.lastname.maxLength &&
-							!$v.registeruserform.lastname.validLastName
+						$v.registeruserform.lastName.required &&
+							$v.registeruserform.lastName.minLength &&
+							$v.registeruserform.lastName.maxLength &&
+							!$v.registeruserform.lastName.validLastName
 					"
 				>
-					{{ this.registeruserformErrorMsg.lastname.isNotValidName }}
+					{{ this.registeruserformErrorMsg.lastName.isNotValidName }}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
@@ -153,9 +153,9 @@
 			</b-input-group>
 		</b-form-group>
 		<b-form-group
-			id="register-phone-formgroup"
+			id="register-phoneNumber-formgroup"
 			label="Mobilnummer"
-			label-for="register-phone"
+			label-for="register-phoneNumber"
 			label-align="left"
 			class="formgroup--middle"
 		>
@@ -164,32 +164,36 @@
 					<font-awesome-icon icon="mobile-alt"></font-awesome-icon>
 				</b-input-group-prepend>
 				<b-form-input
-					id="register-phone"
+					id="register-phoneNumber"
 					type="text"
-					name="register-phone"
-					v-model="$v.registeruserform.phone.$model"
-					:state="validateState('phone')"
-					aria-describedby="register-phone-live-feedback"
+					name="register-phoneNumber"
+					v-model="$v.registeruserform.phoneNumber.$model"
+					:state="validateState('phoneNumber')"
+					aria-describedby="register-phoneNumber-live-feedback"
 					placeholder="Ange ditt mobilnummer"
 					trim
 				></b-form-input>
 				<!-- Shows validation errormessage if field is blank after being touched -->
 				<b-form-invalid-feedback
-					id="register-phone-live-feedback"
-					v-if="!$v.registeruserform.phone.required"
+					id="register-phoneNumber-live-feedback"
+					v-if="!$v.registeruserform.phoneNumber.required"
 				>
-					{{ this.registeruserformErrorMsg.phone.isRequired }}
+					{{ this.registeruserformErrorMsg.phoneNumber.isRequired }}
 				</b-form-invalid-feedback>
 				<!-- Shows validation errormessage if field is filled in, but does not contain a valid swedish cellphone number -->
 				<b-form-invalid-feedback
-					id="register-phone-live-feedback"
+					id="register-phoneNumber-live-feedback"
 					v-if="
-						$v.registeruserform.phone.required &&
-							(!$v.registeruserform.phone.minLength ||
-								!$v.registeruserform.phone.swedishPhoneNumber)
+						$v.registeruserform.phoneNumber.required &&
+							(!$v.registeruserform.phoneNumber.minLength ||
+								!$v.registeruserform.phoneNumber
+									.swedishPhoneNumber)
 					"
 				>
-					{{ this.registeruserformErrorMsg.phone.isNotValidPhone }}
+					{{
+						this.registeruserformErrorMsg.phoneNumber
+							.isNotValidPhoneNumber
+					}}
 				</b-form-invalid-feedback>
 			</b-input-group>
 		</b-form-group>
@@ -206,9 +210,9 @@
 					name="register-gender"
 					:state="validateState('gender')"
 					aria-describedby="register-gender-live-feedback"
-					value="male"
+					value="man"
 				>
-					{{ this.genders.male }}
+					{{ this.genders.man }}
 				</b-form-radio>
 				<b-form-radio
 					id="register-gender-female"
@@ -216,9 +220,9 @@
 					name="register-gender"
 					:state="validateState('gender')"
 					aria-describedby="register-gender-live-feedback"
-					value="female"
+					value="woman"
 				>
-					{{ this.genders.female }}
+					{{ this.genders.woman }}
 				</b-form-radio>
 				<b-form-radio
 					id="register-gender-other"
@@ -354,11 +358,22 @@
 		<b-button type="submit" variant="outline-tassabtnred"
 			>Ladda upp bild</b-button
 		>
+		<b-alert
+			variant="danger"
+			v-model="registerButton.showLoginFailed"
+			dismissible
+			>{{ this.registerButton.failedMsg }}</b-alert
+		>
 		<b-button
 			type="submit"
 			variant="tassabtnred"
 			class="btn-register--bottom"
-			>{{ ctabtntext }}</b-button
+			:disabled="registerButton.showBtnSpinner"
+			><b-spinner
+				style="width: 1.5em; height: 1.5em;"
+				v-if="registerButton.showBtnSpinner"
+			></b-spinner
+			>{{ this.registerButton.btnText }}</b-button
 		>
 	</b-form>
 </template>
@@ -372,6 +387,7 @@ import {
 	minLength,
 	maxLength
 } from "vuelidate/lib/validators";
+import ApiHandler from "../../util/ApiHandler";
 
 export default {
 	name: "RegisterUserForm",
@@ -379,10 +395,10 @@ export default {
 	data() {
 		return {
 			registeruserform: {
-				firstname: null,
-				lastname: null,
+				firstName: null,
+				lastName: null,
 				email: null,
-				phone: null,
+				phoneNumber: null,
 				gender: null,
 				area: null,
 				password: null,
@@ -390,13 +406,13 @@ export default {
 			},
 			// Validation error messages to be shown if validation fails.
 			registeruserformErrorMsg: {
-				firstname: {
+				firstName: {
 					isRequired: "Du måste ange ditt förnamn.",
 					isNotCorrectLength:
 						"Förnamn måste vara mellan 2-256 bokstäver.",
 					isNotValidName: "Förnamn får endast innehålla bokstäver."
 				},
-				lastname: {
+				lastName: {
 					isRequired: "Du måste ange ditt efternamn.",
 					isNotCorrectLength:
 						"Efternamn måste vara mellan 2-256 bokstäver.",
@@ -406,9 +422,9 @@ export default {
 					isRequired: "Du måste ange din e-postadress.",
 					isNotEmail: "E-postadressen är inte giltig."
 				},
-				phone: {
+				phoneNumber: {
 					isRequired: "Du måste ange ditt mobilnummer.",
-					isNotValidPhone:
+					isNotValidPhoneNumber:
 						"Telefonnumret måste vara 10 siffror utan mellanslag och bindestreck."
 				},
 				gender: {
@@ -429,8 +445,8 @@ export default {
 			},
 			consent: false,
 			genders: {
-				male: "Man",
-				female: "Kvinna",
+				man: "Man",
+				woman: "Kvinna",
 				other: "Annat"
 			},
 			areas: [
@@ -440,25 +456,31 @@ export default {
 				{ text: "Solna", value: "solna" },
 				{ text: "Sundbyberg", value: "sundbyberg" },
 				{ text: "Ekerö", value: "ekero" }
-			]
+			],
+			registerButton: {
+				showRegisterFailed: false,
+				failedMsg: "",
+				btnText: "Gå med",
+				showBtnSpinner: false
+			}
 		};
 	},
 	props: ["ctabtntext"],
 	validations: {
 		registeruserform: {
-			firstname: {
+			firstName: {
 				// Checks so the name only contains UNICODE-approved letters
-				validFirstName: firstname => {
-					return /^[\p{L} .'-]+$/gu.test(firstname);
+				validFirstName: firstName => {
+					return /^[\p{L} .'-]+$/gu.test(firstName);
 				},
 				minLength: minLength(2),
 				maxLength: maxLength(256),
 				required
 			},
-			lastname: {
+			lastName: {
 				// Checks so the name only contains UNICODE-approved letters
-				validLastName: lastname => {
-					return /^[\p{L} .'-]+$/gu.test(lastname);
+				validLastName: lastName => {
+					return /^[\p{L} .'-]+$/gu.test(lastName);
 				},
 				minLength: minLength(2),
 				maxLength: maxLength(256),
@@ -468,14 +490,14 @@ export default {
 				required,
 				email
 			},
-			phone: {
+			phoneNumber: {
 				minLength: minLength(10),
 				// Removes all special characters and whitespaces if phone is not null. Then checks if the number starts with 0046, 0 or 46, followed by 7, followed by 8 digits 0-9.
-				swedishPhoneNumber: phone => {
-					if (phone != null) {
-						phone = phone.replace(/-|\s|\+/g, "");
+				swedishPhoneNumber: phoneNumber => {
+					if (phoneNumber != null) {
+						phoneNumber = phoneNumber.replace(/-|\s|\+/g, "");
 					}
-					return /^(?:0046|0|46)7(\d{8})$/.test(phone);
+					return /^(?:0046|0|46)7(\d{8})$/.test(phoneNumber);
 				},
 				required
 			},
@@ -513,28 +535,68 @@ export default {
 			const { $dirty, $error } = this.$v.registeruserform[inputResponse];
 			return $dirty ? !$error : null;
 		},
-		onSubmit() {
+		onSubmit(event) {
+			event.preventDefault();
+			this.registerButton.btnText = "Laddar...";
+			this.registerButton.showBtnSpinner = true;
 			this.$v.registeruserform.$touch();
-			let registeruserform = this.registeruserform;
 			// Changes color of checkboxlabel to red if state is unchecked.
 			if (this.consent == false) {
 				this.checkboxLabelColor("#FF2942");
+				this.registerButton.showBtnSpinner = false;
+				this.registerButton.btnText = "Gå med";
 			}
 			// Changes color of checkboxlabel to white if state is checked, but the form has other invalid fields.
 			else if (this.$v.registeruserform.$anyError) {
 				this.checkboxLabelColor("white");
+				this.registerButton.showBtnSpinner = false;
+				this.registerButton.btnText = "Gå med";
 			}
 			// Sends userinput to Store, sets color of checkboxlabel to white and re-routes user to RegisterDog-view.
 			else {
-				this.$store.commit({
-					type: "saveUserForm",
-					registeruserform
-				});
-				this.checkboxLabelColor("white");
-				this.$router.push({
-					name: "RegisterDog",
-					params: { registeruserform }
-				});
+				let userInfo = {
+					firstName: this.registeruserform.firstName,
+					lastName: this.registeruserform.lastName,
+					gender: this.registeruserform.gender,
+					email: this.registeruserform.email,
+					phoneNumber: this.registeruserform.phoneNumber,
+					gdpr: this.consent[0],
+					geoPosition: this.registeruserform.area,
+					password: this.registeruserform.password
+				};
+				let accountInfo = {
+					email: this.registeruserform.email,
+					password: this.registeruserform.password
+				};
+				ApiHandler.createUser(userInfo)
+					.then(() => {
+						ApiHandler.userAuth(accountInfo)
+							.then(() => {
+								this.registerButton.showBtnSpinner = false;
+								this.registerButton.btnText = "Gå med";
+								this.checkboxLabelColor("white");
+								this.$router.push({
+									name: "RegisterDog"
+								});
+							})
+							.catch(error => {
+								console.log(error);
+							});
+					})
+					.catch(error => {
+						console.log("errorresponse ", error.response);
+						console.log("error ", error.response.data.result);
+						this.registerButton.showLoginFailed = true;
+						this.registerButton.showBtnSpinner = false;
+						this.registerButton.btnText = "Gå med";
+						if (error.response.data.result.includes("E11000")) {
+							this.registerButton.failedMsg =
+								"Det finns redan ett konto med samma uppgifter.";
+						} else {
+							this.registerButton.failedMsg =
+								"Det går inte att registrera sig just nu. Försök igen om en stund.";
+						}
+					});
 			}
 		}
 	}

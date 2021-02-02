@@ -1,7 +1,7 @@
 <template>
 	<b-container fluid class="mh-100 mw-100">
 		<RegisterTitle title="Registrera dig" />
-		<RegisterUserForm ctabtntext="Nästa" />
+		<RegisterUserForm />
 		<NavBar />
 	</b-container>
 </template>
