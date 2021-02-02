@@ -1,9 +1,9 @@
 <template>
-  <div class="editProfile_banner">
-    <ProfileHeader />
-    <EditPreferencesBanner />
-    <NavBar />
-  </div>
+	<div class="editProfile_banner">
+		<ProfileHeader />
+		<EditPreferencesBanner />
+		<NavBar />
+	</div>
 </template>
 
 <script>
@@ -12,18 +12,18 @@ import ProfileHeader from "@/components/ProfilePageComponents/ProfileHeader.vue"
 import NavBar from "@/components/NavBar.vue";
 
 export default {
-  name: "EditPreferences",
-  components: {
-    ProfileHeader,
-    EditPreferencesBanner,
-    NavBar
-  }
+	name: "EditPreferences",
+	components: {
+		ProfileHeader,
+		EditPreferencesBanner,
+		NavBar
+	}
 };
 </script>
 
-<style >
+<style>
 .editProfile_banner {
-  background-color: #005b52;
-  height: 100%;
+	background-color: #005b52;
+	height: 100%;
 }
 </style>
