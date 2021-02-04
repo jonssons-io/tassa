@@ -96,7 +96,6 @@
 				>{{ this.login.btnText }}</b-button
 			>
 		</b-form>
-		<span class="forgot-password">Glömt lösenord? Klicka här!</span>
 		<NavBar />
 	</b-container>
 </template>
@@ -210,12 +209,5 @@ export default {
 }
 .formgroup--top {
 	padding-top: 2em;
-}
-.forgot-password {
-	position: absolute;
-	bottom: 7em;
-	left: 0;
-	right: 0;
-	margin: auto;
 }
 </style>
