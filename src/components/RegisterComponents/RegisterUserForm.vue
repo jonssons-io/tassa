@@ -576,7 +576,7 @@ export default {
 								this.registerButton.btnText = "Gå med";
 								this.checkboxLabelColor("white");
 								this.$router.push({
-									name: "RegisterDog"
+									path: "/registrera-hund"
 								});
 							})
 							.catch(error => {
