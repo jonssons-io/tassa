@@ -283,7 +283,6 @@ export default {
 			}
 		};
 	},
-	props: ["ctabtntext", "userForm"],
 	validations: {
 		registerdogform: {
 			name: {

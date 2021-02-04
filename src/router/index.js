@@ -100,13 +100,12 @@ const routes = [
 		}
 	},
 	{
-		path: "/registrera-hund/:id",
+		path: "/registrera-hund",
 		name: "RegisterDog",
 		component: () =>
 			import(
 				/* webpackChunkName: "registerdog" */ "../views/RegisterDog.vue"
 			),
-		props: true,
 		meta: {
 			title: "Tassa - Registrera din hund"
 		}

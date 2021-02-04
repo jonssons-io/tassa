@@ -584,8 +584,6 @@ export default {
 							});
 					})
 					.catch(error => {
-						console.log("errorresponse ", error.response);
-						console.log("error ", error.response.data.result);
 						this.registerButton.showLoginFailed = true;
 						this.registerButton.showBtnSpinner = false;
 						this.registerButton.btnText = "Gå med";

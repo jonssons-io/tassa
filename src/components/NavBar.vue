@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import CookieHandler from "../util/CookieHandler";
 export default {
 	name: "NavBar",
 	data() {
@@ -88,10 +89,10 @@ export default {
 	},
 	computed: {
 		loggedInStatus() {
-			return this.$store.state.currentUser.authstatus;
+			return CookieHandler.getCookie("authstatus");
 		},
 		loggedInUser() {
-			return this.$store.state.currentUser.id;
+			return CookieHandler.getCookie("userid");
 		}
 	},
 	methods: {

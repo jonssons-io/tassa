@@ -1,11 +1,11 @@
 import axios from "axios";
-import store from "./../store/index.js";
+import CookieHandler from "./CookieHandler.js";
 
 const BASE_URL = "/api/v1";
 
 // TODO: Flytta token osv till annan storage
 function getAuthHeader() {
-	let token = store.state.currentUser.authtoken;
+	let token = CookieHandler.getCookie("authtoken");
 	if (token != "") {
 		return {
 			headers: {
@@ -34,7 +34,28 @@ function deleteReq(path, data) {
 
 // Request for user login.
 function userAuth(loginform) {
-	return postReq("/auth/login", loginform);
+	return postReq("/auth/login", loginform)
+		.then(res => {
+			CookieHandler.setCookie(
+				"authstatus",
+				true,
+				res.data.result.token.expires
+			);
+			CookieHandler.setCookie(
+				"authtoken",
+				res.data.result.token.token,
+				res.data.result.token.expires
+			);
+			CookieHandler.setCookie(
+				"userid",
+				res.data.result.user._id,
+				res.data.result.token.expires
+			);
+			return res;
+		})
+		.catch(error => {
+			return error;
+		});
 }
 
 // User requests
@@ -43,6 +64,7 @@ function getUser(id) {
 }
 
 function createUser(userInfo) {
+	console.log("createuser ", userInfo);
 	return postReq(`/account`, userInfo);
 }
 

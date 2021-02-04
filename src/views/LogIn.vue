@@ -107,6 +107,7 @@ import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
 // import ApiHandler from "@/util/ApiHandler.js";
 import CookieHandler from "@/util/CookieHandler.js";
+import ApiHandler from "../util/ApiHandler";
 
 export default {
 	name: "LogIn",
@@ -166,36 +167,37 @@ export default {
 			if (this.rememberMe) {
 				CookieHandler.setCookie("userEmail", this.loginform.email);
 			}
-			this.$store
-				.dispatch("USER_AUTH", {
-					email: this.loginform.email,
-					password: this.loginform.password
-				})
-				.then(res => {
-					console.log(res);
-					this.$router.push({
+			let loginform = {
+				email: this.loginform.email,
+				password: this.loginform.password
+			};
+			ApiHandler.userAuth(loginform).then(res => {
+				console.log(res);
+				this.$router
+					.push({
 						name: "ProfilePage",
 						params: {
-							id: this.$store.state.currentUser.id
+							id: CookieHandler.getCookie("userid")
+						}
+					})
+					.catch(error => {
+						console.log("errorresponse ", error.response);
+						console.log("error ", error);
+						this.login.showLoginFailed = true;
+						this.login.showBtnSpinner = false;
+						this.login.btnText = "Logga in";
+						switch (error.response.status) {
+							case 401:
+								this.login.failedMsg =
+									"Fel inloggningsuppgifter";
+								break;
+							default:
+								this.login.failedMsg =
+									"Det går inte att logga in just nu. Försök igen om en stund.";
+								break;
 						}
 					});
-				})
-				.catch(error => {
-					console.log("errorresponse ", error.response);
-					console.log("error ", error);
-					this.login.showLoginFailed = true;
-					this.login.showBtnSpinner = false;
-					this.login.btnText = "Logga in";
-					switch (error.response.status) {
-						case 401:
-							this.login.failedMsg = "Fel inloggningsuppgifter";
-							break;
-						default:
-							this.login.failedMsg =
-								"Det går inte att logga in just nu. Försök igen om en stund.";
-							break;
-					}
-				});
+			});
 		}
 	}
 };
