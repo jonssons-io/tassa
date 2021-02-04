@@ -25,14 +25,7 @@
         name="sizeSelector"
       ></b-form-checkbox-group>
     </b-form-group>
-    <b-form-group class="information_container">
-      <h6 class="editProfile_changePresentation-Header">Allmän information </h6>
-      <b-form-checkbox-group class="editProfile_changePresentation-text"
-        v-model="information"
-        :options="informationoptions"
-        name="informationSelector"
-      ></b-form-checkbox-group>
-    </b-form-group>
+    <button>Spara ändringar</button>
   </b-container>
 </template>
 
@@ -57,12 +50,6 @@ export default {
         { text: "Små hundar", value: "small dogs" },
         { text: "Medelstora hundar", value: "middle dogs" },
         { text: "Stora hundar", value: "Big dogs" }
-      ],
-         information: [],
-      informationoptions: [
-        { text: "Visa antal månader sedan registrering", value: "show months since registration" },
-        { text: "Visa antalet nya kontakter sedan registrering", value: "Show new contacts since registration"},
-        { text: "Visa antalet promenader sedan registrering", value: "Show walks since registration"}
       ]
     };
   }

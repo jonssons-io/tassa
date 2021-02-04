@@ -15,7 +15,11 @@
     </b-row>
      <b-row  class="my-4 "  v-for="type in name" :key="type">
       <b-col cols="6"><label class="editLable" :for="`type-${type}`">{{ type }}</label></b-col>  
-      <b-col cols="6"><b-form-input placeholder="Namn Efternamn" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input></b-col>  
+      <b-col cols="6"><b-form-input placeholder="Namn" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input></b-col>  
+    </b-row>
+      <b-row  class="my-4 "  v-for="type in lastname" :key="type">
+      <b-col cols="6"><label class="editLable" :for="`type-${type}`">{{ type }}</label></b-col>  
+      <b-col cols="6"><b-form-input placeholder="Efternamn" :id="`type-${type}`" :type="type" class="editPersonal_changeInput"></b-form-input></b-col>  
     </b-row>
     <b-row  class="my-4" v-for="type in picture" :key="type">
      <b-col cols="6"><label class="editLable" :for="`type-${type}`">{{ type }}</label></b-col>    
@@ -47,6 +51,9 @@ export default {
         'Geografiskt område'
           ],
         name: [
+            'Ändra namn'
+        ],
+        lastname: [
             'Ändra namn'
         ],
         picture: [
