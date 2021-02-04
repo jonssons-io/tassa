@@ -164,7 +164,7 @@ export default {
 			console.log(this.loginform.email);
 			this.login.btnText = "Laddar...";
 			this.login.showBtnSpinner = true;
-			if (this.rememberMe) {
+			if (this.rememberMe[0] == true) {
 				CookieHandler.setCookie("userEmail", this.loginform.email);
 			}
 			let loginform = {
