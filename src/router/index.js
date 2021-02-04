@@ -44,7 +44,7 @@ const routes = [
 		}
 	},
 	{
-		path: "/editera-preferenser",
+		path: "/editera-preferenser/:id",
 		name: "EditPreferences",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
@@ -59,7 +59,7 @@ const routes = [
 		}
 	},
 	{
-		path: "/editera-familjen",
+		path: "/editera-familjen/:id",
 		name: "EditFamily",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
@@ -74,7 +74,7 @@ const routes = [
 		}
 	},
 	{
-		path: "/editera-personligt",
+		path: "/editera-personligt/:id",
 		name: "EditPersonal",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
