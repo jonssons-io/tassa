@@ -5,6 +5,7 @@
 			:lastname="profileHeader.lastname"
 			:area="profileHeader.area"
 			:picture="profileHeader.picture"
+			btnText ="Spara ändringar"
 		/>
 		<EditPreferencesBanner />
 		<NavBar />
