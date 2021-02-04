@@ -1,12 +1,14 @@
 <template>
-  <div class="editProfile_banner">
-    <ProfileHeader :firstname="profileHeader.firstname"
+	<div class="editProfile_banner">
+		<ProfileHeader
+			:firstname="profileHeader.firstname"
 			:lastname="profileHeader.lastname"
-            :area="profileHeader.area"
-			:picture="profileHeader.picture"/>
-    <EditPreferencesBanner />
-    <NavBar />
-  </div>
+			:area="profileHeader.area"
+			:picture="profileHeader.picture"
+		/>
+		<EditPreferencesBanner />
+		<NavBar />
+	</div>
 </template>
 
 <script>
@@ -16,19 +18,19 @@ import NavBar from "@/components/NavBar.vue";
 import ApiHandler from "./../util/ApiHandler.js";
 
 export default {
-  name: "EditPreferences",
-  components: {
-    ProfileHeader,
-    EditPreferencesBanner,
-    NavBar
-  },
-  	beforeCreate() {
-		ApiHandler.getPrefe(this.$store.state.currentUser.id).then(res => {
+	name: "EditPreferences",
+	components: {
+		ProfileHeader,
+		EditPreferencesBanner,
+		NavBar
+	},
+	beforeCreate() {
+		console.log(this.$store);
+		ApiHandler.getUser(this.$route.params.id).then(res => {
 			console.log("res", res);
 			this.profileHeader.firstname = res.data.result.firstName;
-      this.profileHeader.lastname = res.data.result.lastName;
-    });
-    
+			this.profileHeader.lastname = res.data.result.lastName;
+		});
 	},
 	data() {
 		return {
@@ -37,16 +39,15 @@ export default {
 				lastname: "",
 				area: "",
 				picture: "default"
-			},
-		
+			}
 		};
 	}
 };
 </script>
 
-<style >
+<style>
 .editProfile_banner {
-  background-color: #005b52;
-  height: 100%;
+	background-color: #005b52;
+	height: 100%;
 }
 </style>

@@ -233,6 +233,7 @@
 import { validationMixin } from "vuelidate";
 import { required, numeric } from "vuelidate/lib/validators";
 import ApiHandler from "../../util/ApiHandler";
+import CookieHandler from "../../util/CookieHandler";
 
 export default {
 	name: "RegisterDogForm",
@@ -283,7 +284,6 @@ export default {
 			}
 		};
 	},
-	props: ["ctabtntext", "userForm"],
 	validations: {
 		registerdogform: {
 			name: {
@@ -316,32 +316,6 @@ export default {
 			const { $dirty, $error } = this.$v.registerdogform[inputResponse];
 			return $dirty ? !$error : null;
 		},
-		async submitNewDog(doginfo) {
-			try {
-				const res = await ApiHandler.createDog(doginfo);
-				console.log("submit dogres ", res);
-			} catch (error) {
-				console.log("error in dogsubmit ", error);
-			}
-		},
-		async submitNewUser(userinfo) {
-			console.log("in submitnewuser ", userinfo);
-			try {
-				const userRes = await ApiHandler.createUser(userinfo);
-				const doginfo = {
-					accountId: userRes.result.__id,
-					name: this.registerdogform.name,
-					gender: this.registerdogform.gender,
-					age: this.registerdogform.age,
-					size: this.registerdogform.size,
-					breed: this.registerdogform.breed
-				};
-				const dogRes = await this.submitNewDog(doginfo);
-				console.log("end of submit ", dogRes);
-			} catch (error) {
-				console.log("error in submitnewuser ", error);
-			}
-		},
 		onSubmit(event) {
 			this.$v.registerdogform.$touch();
 			event.preventDefault();
@@ -354,19 +328,23 @@ export default {
 			}
 			// Sends userinput to Store, sets color of checkboxlabel to white and re-routes user to RegisterDog-view.
 			else {
-				console.log("newuser ");
-				let userinfo = {
-					firstName: this.$route.params.registeruserform.firstname,
-					lastName: this.$route.params.registeruserform.lastname,
-					age: 15,
-					gender: "woman",
-					email: this.$route.params.registeruserform.email,
-					phoneNumber: this.$route.params.registeruserform.phone,
-					gdpr: true,
-					geoPosition: this.$route.params.registeruserform.area,
-					password: this.$route.params.registeruserform.password
+				let newDog = {
+					accountId: CookieHandler.getCookie("userid"),
+					name: this.registerdogform.name,
+					gender: this.registerdogform.gender,
+					age: this.registerdogform.age,
+					size: this.registerdogform.size,
+					breed: this.registerdogform.breed
 				};
-				this.submitNewUser(userinfo);
+				ApiHandler.createDog(newDog).then(res => {
+					console.log(res);
+					this.$router.push({
+						name: "ProfilePage",
+						params: {
+							id: CookieHandler.getCookie("userid")
+						}
+					});
+				});
 			}
 		}
 	}

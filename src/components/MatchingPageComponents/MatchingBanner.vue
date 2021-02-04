@@ -1,5 +1,4 @@
 <template>
-
 	<b-container class="bv-example-row">
 		<b-col>
 			<h2 class="segment--title">Matchningar</h2>

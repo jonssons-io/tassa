@@ -1,12 +1,14 @@
 <template>
-  <div class="editProfile_banner">
-    <ProfileHeader :firstname="profileHeader.firstname"
-			        :lastname="profileHeader.lastname"
-                    :area="profileHeader.area"
-			:picture="profileHeader.picture"/>
-    <ProfileFamily :family="profileFamily"  />
-    <NavBar />
-  </div>
+	<div class="editProfile_banner">
+		<ProfileHeader
+			:firstname="profileHeader.firstname"
+			:lastname="profileHeader.lastname"
+			:area="profileHeader.area"
+			:picture="profileHeader.picture"
+		/>
+		<ProfileFamily :family="profileFamily" />
+		<NavBar />
+	</div>
 </template>
 
 <script>
@@ -16,13 +18,13 @@ import NavBar from "@/components/NavBar.vue";
 import ApiHandler from "./../util/ApiHandler.js";
 
 export default {
-  name: "EditPersonal",
-  components: {
-    ProfileHeader,
-    ProfileFamily,
-    NavBar
-  },
-  	beforeCreate() {
+	name: "EditPersonal",
+	components: {
+		ProfileHeader,
+		ProfileFamily,
+		NavBar
+	},
+	beforeCreate() {
 		ApiHandler.getUser(this.$route.params.id).then(res => {
 			console.log("res", res);
 			this.profileHeader.firstname = res.data.result.firstName;
@@ -44,9 +46,9 @@ export default {
 };
 </script>
 
-<style >
-.editProfile_banner{
-    background-color:  #005b52;
-     height: 100%;
+<style>
+.editProfile_banner {
+	background-color: #005b52;
+	height: 100%;
 }
 </style>

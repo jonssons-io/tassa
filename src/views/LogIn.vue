@@ -106,11 +106,17 @@ import NavBar from "@/components/NavBar.vue";
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
 // import ApiHandler from "@/util/ApiHandler.js";
+import CookieHandler from "@/util/CookieHandler.js";
+import ApiHandler from "../util/ApiHandler";
 
 export default {
 	name: "LogIn",
 	components: {
 		NavBar
+	},
+	mounted() {
+		let email = CookieHandler.getCookie("userEmail");
+		this.loginform.email = email;
 	},
 	mixins: [validationMixin],
 	data() {
@@ -158,36 +164,40 @@ export default {
 			console.log(this.loginform.email);
 			this.login.btnText = "Laddar...";
 			this.login.showBtnSpinner = true;
-			this.$store
-				.dispatch("USER_AUTH", {
-					email: this.loginform.email,
-					password: this.loginform.password
-				})
-				.then(res => {
-					console.log(res);
-					this.$router.push({
+			if (this.rememberMe[0] == true) {
+				CookieHandler.setCookie("userEmail", this.loginform.email);
+			}
+			let loginform = {
+				email: this.loginform.email,
+				password: this.loginform.password
+			};
+			ApiHandler.userAuth(loginform).then(res => {
+				console.log(res);
+				this.$router
+					.push({
 						name: "ProfilePage",
 						params: {
-							id: this.$store.state.currentUser.id
+							id: CookieHandler.getCookie("userid")
+						}
+					})
+					.catch(error => {
+						console.log("errorresponse ", error.response);
+						console.log("error ", error);
+						this.login.showLoginFailed = true;
+						this.login.showBtnSpinner = false;
+						this.login.btnText = "Logga in";
+						switch (error.response.status) {
+							case 401:
+								this.login.failedMsg =
+									"Fel inloggningsuppgifter";
+								break;
+							default:
+								this.login.failedMsg =
+									"Det går inte att logga in just nu. Försök igen om en stund.";
+								break;
 						}
 					});
-				})
-				.catch(error => {
-					console.log("errorresponse ", error.response);
-					console.log("error ", error);
-					this.login.showLoginFailed = true;
-					this.login.showBtnSpinner = false;
-					this.login.btnText = "Logga in";
-					switch (error.response.status) {
-						case 401:
-							this.login.failedMsg = "Fel inloggningsuppgifter";
-							break;
-						default:
-							this.login.failedMsg =
-								"Det går inte att logga in just nu. Försök igen om en stund.";
-							break;
-					}
-				});
+			});
 		}
 	}
 };
@@ -207,11 +217,5 @@ export default {
 	left: 0;
 	right: 0;
 	margin: auto;
-}
-b-alert {
-	margin: 1em 0;
-}
-.spinner-border {
-	margin-right: 1em;
 }
 </style>
