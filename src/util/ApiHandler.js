@@ -52,6 +52,9 @@ function createDog(dogInfo) {
 function getPrefe(userId) {
 	return getReq(`/preference/${userId}`);
 }
+function updatePrefe(userId, preferenceForm) {
+	return putReq(`/preference/${userId}`, preferenceForm);
+}
 
 export default {
 	putReq,
@@ -60,5 +63,6 @@ export default {
 	getUser,
 	createUser,
 	createDog,
-	getPrefe
+	getPrefe,
+	updatePrefe
 };

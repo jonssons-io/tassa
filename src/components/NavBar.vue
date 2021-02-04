@@ -37,25 +37,28 @@
 						:to="`profil/${loggedInUser}`"
 						>Visa Profil</b-nav-item
 					>
-					<b-nav-item v-if="expandMenu" class="nav--subitem"
+					<b-nav-item
+						v-if="expandMenu"
+						class="nav--subitem"
+						to="/registrera-hund"
 						>Lägg till hund</b-nav-item
 					>
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						to="/editera-preferenser"
+						:to="`/editera-preferenser/${loggedInUser}`"
 						>Ändra preferenser</b-nav-item
 					>
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						to="/editera-familjen"
+						:to="`/editera-familjen/${loggedInUser}`"
 						>Editera beskrivning och familj</b-nav-item
 					>
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						to="/editera-personligt"
+						:to="`/editera-personligt/${loggedInUser}`"
 						>Personliga inställningar</b-nav-item
 					>
 				</b-nav-item>

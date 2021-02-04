@@ -19,6 +19,12 @@
     border-radius: 20px 20px 20px 20px;
     width: 100%;
 }
+.btn-changeData{
+  color: white;
+   background-color: #B23850;
+   width: 50%;
+}
+
 .my-4{
     padding-top: 3%;
 padding-bottom: 4.2%;
