@@ -142,13 +142,13 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
 	document.title = to.meta.title || "Tassa";
 	if (to.matched.some(record => record.meta.requiresAuth)) {
-		if (loggedIn() == "false") {
+		if (loggedIn() == "true") {
+			next();
+		} else {
 			console.log("logged in", loggedIn());
 			next({
 				path: "/logga-in"
 			});
-		} else {
-			next();
 		}
 	} else {
 		next();

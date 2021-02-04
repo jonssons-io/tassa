@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import CookieHandler from "../../util/CookieHandler";
 export default {
 	name: "ProfileHeader",
 	props: ["firstname", "lastname", "area", "picture", "btnText"],
@@ -46,14 +47,22 @@ export default {
 	},
 	methods: {
 		profileHeaderBtnAction() {
-			if (this.btnText == "Editera profil") {
-				this.$router.push({
-					path: "/editera-familjen"
-				});
-			} else if (this.btnText == "Föreslå promenad") {
-				console.log("fixa så att notifikation dyker upp hos mottagare");
+			if (CookieHandler.getCookie("authstatus") == "true") {
+				if (this.btnText == "Editera profil") {
+					this.$router.push({
+						path: "/editera-familjen"
+					});
+				} else if (this.btnText == "Föreslå promenad") {
+					console.log(
+						"fixa så att notifikation dyker upp hos mottagare"
+					);
+				} else {
+					console.log("MICKIS LOGIK HÄR!!");
+				}
 			} else {
-				console.log("MICKIS LOGIK HÄR!!");
+				this.$router.push({
+					path: "/logga-in"
+				});
 			}
 		}
 	}

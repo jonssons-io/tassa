@@ -22,7 +22,12 @@ function setCookie(key, value, expires = null) {
 	}
 }
 
+function removeCookie(key) {
+	document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+}
+
 export default {
 	getCookie,
-	setCookie
+	setCookie,
+	removeCookie
 };

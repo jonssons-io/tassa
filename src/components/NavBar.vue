@@ -69,7 +69,10 @@
 				<b-nav-item v-if="!loggedInStatus" to="/logga-in"
 					>Logga in</b-nav-item
 				>
-				<b-nav-item v-if="loggedInStatus" to="/logga-in"
+				<b-nav-item
+					v-if="loggedInStatus"
+					@click="removeCookies"
+					to="/logga-in"
 					>Logga ut</b-nav-item
 				>
 			</b-navbar-nav>
@@ -102,6 +105,11 @@ export default {
 	methods: {
 		toggleProfileTab() {
 			this.expandMenu = !this.expandMenu;
+		},
+		removeCookies() {
+			CookieHandler.removeCookie("authstatus");
+			CookieHandler.removeCookie("userid");
+			CookieHandler.removeCookie("authtoken");
 		}
 	}
 };
