@@ -182,6 +182,7 @@ export default {
 					.catch(error => {
 						console.log("errorresponse ", error.response);
 						console.log("error ", error);
+						console.log("errorstatus ", error.response.status);
 						this.login.showLoginFailed = true;
 						this.login.showBtnSpinner = false;
 						this.login.btnText = "Logga in";
