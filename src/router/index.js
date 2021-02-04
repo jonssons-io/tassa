@@ -145,7 +145,6 @@ router.beforeEach((to, from, next) => {
 		if (loggedIn() == "true") {
 			next();
 		} else {
-			console.log("logged in", loggedIn());
 			next({
 				path: "/logga-in"
 			});
