@@ -8,7 +8,10 @@ const routes = [
 	{
 		path: "/",
 		name: "StartPage",
-		component: StartPage
+		component: StartPage,
+		meta: {
+			title: "Tassa - Start"
+		}
 	},
 	{
 		path: "/om-oss",
@@ -17,7 +20,10 @@ const routes = [
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: () =>
-			import(/* webpackChunkName: "aboutus" */ "../views/AboutUs.vue")
+			import(/* webpackChunkName: "aboutus" */ "../views/AboutUs.vue"),
+		meta: {
+			title: "Tassa - Om oss"
+		}
 	},
 	{
 		path: "/matchning",
@@ -26,7 +32,10 @@ const routes = [
 		// this generates a separate chunk (about.[hash].js) for this route
 		// which is lazy-loaded when the route is visited.
 		component: () =>
-			import(/* webpackChunkName: "match" */ "../views/Match.vue")
+			import(/* webpackChunkName: "match" */ "../views/Match.vue"),
+		meta: {
+			title: "Tassa - Dina träffar"
+		}
 	},
 	{
 		path: "/editera-preferenser",
@@ -37,7 +46,10 @@ const routes = [
 		component: () =>
 			import(
 				/* webpackChunkName: "editpreferences" */ "../views/EditPreferences.vue"
-			)
+			),
+		meta: {
+			title: "Tassa - Editera preferenser"
+		}
 	},
 	{
 		path: "/editera-familjen",
@@ -48,7 +60,10 @@ const routes = [
 		component: () =>
 			import(
 				/* webpackChunkName: "editfamily" */ "../views/EditFamily.vue"
-			)
+			),
+		meta: {
+			title: "Tassa - Editera familj"
+		}
 	},
 	{
 		path: "/editera-personligt",
@@ -59,13 +74,19 @@ const routes = [
 		component: () =>
 			import(
 				/* webpackChunkName: "editpersonal" */ "../views/EditPersonal.vue"
-			)
+			),
+		meta: {
+			title: "Tassa - Editera personlig information"
+		}
 	},
 	{
 		path: "/logga-in",
 		name: "LogIn",
 		component: () =>
-			import(/* webpackChunkName: "login" */ "../views/LogIn.vue")
+			import(/* webpackChunkName: "login" */ "../views/LogIn.vue"),
+		meta: {
+			title: "Tassa - Logga in"
+		}
 	},
 	{
 		path: "/registrera",
@@ -73,16 +94,22 @@ const routes = [
 		component: () =>
 			import(
 				/* webpackChunkName: "registeruser" */ "../views/RegisterUser.vue"
-			)
+			),
+		meta: {
+			title: "Tassa - Registrera dig"
+		}
 	},
 	{
-		path: "/registrera-hund",
+		path: "/registrera-hund/:id",
 		name: "RegisterDog",
 		component: () =>
 			import(
 				/* webpackChunkName: "registerdog" */ "../views/RegisterDog.vue"
 			),
-		props: true
+		props: true,
+		meta: {
+			title: "Tassa - Registrera din hund"
+		}
 	},
 	{
 		path: "/profil/:id",
@@ -90,7 +117,10 @@ const routes = [
 		component: () =>
 			import(
 				/* webpackChunkName: "profilepage" */ "../views/ProfilePage.vue"
-			)
+			),
+		meta: {
+			title: "Tassa - Profil"
+		}
 	}
 ];
 
@@ -98,6 +128,10 @@ const router = new VueRouter({
 	mode: "history",
 	base: process.env.BASE_URL,
 	routes
+});
+router.beforeEach((to, from, next) => {
+	document.title = to.meta.title || "Tassa";
+	next();
 });
 
 export default router;
