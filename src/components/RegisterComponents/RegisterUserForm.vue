@@ -576,7 +576,7 @@ export default {
 								this.registerButton.btnText = "Gå med";
 								this.checkboxLabelColor("white");
 								this.$router.push({
-									name: "RegisterDog"
+									path: "/registrera-hund"
 								});
 							})
 							.catch(error => {
@@ -584,8 +584,6 @@ export default {
 							});
 					})
 					.catch(error => {
-						console.log("errorresponse ", error.response);
-						console.log("error ", error.response.data.result);
 						this.registerButton.showLoginFailed = true;
 						this.registerButton.showBtnSpinner = false;
 						this.registerButton.btnText = "Gå med";

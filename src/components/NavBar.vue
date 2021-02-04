@@ -34,7 +34,7 @@
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						:to="`profil/${loggedInUser}`"
+						:to="`/profil/${loggedInUser}`"
 						>Visa Profil</b-nav-item
 					>
 					<b-nav-item
@@ -72,7 +72,10 @@
 				<b-nav-item v-if="!loggedInStatus" to="/logga-in"
 					>Logga in</b-nav-item
 				>
-				<b-nav-item v-if="loggedInStatus" to="/logga-in"
+				<b-nav-item
+					v-if="loggedInStatus"
+					@click="removeCookies"
+					to="/logga-in"
 					>Logga ut</b-nav-item
 				>
 			</b-navbar-nav>
@@ -81,6 +84,7 @@
 </template>
 
 <script>
+import CookieHandler from "../util/CookieHandler";
 export default {
 	name: "NavBar",
 	data() {
@@ -91,15 +95,24 @@ export default {
 	},
 	computed: {
 		loggedInStatus() {
-			return this.$store.state.currentUser.authstatus;
+			if (CookieHandler.getCookie("authstatus") == "false") {
+				return false;
+			} else {
+				return true;
+			}
 		},
 		loggedInUser() {
-			return this.$store.state.currentUser.id;
+			return CookieHandler.getCookie("userid");
 		}
 	},
 	methods: {
 		toggleProfileTab() {
 			this.expandMenu = !this.expandMenu;
+		},
+		removeCookies() {
+			CookieHandler.removeCookie("authstatus");
+			CookieHandler.removeCookie("userid");
+			CookieHandler.removeCookie("authtoken");
 		}
 	}
 };
