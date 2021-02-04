@@ -34,7 +34,7 @@
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						:to="`profil/${loggedInUser}`"
+						:to="`/profil/${loggedInUser}`"
 						>Visa Profil</b-nav-item
 					>
 					<b-nav-item v-if="expandMenu" class="nav--subitem"
@@ -89,7 +89,11 @@ export default {
 	},
 	computed: {
 		loggedInStatus() {
-			return CookieHandler.getCookie("authstatus");
+			if (CookieHandler.getCookie("authstatus") == "false") {
+				return false;
+			} else {
+				return true;
+			}
 		},
 		loggedInUser() {
 			return CookieHandler.getCookie("userid");

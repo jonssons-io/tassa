@@ -1,8 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import CookieHandler from "../util/CookieHandler";
 import StartPage from "../views/StartPage.vue";
 
 Vue.use(VueRouter);
+
+const loggedIn = () => {
+	return CookieHandler.getCookie("authstatus");
+};
 
 const routes = [
 	{
@@ -34,7 +39,8 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "match" */ "../views/Match.vue"),
 		meta: {
-			title: "Tassa - Dina träffar"
+			title: "Tassa - Dina träffar",
+			requiresAuth: true
 		}
 	},
 	{
@@ -48,7 +54,8 @@ const routes = [
 				/* webpackChunkName: "editpreferences" */ "../views/EditPreferences.vue"
 			),
 		meta: {
-			title: "Tassa - Editera preferenser"
+			title: "Tassa - Editera preferenser",
+			requiresAuth: true
 		}
 	},
 	{
@@ -62,7 +69,8 @@ const routes = [
 				/* webpackChunkName: "editfamily" */ "../views/EditFamily.vue"
 			),
 		meta: {
-			title: "Tassa - Editera familj"
+			title: "Tassa - Editera familj",
+			requiresAuth: true
 		}
 	},
 	{
@@ -76,7 +84,8 @@ const routes = [
 				/* webpackChunkName: "editpersonal" */ "../views/EditPersonal.vue"
 			),
 		meta: {
-			title: "Tassa - Editera personlig information"
+			title: "Tassa - Editera personlig information",
+			requiresAuth: true
 		}
 	},
 	{
@@ -107,7 +116,8 @@ const routes = [
 				/* webpackChunkName: "registerdog" */ "../views/RegisterDog.vue"
 			),
 		meta: {
-			title: "Tassa - Registrera din hund"
+			title: "Tassa - Registrera din hund",
+			requiresAuth: true
 		}
 	},
 	{
@@ -118,7 +128,8 @@ const routes = [
 				/* webpackChunkName: "profilepage" */ "../views/ProfilePage.vue"
 			),
 		meta: {
-			title: "Tassa - Profil"
+			title: "Tassa - Profil",
+			requiresAuth: true
 		}
 	}
 ];
@@ -130,7 +141,18 @@ const router = new VueRouter({
 });
 router.beforeEach((to, from, next) => {
 	document.title = to.meta.title || "Tassa";
-	next();
+	if (to.matched.some(record => record.meta.requiresAuth)) {
+		if (loggedIn() == "false") {
+			console.log("logged in", loggedIn());
+			next({
+				path: "/logga-in"
+			});
+		} else {
+			next();
+		}
+	} else {
+		next();
+	}
 });
 
 export default router;
