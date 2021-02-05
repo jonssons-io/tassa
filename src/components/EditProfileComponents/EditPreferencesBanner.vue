@@ -8,9 +8,11 @@
 			</b-col>
 			<b-col></b-col>
 		</b-row>
-		<b-row>
-			<div class="header_container">
-				<h4 class="editProfile_change-HeaderSecond">Matchning</h4>
+			<b-row>
+			<div class="information_container">
+				<h5 class="editProfile_changePresentation-Header">
+					Presentation
+				</h5>
 			</div>
 		</b-row>
 		<b-row>
@@ -30,9 +32,7 @@
 					class="editProfile_changePresentation-text  "
 					><input
 						type="checkbox"
-						id="gender1"
-						name="gender1"
-						value="female"
+						:checked="form.preferredGender.women" v-model="form.preferredGender.women"
 					/><lable for="gender1"> Kvinnor</lable></b-col
 				>
 				<b-col
@@ -43,9 +43,7 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						id="gender2"
-						name="gender2"
-						value="Male"
+						:checked="form.preferredGender.man" v-model="form.preferredGender.man"
 					/><lable for="gender2"> Män </lable></b-col
 				>
 				<b-col
@@ -56,9 +54,7 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						id="gender3"
-						name="gender3"
-						value="Male"
+						:checked="form.preferredGender.other" v-model="form.preferredGender.other"
 					/><lable for="gender3"> Annat </lable></b-col
 				>
 			</b-row>
@@ -79,9 +75,7 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						id="dogGender1"
-						name="dogGender1"
-						value="female"
+						:checked="form.preferredDogGender.bitch" v-model="form.preferredDogGender.bitch"
 					/><lable for="dogGender1"> Tik </lable></b-col
 				>
 				<b-col
@@ -91,9 +85,7 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						id="dogGender2"
-						name="dogGender2"
-						value="Male"
+						:checked="form.preferredDogGender.hane" v-model="form.preferredDogGender.hane"
 					/><lable for="dogGender2"> Hane </lable></b-col
 				>
 			</b-row>
@@ -141,21 +133,13 @@
 					class="editProfile_changePresentation-text"
 					><input
 						type="checkbox"
-						id="size"
-						name="size"
-						value="BigDog"
+						:checked="form.size.large" v-model="form.size.large"
 					/><lable for="size"> Stora hundar</lable></b-col
 				>
 				<b-col></b-col>
 			</b-row>
 		</div>
-		<b-row>
-			<div class="information_container">
-				<h5 class="editProfile_changePresentation-Header">
-					Presentation
-				</h5>
-			</div>
-		</b-row>
+
 
 	</b-container>
 </template>
