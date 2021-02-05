@@ -8,7 +8,7 @@
 			</b-col>
 			<b-col></b-col>
 		</b-row>
-			<b-row>
+		<b-row>
 			<div class="information_container">
 				<h5 class="editProfile_changePresentation-Header">
 					Presentation
@@ -32,7 +32,8 @@
 					class="editProfile_changePresentation-text  "
 					><input
 						type="checkbox"
-						:checked="form.preferredGender.women" v-model="form.preferredGender.women"
+						:checked="form.preferredGender.woman"
+						v-model="form.preferredGender.woman"
 					/><lable for="gender1"> Kvinnor</lable></b-col
 				>
 				<b-col
@@ -43,7 +44,8 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						:checked="form.preferredGender.man" v-model="form.preferredGender.man"
+						:checked="form.preferredGender.man"
+						v-model="form.preferredGender.man"
 					/><lable for="gender2"> Män </lable></b-col
 				>
 				<b-col
@@ -54,7 +56,8 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						:checked="form.preferredGender.other" v-model="form.preferredGender.other"
+						:checked="form.preferredGender.other"
+						v-model="form.preferredGender.other"
 					/><lable for="gender3"> Annat </lable></b-col
 				>
 			</b-row>
@@ -75,7 +78,8 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						:checked="form.preferredDogGender.bitch" v-model="form.preferredDogGender.bitch"
+						:checked="form.preferredDogGender.bitch"
+						v-model="form.preferredDogGender.bitch"
 					/><lable for="dogGender1"> Tik </lable></b-col
 				>
 				<b-col
@@ -85,7 +89,8 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						:checked="form.preferredDogGender.hane" v-model="form.preferredDogGender.hane"
+						:checked="form.preferredDogGender.hane"
+						v-model="form.preferredDogGender.hane"
 					/><lable for="dogGender2"> Hane </lable></b-col
 				>
 			</b-row>
@@ -105,9 +110,11 @@
 					md="2"
 					lg="2"
 					class="editProfile_changePresentation-text"
-					><input type="checkbox" :checked="form.size.small" v-model="form.size.small"/><lable
-						for="size"
-					>
+					><input
+						type="checkbox"
+						:checked="form.size.small"
+						v-model="form.size.small"
+					/><lable for="size">
 						Små hundar
 					</lable></b-col
 				>
@@ -117,11 +124,11 @@
 					md="2"
 					lg="2"
 					class="editProfile_changePresentation-text"
-					><input type="checkbox" :checked="form.size.medium" v-model="form.size.medium" /><lable
-						for="size"
-					>
-						Medel hundar</lable
-					></b-col
+					><input
+						type="checkbox"
+						:checked="form.size.medium"
+						v-model="form.size.medium"
+					/><lable for="size"> Medel hundar</lable></b-col
 				>
 			</b-row>
 			<b-row>
@@ -133,14 +140,13 @@
 					class="editProfile_changePresentation-text"
 					><input
 						type="checkbox"
-						:checked="form.size.large" v-model="form.size.large"
+						:checked="form.size.large"
+						v-model="form.size.large"
 					/><lable for="size"> Stora hundar</lable></b-col
 				>
 				<b-col></b-col>
 			</b-row>
 		</div>
-
-
 	</b-container>
 </template>
 
@@ -170,29 +176,24 @@ export default {
 	},
 	watch: {
 		form: {
-     		handler(val){
-       			this.sendUpdate(val)
-     		},
-     		deep: true
-  		}
+			handler(val) {
+				this.sendUpdate(val);
+			},
+			deep: true
+		}
 	},
 
 	methods: {
 		sendUpdate(form) {
-			ApiHandler.updatePrefe(
-				form.accountId,
-				form
-			).then(res => {
+			ApiHandler.updatePrefe(form.accountId, form).then(res => {
 				console.log(res);
 			});
 		}
 	},
 	mounted: function() {
-		ApiHandler.getPrefe(
-			this.$route.params.id
-		).then(res => {
+		ApiHandler.getPrefe(this.$route.params.id).then(res => {
 			this.form = res.data.result;
-		});			
+		});
 	}
 };
 
