@@ -1,5 +1,8 @@
 <template>
 	<b-container>
+		<div v-show="ondelete" class="alert alert-danger" role="alert">
+			Ditt konto raderas
+		</div>
 		<h4 class="editPersonal_changeLabel">Personligt</h4>
 		<b-row class="my-3">
 			<b-col cols="6">
@@ -91,6 +94,7 @@ export default {
 	name: "EditPersonal",
 	data() {
 		return {
+			ondelete: false,
 			form: {
 				accountId: false,
 				information: {
@@ -114,13 +118,14 @@ export default {
 			});
 		},
 		deleteData() {
+			console.log(this.ondelete);
+			this.ondelete = true;
 			//ApiHandler.deletePerson(CookieHandler.getCookie("userid")).then(
 			//	res => {
 			//console.log(this.accountId, res);
 			console.log("Button pushed");
 			setTimeout(() => {
-				//this.$router.push({ path: "/" });
-				alert("Kontot raderas om 2 sek");
+				this.$router.push({ name: "StartPage" });
 			}, 2500);
 		}
 		//	);

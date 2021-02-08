@@ -78,8 +78,8 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						:checked="form.preferredDogGender.bitch"
-						v-model="form.preferredDogGender.bitch"
+						:checked="form.preferredDogGender.female"
+						v-model="form.preferredDogGender.female"
 					/><lable for="dogGender1"> Tik </lable></b-col
 				>
 				<b-col
@@ -89,8 +89,8 @@
 					class="editProfile_changePresentation-text "
 					><input
 						type="checkbox"
-						:checked="form.preferredDogGender.hane"
-						v-model="form.preferredDogGender.hane"
+						:checked="form.preferredDogGender.male"
+						v-model="form.preferredDogGender.male"
 					/><lable for="dogGender2"> Hane </lable></b-col
 				>
 			</b-row>
@@ -163,8 +163,8 @@ export default {
 					other: false
 				},
 				preferredDogGender: {
-					bitch: false,
-					hane: false
+					female: false,
+					male: false
 				},
 				size: {
 					small: false,
