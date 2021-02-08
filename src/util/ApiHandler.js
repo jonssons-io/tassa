@@ -72,13 +72,23 @@ function createUser(userInfo) {
 function createDog(dogInfo) {
 	return postReq(`/dog`, dogInfo);
 }
+// Edit preference
 function getPrefe(userId) {
 	return getReq(`/preference/${userId}`);
 }
 function updatePrefe(userId, preferenceForm) {
 	return putReq(`/preference/${userId}`, preferenceForm);
 }
-
+// Edit personal
+function getPerson(userId) {
+	return getReq(`/account/${userId}`);
+}
+function updatePerson(userId) {
+	return putReq(`/account/${userId}`);
+}
+function deletePerson(userId) {
+	return deleteReq(`/account/${userId}`);
+}
 export default {
 	putReq,
 	deleteReq,
@@ -87,5 +97,8 @@ export default {
 	createUser,
 	createDog,
 	getPrefe,
-	updatePrefe
+	updatePrefe,
+	getPerson,
+	updatePerson,
+	deletePerson
 };
