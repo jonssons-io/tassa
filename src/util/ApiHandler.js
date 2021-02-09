@@ -89,6 +89,9 @@ function updatePerson(userId) {
 function deletePerson(userId) {
 	return deleteReq(`/account/${userId}`);
 }
+function getAreas() {
+	return getReq(`/areas/kommun`);
+}
 export default {
 	putReq,
 	deleteReq,
@@ -100,5 +103,6 @@ export default {
 	updatePrefe,
 	getPerson,
 	updatePerson,
-	deletePerson
+	deletePerson,
+	getAreas
 };

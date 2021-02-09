@@ -101,6 +101,7 @@ export default {
 	data() {
 		return {
 			ondelete: false,
+			areas: [],
 			form: {
 				accountId: false,
 				information: {
@@ -148,11 +149,9 @@ export default {
 			this.form.information.firstName = data.firstName;
 			this.form.information.lastName = data.lastName;
 			console.log(res);
-			console.log(this.form.information.phoneNumber);
-			console.log(this.form.information.email);
-			console.log(this.form.information.area);
-			console.log(this.form.information.firstName);
-			console.log(this.form.information.lastName);
+		});
+		ApiHandler.getAreas().then(res => {
+			this.areas = res.data.result;
 		});
 	}
 };
