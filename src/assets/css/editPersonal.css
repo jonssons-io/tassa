@@ -4,10 +4,10 @@
     text-align: left;
 }
 .editLable {
-    font-size: 1rem;
+    font-size: 0.855em;
     color: white;
     float: left;
-    padding-top: 3%;
+    padding-top: 2%;
 }
 .editPersonal_changeInput {
   padding-bottom: 2%;
@@ -25,10 +25,7 @@
    width: 50%;
 }
 
-.my-4{
-    padding-top: 3%;
-padding-bottom: 4.2%;
-}
+
 
 input::-webkit-input-placeholder {
   color: white;
