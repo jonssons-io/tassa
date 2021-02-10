@@ -83,14 +83,14 @@ function updatePrefe(userId, preferenceForm) {
 function getPerson(userId) {
 	return getReq(`/account/${userId}`);
 }
-function updatePerson(userId) {
-	return putReq(`/account/${userId}`);
+function updatePerson(userId, editForm) {
+	return putReq(`/account/${userId}`, editForm);
 }
 function deletePerson(userId) {
 	return deleteReq(`/account/${userId}`);
 }
 function getAreas() {
-	return getReq(`/areas/kommun`);
+	return getReq(`/area/kommun`);
 }
 export default {
 	putReq,

@@ -5,64 +5,76 @@
 		</div>
 		<h4 class="editPersonal_changeLabel">Personligt</h4>
 		<h6 class="editLable">Här nedan kan du ändra din uppgifter</h6>
-		<b-row class="my-4">
+		<b-col cols="6">
+			<button
+				color="success"
+				class="btn btn-danger"
+				v-on:click="sendUpdate()"
+			>
+				Spara ändringar
+			</button>
+		</b-col>
+		<b-row class="my-3">
 			<b-col cols="6">
 				<h6 class="editLable">Telefonnummer</h6>
 			</b-col>
 			<b-col cols="6"
 				><input
 					cols="6"
-					v-model="form.information.phoneNumber"
-					value="form.information.phoneNumber"
+					v-model="form.phoneNumber"
+					value="form.phoneNumber"
 					type="input"
 					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
 		</b-row>
-		<b-row class="my-4">
+		<b-row class="my-3">
 			<b-col cols="6">
 				<h6 class="editLable">E-postadress</h6>
 			</b-col>
 			<b-col cols="6"
 				><input
-					v-model="form.information.email"
-					value="form.information.email"
+					v-model="form.email"
+					value="form.email"
 					type="input"
 					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
 		</b-row>
-		<b-row class="my-4">
+		<b-row class="my-3">
 			<b-col cols="6"><h6 class="editLable">Ändra område</h6> </b-col>
 			<b-col cols="6"
-				><input
-					v-model="form.information.area"
-					value="form.information.area"
-					type="input"
+				><select
+					v-model="form.area"
 					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
-			/></b-col>
+				>
+					<option v-for="area in areas" v-bind:key="area">{{
+						area
+					}}</option>
+				</select>
+			</b-col>
 		</b-row>
-		<b-row class="my-4">
+		<b-row class="my-3">
 			<b-col cols="6"><h6 class="editLable">Ändra namn</h6></b-col>
 			<b-col cols="6"
 				><input
-					v-model="form.information.firstName"
-					value="form.information.firstName"
+					v-model="form.firstName"
+					value="form.firstName"
 					type="input"
 					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
 		</b-row>
-		<b-row class="my-4">
+		<b-row class="my-3">
 			<b-col cols="6"><h6 class="editLable">Ändra efternamn</h6></b-col>
 			<b-col cols="6"
 				><input
-					v-model="form.information.lastName"
-					value="form.information.lastName"
+					v-model="form.lastName"
+					value="form.lastName"
 					type="input"
 					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
@@ -70,7 +82,7 @@
 			</b-col>
 		</b-row>
 
-		<b-row class="my-4">
+		<b-row class="my-3">
 			<b-col cols="6"><h6 class="editLable">Ladda upp bild</h6></b-col>
 			<b-col cols="6"
 				><button color="success" class="btn btn-success">
@@ -78,7 +90,7 @@
 				</button></b-col
 			>
 		</b-row>
-		<b-row class="my-4">
+		<b-row class="my-3">
 			<b-col cols="6"><h6 class="editLable">Radera ditt konto</h6></b-col>
 			<b-col cols="6"
 				><button
@@ -98,19 +110,18 @@
 export default {
 	name: "EditPersonal",
 	props: ["phoneNumber", "email", "area", "name", "lastname", "picture"],
+
 	data() {
 		return {
 			ondelete: false,
 			areas: [],
+			accountId: false,
 			form: {
-				accountId: false,
-				information: {
-					phoneNumber: false,
-					email: false,
-					area: false,
-					firstName: false,
-					lastName: false
-				}
+				phoneNumber: false,
+				email: false,
+				area: false,
+				firstName: false,
+				lastName: false
 			}
 		};
 	},
@@ -118,36 +129,40 @@ export default {
 		handleBlur(e) {
 			console.log(e.target.value);
 		},
-		sendUpdate(form) {
-			ApiHandler.updatePerson(form.accountId, form).then(res => {
-				//this.phoneNumber = this.form.information.phoneNumber;
-				//this.email = this.form.information.email;
-				console.log(res);
-				//console.log(this.phoneNumber);
-			});
+		sendUpdate() {
+			console.log(this.form);
+			ApiHandler.updatePerson(this.$route.params.id, this.form).then(
+				res => {
+					var data = res.data.result;
+					this.form.phoneNumber = data.phoneNumber;
+					this.form.email = data.email;
+					this.form.area = data.area;
+					this.form.firstName = data.firstName;
+					this.form.lastName = data.lastName;
+				}
+			);
 		},
 		deleteData() {
-			console.log(this.ondelete);
 			this.ondelete = true;
-			//ApiHandler.deletePerson(CookieHandler.getCookie("userid")).then(
-			//	res => {
-			//console.log(this.accountId, res);
 			console.log("Button pushed");
-			setTimeout(() => {
-				this.$router.push({ path: "/" });
-			}, 2500);
+			ApiHandler.deletePerson(CookieHandler.getCookie("userid")).then(
+				res => {
+					console.log(this.ondelete, res);
+					setTimeout(() => {
+						this.$router.push({ path: "/" });
+					}, 2500);
+				}
+			);
 		}
-		//	);
-		//}
 	},
 	mounted: function() {
 		ApiHandler.getPerson(this.$route.params.id).then(res => {
 			var data = res.data.result;
-			this.form.information.phoneNumber = data.phoneNumber;
-			this.form.information.email = data.email;
-			this.form.information.area = data.area;
-			this.form.information.firstName = data.firstName;
-			this.form.information.lastName = data.lastName;
+			this.form.phoneNumber = data.phoneNumber;
+			this.form.email = data.email;
+			this.form.area = data.area;
+			this.form.firstName = data.firstName;
+			this.form.lastName = data.lastName;
 			console.log(res);
 		});
 		ApiHandler.getAreas().then(res => {
@@ -158,7 +173,7 @@ export default {
 
 import "./../../assets/css/editPersonal.css";
 import ApiHandler from "../../util/ApiHandler";
-//import CookieHandler from "../../util/CookieHandler";
+import CookieHandler from "../../util/CookieHandler";
 </script>
 
 <style lang="less" scoped></style>
