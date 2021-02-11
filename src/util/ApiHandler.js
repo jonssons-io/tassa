@@ -28,8 +28,8 @@ function putReq(path, data) {
 	return axios.put(`${BASE_URL}${path}`, data, getAuthHeader());
 }
 
-function deleteReq(path, data) {
-	return axios.delete(`${BASE_URL}${path}`, data, getAuthHeader());
+function deleteReq(path) {
+	return axios.delete(`${BASE_URL}${path}`, getAuthHeader());
 }
 
 // Request for user login.

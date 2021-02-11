@@ -30,6 +30,7 @@ export default {
 			console.log("res", res);
 			this.profileHeader.firstname = res.data.result.firstName;
 			this.profileHeader.lastname = res.data.result.lastName;
+			this.profileHeader.area = res.data.result.area;
 		});
 	},
 	data() {

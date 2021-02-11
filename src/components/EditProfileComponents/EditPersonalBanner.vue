@@ -145,14 +145,11 @@ export default {
 		deleteData() {
 			this.ondelete = true;
 			console.log("Button pushed");
-			ApiHandler.deletePerson(CookieHandler.getCookie("userid")).then(
-				res => {
-					console.log(this.ondelete, res);
-					setTimeout(() => {
-						this.$router.push({ path: "/" });
-					}, 2500);
-				}
-			);
+			ApiHandler.deletePerson(this.$route.params.id).then(() => {
+				setTimeout(() => {
+					this.$router.push({ path: "/" });
+				}, 2500);
+			});
 		}
 	},
 	mounted: function() {
@@ -173,7 +170,7 @@ export default {
 
 import "./../../assets/css/editPersonal.css";
 import ApiHandler from "../../util/ApiHandler";
-import CookieHandler from "../../util/CookieHandler";
+//import CookieHandler from "../../util/CookieHandler";
 </script>
 
 <style lang="less" scoped></style>
