@@ -85,7 +85,6 @@
 
 <script>
 import CookieHandler from "../util/CookieHandler";
-import { mapActions } from "vuex";
 export default {
 	name: "NavBar",
 	data() {
@@ -103,7 +102,6 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions(["SET_NAVBAR"]),
 		toggleProfileTab() {
 			this.expandMenu = !this.expandMenu;
 		},

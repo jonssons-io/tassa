@@ -14,7 +14,7 @@ export default new Vuex.Store({
 			size: "",
 			breed: ""
 		},
-		navbarState: false
+		navbarState: CookieHandler.getCookie("authstatus") === "true"
 	},
 	mutations: {
 		saveDogForm(state, payload) {
