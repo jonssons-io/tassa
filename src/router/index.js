@@ -20,7 +20,8 @@ const isNotExpired = token => {
 const loggedIn = () => {
 	let token = CookieHandler.getCookie("authtoken");
 	let authStatus = isNotExpired(token);
-	console.log("authstatus from isExpired ", authStatus);
+	console.log("token ", token);
+	console.log("authstatus from isNotExpired ", authStatus);
 	return authStatus;
 };
 
