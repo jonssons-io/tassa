@@ -9,12 +9,10 @@
 		/>
 		<ProfileFamily :family="profileFamily" />
 		<ProfileDescription :desc="profileDesc" />
-		<NavBar />
 	</b-container>
 </template>
 
 <script>
-import NavBar from "./../components/NavBar";
 import ProfileHeader from "./../components/ProfilePageComponents/ProfileHeader";
 import ProfileFamily from "./../components/ProfilePageComponents/ProfileFamily";
 import ProfileDescription from "./../components/ProfilePageComponents/ProfileDescription";
@@ -24,7 +22,6 @@ import CookieHandler from "../util/CookieHandler";
 export default {
 	name: "ProfilePage",
 	components: {
-		NavBar,
 		ProfileHeader,
 		ProfileFamily,
 		ProfileDescription

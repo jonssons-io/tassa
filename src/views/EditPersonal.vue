@@ -8,22 +8,19 @@
 			btnText="Spara ändringar"
 		/>
 		<EditPersonalBanner />
-		<NavBar />
 	</div>
 </template>
 
 <script>
 import EditPersonalBanner from "@/components/EditProfileComponents/EditPersonalBanner.vue";
 import ProfileHeader from "@/components/ProfilePageComponents/ProfileHeader.vue";
-import NavBar from "@/components/NavBar.vue";
 import ApiHandler from "./../util/ApiHandler.js";
 
 export default {
 	name: "EditPersonal",
 	components: {
 		ProfileHeader,
-		EditPersonalBanner,
-		NavBar
+		EditPersonalBanner
 	},
 	beforeCreate() {
 		ApiHandler.getUser(this.$route.params.id).then(res => {

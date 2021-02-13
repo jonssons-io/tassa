@@ -96,13 +96,10 @@
 				>{{ this.login.btnText }}</b-button
 			>
 		</b-form>
-		<span class="forgot-password">Glömt lösenord? Klicka här!</span>
-		<NavBar />
 	</b-container>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
 // import ApiHandler from "@/util/ApiHandler.js";
@@ -111,9 +108,6 @@ import ApiHandler from "../util/ApiHandler";
 
 export default {
 	name: "LogIn",
-	components: {
-		NavBar
-	},
 	mounted() {
 		let email = CookieHandler.getCookie("userEmail");
 		this.loginform.email = email;
@@ -173,6 +167,7 @@ export default {
 			};
 			ApiHandler.userAuth(loginform).then(res => {
 				console.log(res);
+				this.$store.dispatch("SET_NAVBAR");
 				this.$router
 					.push({
 						name: "ProfilePage",
@@ -183,6 +178,7 @@ export default {
 					.catch(error => {
 						console.log("errorresponse ", error.response);
 						console.log("error ", error);
+						console.log("errorstatus ", error.response.status);
 						this.login.showLoginFailed = true;
 						this.login.showBtnSpinner = false;
 						this.login.btnText = "Logga in";
@@ -210,12 +206,5 @@ export default {
 }
 .formgroup--top {
 	padding-top: 2em;
-}
-.forgot-password {
-	position: absolute;
-	bottom: 7em;
-	left: 0;
-	right: 0;
-	margin: auto;
 }
 </style>

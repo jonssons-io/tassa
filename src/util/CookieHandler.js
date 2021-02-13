@@ -16,9 +16,9 @@ function getCookie(cname) {
 
 function setCookie(key, value, expires = null) {
 	if (expires == null) {
-		document.cookie = `${key}=${value}`;
+		document.cookie = `${key}=${value};path=/`;
 	} else {
-		document.cookie = `${key}=${value}; expires=${expires}`;
+		document.cookie = `${key}=${value};expires=${expires};path=/`;
 	}
 }
 

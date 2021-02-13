@@ -5,9 +5,17 @@
 			<router-link to="/om-oss">Om Oss</router-link>
 		</div> -->
 		<router-view />
+		<NavBar />
 	</div>
 </template>
-
+<script>
+import NavBar from "./components/NavBar";
+export default {
+	components: {
+		NavBar
+	}
+};
+</script>
 <style lang="scss">
 body {
 	padding: 0px;
