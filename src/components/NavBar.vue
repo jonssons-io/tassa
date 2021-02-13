@@ -85,6 +85,7 @@
 
 <script>
 import CookieHandler from "../util/CookieHandler";
+import { mapActions } from "vuex";
 export default {
 	name: "NavBar",
 	data() {
@@ -95,17 +96,14 @@ export default {
 	},
 	computed: {
 		loggedInStatus() {
-			if (CookieHandler.getCookie("authstatus") == "false") {
-				return false;
-			} else {
-				return true;
-			}
+			return this.$store.state.navbarState;
 		},
 		loggedInUser() {
 			return CookieHandler.getCookie("userid");
 		}
 	},
 	methods: {
+		...mapActions(["SET_NAVBAR"]),
 		toggleProfileTab() {
 			this.expandMenu = !this.expandMenu;
 		},
@@ -113,6 +111,7 @@ export default {
 			CookieHandler.removeCookie("authstatus");
 			CookieHandler.removeCookie("userid");
 			CookieHandler.removeCookie("authtoken");
+			this.$store.dispatch("SET_NAVBAR");
 		}
 	}
 };

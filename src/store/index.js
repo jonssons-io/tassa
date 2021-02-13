@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import ApiHandler from "@/util/ApiHandler.js";
+import CookieHandler from "../util/CookieHandler";
 
 Vue.use(Vuex);
 
@@ -12,11 +13,15 @@ export default new Vuex.Store({
 			age: "",
 			size: "",
 			breed: ""
-		}
+		},
+		navbarState: false
 	},
 	mutations: {
 		saveDogForm(state, payload) {
 			state.dogRegistration = payload.registerdogform;
+		},
+		updateNavbar(state, value) {
+			state.navbarState = value;
 		}
 	},
 	actions: {
@@ -30,6 +35,17 @@ export default new Vuex.Store({
 					.catch(error => {
 						reject(error);
 					});
+			});
+		},
+		SET_NAVBAR({ commit }) {
+			return new Promise(resolve => {
+				if (CookieHandler.getCookie("authstatus")) {
+					commit("updateNavbar", true);
+					resolve();
+				} else {
+					commit("updateNavbar", false);
+					resolve();
+				}
 			});
 		}
 	},

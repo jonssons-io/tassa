@@ -7,22 +7,19 @@
 			:picture="profileHeader.picture"
 		/>
 		<EditPreferencesBanner />
-		<NavBar />
 	</div>
 </template>
 
 <script>
 import EditPreferencesBanner from "@/components/EditProfileComponents/EditPreferencesBanner.vue";
 import ProfileHeader from "@/components/ProfilePageComponents/ProfileHeader.vue";
-import NavBar from "@/components/NavBar.vue";
 import ApiHandler from "./../util/ApiHandler.js";
 
 export default {
 	name: "EditPreferences",
 	components: {
 		ProfileHeader,
-		EditPreferencesBanner,
-		NavBar
+		EditPreferencesBanner
 	},
 	beforeCreate() {
 		console.log(this.$store);

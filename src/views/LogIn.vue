@@ -96,12 +96,10 @@
 				>{{ this.login.btnText }}</b-button
 			>
 		</b-form>
-		<NavBar />
 	</b-container>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
 // import ApiHandler from "@/util/ApiHandler.js";
@@ -110,9 +108,6 @@ import ApiHandler from "../util/ApiHandler";
 
 export default {
 	name: "LogIn",
-	components: {
-		NavBar
-	},
 	mounted() {
 		let email = CookieHandler.getCookie("userEmail");
 		this.loginform.email = email;
@@ -172,6 +167,7 @@ export default {
 			};
 			ApiHandler.userAuth(loginform).then(res => {
 				console.log(res);
+				this.$store.dispatch("SET_NAVBAR");
 				this.$router
 					.push({
 						name: "ProfilePage",

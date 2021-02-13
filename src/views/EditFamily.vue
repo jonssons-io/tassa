@@ -7,22 +7,19 @@
 			:picture="profileHeader.picture"
 		/>
 		<ProfileFamily :family="profileFamily" />
-		<NavBar />
 	</div>
 </template>
 
 <script>
 import ProfileFamily from "@/components/ProfilePageComponents/ProfileFamily.vue";
 import ProfileHeader from "@/components/ProfilePageComponents/ProfileHeader.vue";
-import NavBar from "@/components/NavBar.vue";
 import ApiHandler from "./../util/ApiHandler.js";
 
 export default {
 	name: "EditPersonal",
 	components: {
 		ProfileHeader,
-		ProfileFamily,
-		NavBar
+		ProfileFamily
 	},
 	beforeCreate() {
 		ApiHandler.getUser(this.$route.params.id).then(res => {
