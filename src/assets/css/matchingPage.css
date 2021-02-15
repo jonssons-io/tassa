@@ -1,10 +1,14 @@
-.B-C-A {
+.B-C-A:nth-child(even) {
   background-color: #00554c;
+  width: 100%;
 }
 
 .B-C > span,
 .B-C-A > span {
   font-size: 0.8em;
+}
+.B-C-A:last-child {
+  margin-bottom: 15vh;
 }
 
 .match-list {
@@ -12,9 +16,6 @@
   padding-top: 2rem;
 }
 
-.last-result {
-  margin-bottom: 15vh;
-}
 
 .match-label {
   font-size: 1.3rem;

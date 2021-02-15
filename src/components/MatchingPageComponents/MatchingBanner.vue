@@ -12,27 +12,20 @@
 					v-bind:key="index"
 				>
 					<h6>{{ person.firstName }} {{ person.lastName }}</h6>
+					<b-col
+						v-for="(dog, index) in person.dog"
+						v-bind:key="index"
+					>
+						<h6>Hund: {{ dog.name }}</h6>
+					</b-col>
 					<span class="match-list"> </span>
 				</b-col>
 			</b-col>
 			<b-col cols="4">
 				<label class="match-label">Område</label>
-				<b-col
-					class="B-C-A"
-					v-for="(area, index) in this.areas"
-					v-bind:key="index"
-					>{{ area }} <span class="match-list"></span
-				></b-col>
 			</b-col>
 			<b-col cols="4">
 				<label class="match-label">Familj</label>
-				<b-col
-					class="B-C-A"
-					v-for="(dog, index) in this.dogs"
-					v-bind:key="index"
-					><h6>{{ dog.name }} {{ dog.age }}År</h6>
-					<span class="match-list"></span
-				></b-col>
 			</b-col>
 		</b-row>
 	</b-container>
@@ -57,7 +50,7 @@ export default {
 	},
 	methods: {
 		getData() {
-			ApiHandler.getUsers().then(res => {
+			ApiHandler.getUsers("?include=dog").then(res => {
 				this.persons = res.data.result;
 				console.log(res.data.result);
 			});
@@ -73,6 +66,9 @@ export default {
 				this.areas = res.data.result;
 				console.log(res.data.result);
 			});
+		},
+		getDog(accountId) {
+			return this.dogs.filter(x => x.accountId === accountId).map(x => x);
 		}
 	},
 	mounted: function() {
