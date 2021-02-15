@@ -74,8 +74,9 @@ function createUser(userInfo) {
 function createDog(dogInfo) {
 	return postReq(`/dog`, dogInfo);
 }
-function getDogs(userId) {
-	return getReq(`/dog/${userId}`);
+
+function getDogs(dogInfo) {
+	return getReq(`/dog`, dogInfo);
 }
 // Edit preference
 function getPrefe(userId) {
