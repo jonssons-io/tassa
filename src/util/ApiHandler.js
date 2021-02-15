@@ -62,7 +62,9 @@ function userAuth(loginform) {
 function getUser(id) {
 	return getReq(`/account/${id}`);
 }
-
+function getUsers() {
+	return getReq(`/account`);
+}
 function createUser(userInfo) {
 	console.log("createuser ", userInfo);
 	return postReq(`/account`, userInfo);
@@ -71,6 +73,9 @@ function createUser(userInfo) {
 // Dog requests
 function createDog(dogInfo) {
 	return postReq(`/dog`, dogInfo);
+}
+function getDogs(userId) {
+	return getReq(`/dog/${userId}`);
 }
 // Edit preference
 function getPrefe(userId) {
@@ -97,8 +102,10 @@ export default {
 	deleteReq,
 	userAuth,
 	getUser,
+	getUsers,
 	createUser,
 	createDog,
+	getDogs,
 	getPrefe,
 	updatePrefe,
 	getPerson,

@@ -5,7 +5,6 @@
 			:lastname="profileHeader.lastname"
 			:area="profileHeader.area"
 			:picture="profileHeader.picture"
-			btnText="Spara ändringar"
 		/>
 		<ProfileFamily :family="profileFamily" />
 		<NavBar />
@@ -30,6 +29,7 @@ export default {
 			console.log("res", res);
 			this.profileHeader.firstname = res.data.result.firstName;
 			this.profileHeader.lastname = res.data.result.lastName;
+			this.profileHeader.area = res.data.result.area;
 		});
 	},
 	data() {

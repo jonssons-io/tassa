@@ -24,7 +24,6 @@
 					v-model="form.phoneNumber"
 					value="form.phoneNumber"
 					type="input"
-					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
@@ -38,7 +37,6 @@
 					v-model="form.email"
 					value="form.email"
 					type="input"
-					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
@@ -46,11 +44,7 @@
 		<b-row class="my-3">
 			<b-col cols="6"><h6 class="editLable">Ändra område</h6> </b-col>
 			<b-col cols="6"
-				><select
-					v-model="form.area"
-					v-on:blur="handleBlur"
-					class="editPersonal_changeInput"
-				>
+				><select v-model="form.area" class="editPersonal_changeInput">
 					<option v-for="area in areas" v-bind:key="area">{{
 						area
 					}}</option>
@@ -64,7 +58,6 @@
 					v-model="form.firstName"
 					value="form.firstName"
 					type="input"
-					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
@@ -76,7 +69,6 @@
 					v-model="form.lastName"
 					value="form.lastName"
 					type="input"
-					v-on:blur="handleBlur"
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
@@ -126,11 +118,7 @@ export default {
 		};
 	},
 	methods: {
-		handleBlur(e) {
-			console.log(e.target.value);
-		},
 		sendUpdate() {
-			console.log(this.form);
 			ApiHandler.updatePerson(this.$route.params.id, this.form).then(
 				res => {
 					var data = res.data.result;
