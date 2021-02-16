@@ -1,55 +1,35 @@
+.container{
+  padding: 0px !important;
+  margin: 0% !important;
+}
 .B-C-A:nth-child(even) {
   background-color: #00554c;
-  width: 125%;
-  margin-left: -5%;
-}
-.B-C-A{
-  display: flex;
-  flex-direction: row;
-  width: 125%;
-  margin-left: -5%;
-}
-.matchTable--headers{
-  display: flex;
-  justify-content: space-around;
+  width: 100%;
   
 }
-.matchTable--persons {
-  font-size: 0.695em;
-  text-align: left;
-  text-transform: none;
-  padding-left: 2%;
-  width:35%;
-}
-.matchTable--area{
-  font-size: 0.695em;
-  text-transform: none;
-  text-align: left;
-  float: right;
-  width: 20%;
-}
-.matchTable--family{
-  font-size: 0.695em;
-  text-align: left;
-  float: left;
-  text-transform: none;
+.B-C-A{
+  background-color: #006C61;
   width: 100%;
+  padding-top: 2%;
 }
+
 .B-C-A:last-child {
-  margin-bottom: 15vh;
+  margin-bottom: 10vh;
 }
-
-.match-list {
+.matchHeader{
+  float: left;
+}
+.matchDog{
+  float: left;
   text-align: left;
-  padding-top: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 40%;
 }
-
-
-.match-label {
-  font-size: 1.15rem;
+.matchArea{
+  font-size: 1.1em;
   color: white;
-  margin-top: 5%;
-  display: flex;
-  padding-left: 5%;
+  float: left;
 }
 /*# sourceMappingURL=matchingPage.css.map */

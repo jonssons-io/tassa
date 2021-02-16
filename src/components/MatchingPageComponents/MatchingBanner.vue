@@ -3,48 +3,39 @@
 		<b-col>
 			<h2 class="segment--title">Matchningar</h2>
 		</b-col>
-		<table>
-			<tr class="matchTable--headers">
-				<th>
-					<h4 class="match-label">Namn</h4>
-				</th>
-				<th>
-					<h4 class="match-label">Område</h4>
-				</th>
-				<th>
-					<h4 class="match-label">Familj</h4>
-				</th>
-			</tr>
-			<tr>
-				<router-link tag="a" :to="{ path: '/ProfilePage' }">
-					<td
-						class="B-C-A"
-						v-for="(person, index) in this.persons"
-						v-bind:key="index"
-					>
-						<span class="matchTable--persons">
-							{{ person.firstName }} {{ person.lastName }}
-						</span>
-						<div
-							v-for="(dog, index) in person.dog"
-							v-bind:key="index"
-						>
-							<span class="matchTable--family">
-								{{ dog.name }} {{ dog.age }} År <br />
-								{{ dog.breed }}, <br /> {{ dog.gender }}
-							</span>
-						</div>
-						<div
-							v-for="(area, index) in person.area"
-							v-bind:key="index"
-						>
-							<span class="matchTable--area">{{ area }}</span>
-						</div>
+		<b-list-group>
+			<b-list-group-item
+				href="#"
+				class="flex-column align-items-start B-C-A"
+				v-for="(person, index) in this.persons"
+				v-bind:key="index"
+				><h5 class="matchHeader">
+					{{ person.firstName }} {{ person.lastName }}
+				</h5>
 
-					</td>
-				</router-link>
-			</tr>
-		</table>
+				<div class="d-flex w-80 justify-content-between">
+					<h5 class="mb-1"></h5>
+				</div>
+
+				<p
+					class="matchDog"
+					v-for="(dog, index) in person.dog"
+					v-bind:key="index"
+				>
+					{{ dog.name }} {{ dog.age }} År <br />
+					{{ dog.breed }} <br />
+					{{ dog.gender }}
+				</p>
+
+				<small
+					class="matchArea"
+					v-for="(area, index) in person.area"
+					v-bind:key="index"
+					>{{ area }}</small
+				>
+				<img src="src/assets/p.png" alt="paws" /> 
+			</b-list-group-item>
+		</b-list-group>
 	</b-container>
 </template>
 
