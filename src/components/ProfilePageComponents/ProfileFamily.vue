@@ -5,7 +5,7 @@
 			<div class="one-dog" v-for="dog in family" :key="dog.name">
 				<h6 class="dog-name">{{ dog.name }}, {{ dog.age }} ÅR</h6>
 				<p class="dog-info subtitle-extended">
-					{{ dog.breed }}-{{ dog.gender }}
+					{{ dog.breed }}-{{ dog.gender == "male" ? "hane" : "tik" }}
 				</p>
 				<div class="dog-pic">
 					<img
