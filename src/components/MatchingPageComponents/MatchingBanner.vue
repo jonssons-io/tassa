@@ -3,101 +3,99 @@
 		<b-col>
 			<h2 class="segment--title">Matchningar</h2>
 		</b-col>
-		<b-row>
-			<b-col>
-				<label class="match-label">Namn</label>
-			</b-col>
-			<b-col>
-				<label class="match-label">Område</label>
-			</b-col>
-			<b-col>
-				<label class="match-label">Familj</label>
-			</b-col>
-			<div class="w-100"></div>
-			<b-col class="B-C-A"
-				><span class="match-list">A.Svensson</span></b-col
-			>
-			<b-col class="B-C-A"
-				><span class="match-list">Ö.Svealand</span></b-col
-			>
-			<b-col class="B-C-A"
-				><span class="match-list">Boppe, 6 år, Basset-Hane</span></b-col
-			>
-			<div class="w-100"></div>
-			<b-col class="B-C"
-				><span class="match-list">P.Josefsson</span></b-col
-			>
-			<b-col class="B-C"
-				><span class="match-list">Ö.Svealand</span></b-col
-			>
-			<b-col class="B-C"
-				><span class="match-list"
-					>Tilda, 3 år, Greyhound-Tik</span
-				></b-col
-			>
-			<div class="w-100"></div>
-			<b-col class="B-C-A"
-				><span class="match-list">J.Andersson</span></b-col
-			>
-			<b-col class="B-C-A"
-				><span class="match-list">Ö.Svealand</span></b-col
-			>
-			<b-col class="B-C-A"
-				><span class="match-list"
-					>Snowy, 6 år, Chihuahua-Tik</span
-				></b-col
-			>
-			<div class="w-100"></div>
-			<b-col class="B-C"><span class="match-list">R.Larsson</span></b-col>
-			<b-col class="B-C"
-				><span class="match-list">Ö.Svealand</span></b-col
-			>
-			<b-col class="B-C"
-				><span class="match-list">
-					Happy, 2 år, Gand Danois-Hane
-				</span></b-col
-			>
-			<div class="w-100"></div>
-			<b-col class="B-C-A"
-				><span class="match-list">P.Karlsson</span></b-col
-			>
-			<b-col class="B-C-A"
-				><span class="match-list">Ö.Svealand</span></b-col
-			>
-			<b-col class="B-C-A"
-				><span class="match-list">Kuma, 3 år, Podengo-Hane</span></b-col
-			>
-			<div class="w-100"></div>
-			<b-col class="B-C"><span class="match-list">C.Ohlsson</span></b-col>
-			<b-col class="B-C"
-				><span class="match-list">Ö.Svealand</span></b-col
-			>
-			<b-col class="B-C"
-				><span class="match-list">
-					Bullen, 8 år, Norwhich Terrier-Hane
-				</span></b-col
-			>
-			<div class="w-100"></div>
-			<b-col class="B-C-A"
-				><span class="match-list">H.Persson</span></b-col
-			>
-			<b-col class="B-C-A"
-				><span class="match-list">Ö.Svealand</span></b-col
-			>
-			<b-col class="B-C-A last-result"
-				><span class="match-list">
-					Lilly, 4 år, Golden Retriver-Hane
-				</span></b-col
-			>
-		</b-row>
+		<table>
+			<tr class="matchTable--headers">
+				<th>
+					<h4 class="match-label">Namn</h4>
+				</th>
+				<th>
+					<h4 class="match-label">Område</h4>
+				</th>
+				<th>
+					<h4 class="match-label">Familj</h4>
+				</th>
+			</tr>
+			<tr>
+				<router-link tag="a" :to="{ path: '/ProfilePage' }">
+					<td
+						class="B-C-A"
+						v-for="(person, index) in this.persons"
+						v-bind:key="index"
+					>
+						<h6 class="matchTable--headings">
+							{{ person.firstName }} {{ person.lastName }}
+						</h6>
+						<div
+							v-for="(area, index) in person.area"
+							v-bind:key="index"
+						>
+							<h6>{{ area.area }}</h6>
+						</div>
+
+						<div
+							v-for="(dog, index) in person.dog"
+							v-bind:key="index"
+						>
+							<h6 class="matchTable--headingsThird">
+								{{ dog.name }} {{ dog.age }} År <br />
+								{{ dog.breed }} {{ dog.gender }}
+							</h6>
+						</div>
+					</td>
+				</router-link>
+			</tr>
+		</table>
 	</b-container>
 </template>
 
 <script>
 export default {
-	name: "Match"
+	name: "Match",
+	data() {
+		return {
+			areas: [],
+			information: {
+				firstName: false,
+				lastName: false,
+				area: false,
+				age: false,
+				name: false
+			},
+			persons: [],
+			dogs: []
+		};
+	},
+	methods: {
+		getData() {
+			ApiHandler.getUsers("?include=dog").then(res => {
+				this.persons = res.data.result;
+				console.log(res.data.result);
+			});
+		},
+		getDogs() {
+			ApiHandler.getDogs().then(res => {
+				this.dogs = res.data.result;
+			});
+		},
+
+		getLocation() {
+			ApiHandler.getAreas().then(res => {
+				this.areas = res.data.result;
+				console.log(res.data.result);
+			});
+		},
+		getDog(accountId) {
+			return this.dogs.filter(x => x.accountId === accountId).map(x => x);
+		}
+	},
+	mounted: function() {
+		this.getData();
+		this.getDogs();
+		this.getLocation();
+	}
 };
 import "./../../assets/css/matchingPage.css";
+import ApiHandler from "../../util/ApiHandler";
 </script>
 
 <style scoped lang="sass"></style>
