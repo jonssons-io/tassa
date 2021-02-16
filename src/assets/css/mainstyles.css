@@ -11249,7 +11249,7 @@ select option {
   background-color: #004942;
 }
 
-.profile-desc--container {
+.profile-desc--container, .edit-presentation--container {
   margin-bottom: 15vh;
 }
 

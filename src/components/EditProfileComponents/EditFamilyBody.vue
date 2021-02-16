@@ -29,8 +29,17 @@
 				@click="removeDog(dog._id)"
 			></font-awesome-icon>
 		</div>
-
-		<div class="">
+		<div class="btn-container">
+			<b-button
+				id="edit-family-add-dog"
+				type="button"
+				to="/registrera-hund"
+				variant="tassabtnred"
+				class="profile-header--btn"
+				>Lägg till hund</b-button
+			>
+		</div>
+		<div class="edit-presentation--container">
 			<h5>Presentation</h5>
 			<b-form-textarea
 				id="textarea"
@@ -104,6 +113,10 @@ h5 {
 		"pic breed delete";
 }
 
+.one-dog:not(:first-child) {
+	padding-top: 0.3em;
+}
+
 .dog-pic {
 	grid-area: pic;
 	grid-row: 1 / span 2;
@@ -136,5 +149,19 @@ h5 {
 #textarea {
 	margin: 0 5vw 0 5vw;
 	width: 90vw;
+}
+
+.btn-container {
+	background-color: #004942;
+}
+
+#edit-family-add-dog {
+	margin-top: 0;
+	margin-bottom: 1em;
+	width: 50vw;
+}
+
+.edit-presentation--container {
+	padding-bottom: 2em;
 }
 </style>

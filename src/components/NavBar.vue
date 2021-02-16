@@ -40,12 +40,6 @@
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						to="/registrera-hund"
-						>Lägg till hund</b-nav-item
-					>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
 						:to="`/editera-preferenser/${loggedInUser}`"
 						>Ändra preferenser</b-nav-item
 					>

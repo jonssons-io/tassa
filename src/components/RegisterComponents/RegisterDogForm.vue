@@ -279,7 +279,7 @@ export default {
 			submit: {
 				showSubmitFailed: false,
 				failedMsg: "",
-				btnText: "Gå med",
+				btnText: "Lägg till",
 				showBtnSpinner: false
 			}
 		};
@@ -324,7 +324,7 @@ export default {
 			// let registerdogform = this.registerdogform;
 			// Changes color of checkboxlabel to red if state is unchecked.
 			if (this.$v.registerdogform.$anyError) {
-				this.submit.btnText = "Gå med";
+				this.submit.btnText = "Lägg till";
 				this.submit.showBtnSpinner = false;
 				this.submit.failedMsg =
 					"Det finns fel i formuläret som behöver åtgärdas.";

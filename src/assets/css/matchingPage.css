@@ -1,29 +1,10 @@
-.B-C-A:nth-child(even) {
+.B-C-A:nth-child(2) {
   background-color: #00554c;
-  width: 100%;
 }
-.B-C-A{
-  display: flex;
-  flex-direction: row;
-}
-.matchTable--headers{
-  display: flex;
-  justify-content: space-between;
-}
-.matchTable--headings {
-  font-size: 0.75em;
-  text-align: left;
-  margin-right: 6%;
-  text-transform: none;
-}
-.matchTable--headingsThird{
-  font-size: 0.75em;
-  text-align: left;
-  margin-left: 20%;
-  text-transform: none;
-}
-.B-C-A:last-child {
-  margin-bottom: 15vh;
+
+.B-C > span,
+.B-C-A > span {
+  font-size: 0.8em;
 }
 
 .match-list {
@@ -31,12 +12,14 @@
   padding-top: 2rem;
 }
 
+.last-result {
+  margin-bottom: 15vh;
+}
 
 .match-label {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   color: white;
   margin-top: 5%;
-  display: flex;
-  
+  text-align: left;
 }
 /*# sourceMappingURL=matchingPage.css.map */
