@@ -35,21 +35,16 @@ function deleteReq(path) {
 // Request for user login.
 function userAuth(loginform) {
 	return postReq("/auth/login", loginform).then(res => {
-		CookieHandler.setCookie(
-			"authstatus",
-			true,
-			res.data.result.token.expires
-		);
+		let today = Date.now() / 1000;
+		let validUntil = res.data.result.token.exp_epoch;
+		let maxage = validUntil - today;
+		CookieHandler.setCookie("authstatus", true, maxage);
 		CookieHandler.setCookie(
 			"authtoken",
 			res.data.result.token.token,
-			res.data.result.token.expires
+			maxage
 		);
-		CookieHandler.setCookie(
-			"userid",
-			res.data.result.user._id,
-			res.data.result.token.expires
-		);
+		CookieHandler.setCookie("userid", res.data.result.user._id, maxage);
 		return res;
 	});
 }
