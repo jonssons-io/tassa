@@ -16,28 +16,33 @@
 				</th>
 			</tr>
 			<tr>
-				<td
-					class="B-C-A"
-					v-for="(person, index) in this.persons"
-					v-bind:key="index"
-				>
-					<h6 class="matchTable--headings">
-						{{ person.firstName }} {{ person.lastName }}
-					</h6>
-					<div
-						v-for="(area, index) in person.area"
+				<router-link tag="a" :to="{ path: '/ProfilePage' }">
+					<td
+						class="B-C-A"
+						v-for="(person, index) in this.persons"
 						v-bind:key="index"
 					>
-						<h6>{{ area.area }}</h6>
-					</div>
-
-					<div v-for="(dog, index) in person.dog" v-bind:key="index">
-						<h6 class="matchTable--headingsThird">
-							{{ dog.name }} {{ dog.age }} År <br />
-							{{ dog.breed }} {{dog.gender}}
+						<h6 class="matchTable--headings">
+							{{ person.firstName }} {{ person.lastName }}
 						</h6>
-					</div>
-				</td>
+						<div
+							v-for="(area, index) in person.area"
+							v-bind:key="index"
+						>
+							<h6>{{ area.area }}</h6>
+						</div>
+
+						<div
+							v-for="(dog, index) in person.dog"
+							v-bind:key="index"
+						>
+							<h6 class="matchTable--headingsThird">
+								{{ dog.name }} {{ dog.age }} År <br />
+								{{ dog.breed }} {{ dog.gender }}
+							</h6>
+						</div>
+					</td>
+				</router-link>
 			</tr>
 		</table>
 	</b-container>
