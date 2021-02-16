@@ -7,7 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
 	state: {
 		navbarState: CookieHandler.getCookie("authstatus") === "true",
-		userDesc: "Här var det tomt.. Skriv gärna en kort presentation!"
+		userDesc:
+			"Här var det tomt.. Klicka här för att skriva en presentation!"
 	},
 	mutations: {
 		updateNavbar(state, payload) {

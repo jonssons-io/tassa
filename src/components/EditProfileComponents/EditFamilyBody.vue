@@ -26,9 +26,12 @@
 			<font-awesome-icon
 				class="remove-dog--icon"
 				icon="times"
+				@click="removeDog(dog._id)"
 			></font-awesome-icon>
 		</div>
+
 		<div class="">
+			<h5>Presentation</h5>
 			<b-form-textarea
 				id="textarea"
 				v-model="editedDesc"
@@ -36,8 +39,12 @@
 				rows="5"
 				max-rows="10"
 				@keyup="setUserDesc"
+				autofocus
 			></b-form-textarea>
 		</div>
+		<b-alert variant="success" v-model="showAlertMsg" dismissible>{{
+			this.alertMsg
+		}}</b-alert>
 	</div>
 </template>
 
@@ -54,7 +61,9 @@ export default {
 	data() {
 		return {
 			editedDesc: "",
-			userFamily: []
+			userFamily: [],
+			alertMsg: "",
+			showAlertMsg: false
 		};
 	},
 	methods: {
@@ -71,12 +80,22 @@ export default {
 		},
 		setUserDesc() {
 			this.$store.dispatch("SET_DESC", this.editedDesc);
+		},
+		removeDog(dogId) {
+			ApiHandler.deleteDog(dogId).then(() => {
+				this.showAlertMsg = true;
+				this.alertMsg = "Din hund är nu borttagen.";
+				this.fetchUserFamily(CookieHandler.getCookie("userid"));
+			});
 		}
 	}
 };
 </script>
 
 <style scoped>
+h5 {
+	margin: 0.5em 0;
+}
 .one-dog {
 	display: grid;
 	grid-template-columns: 25vw auto 15vw;
@@ -112,5 +131,10 @@ export default {
 	width: 2em;
 	color: #b23850;
 	margin-top: 0.8em;
+}
+
+#textarea {
+	margin: 0 5vw 0 5vw;
+	width: 90vw;
 }
 </style>
