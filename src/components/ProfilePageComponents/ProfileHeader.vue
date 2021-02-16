@@ -1,13 +1,13 @@
 <template>
 	<div class="profile-header--container">
 		<img
-			v-if="picture != 'default'"
+			v-if="picture"
 			class="profile--picture"
 			:src="`${picture}`"
 			alt="Profile picture"
 		/>
 		<img
-			v-if="picture == 'default'"
+			v-if="!picture"
 			class="profile--picture"
 			src="./../../assets/DefaultPicture.svg"
 			alt="Profile picture"
@@ -17,7 +17,7 @@
 				<h4 class="profile--names">{{ firstname }} {{ lastname }}</h4>
 				<h6 class="profile--area">{{ area }}</h6>
 			</div>
-			<!-- <b-button
+			<b-button
 				type="button"
 				@click="this.profileHeaderBtnAction"
 				variant="tassabtnred"
@@ -28,7 +28,7 @@
 					v-if="profileBtn.showBtnSpinner"
 				></b-spinner
 				>{{ btnText }}</b-button
-			> -->
+			>
 		</div>
 	</div>
 </template>
@@ -50,7 +50,9 @@ export default {
 			if (CookieHandler.getCookie("authstatus") == "true") {
 				if (this.btnText == "Editera profil") {
 					this.$router.push({
-						path: "/editera-familjen"
+						path: `/editera-personligt/${CookieHandler.getCookie(
+							"userid"
+						)}`
 					});
 				} else if (this.btnText == "Föreslå promenad") {
 					console.log(

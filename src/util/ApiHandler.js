@@ -70,8 +70,8 @@ function createDog(dogInfo) {
 	return postReq(`/dog`, dogInfo);
 }
 
-function getDogs(dogInfo) {
-	return getReq(`/dog`, dogInfo);
+function getDogs(id) {
+	return getReq(`/dog/${id}`);
 }
 // Edit preference
 function getPrefe(userId) {

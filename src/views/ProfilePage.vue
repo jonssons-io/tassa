@@ -27,10 +27,15 @@ export default {
 		ProfileDescription
 	},
 	beforeCreate() {
-		ApiHandler.getUser(this.$route.params.id).then(res => {
+		let userid = CookieHandler.getCookie("userid");
+		ApiHandler.getUser(userid).then(res => {
 			this.profileHeader.firstname = res.data.result.firstName;
 			this.profileHeader.lastname = res.data.result.lastName;
-			this.profileHeader.area = res.data.result.geoPosition;
+			this.profileHeader.area = res.data.result.area;
+			this.profileHeader.picture = res.data.result.picture;
+		});
+		ApiHandler.getDogs(userid).then(res => {
+			this.profileFamily = res.data.result;
 		});
 	},
 	data() {

@@ -8,7 +8,18 @@
 					{{ dog.breed }}-{{ dog.gender }}
 				</p>
 				<div class="dog-pic">
-					<img :src="dog.dogpicture" alt="Dog profile picture" />
+					<img
+						v-if="dog.picture"
+						class="profile--picture"
+						:src="`${picture}`"
+						alt="Profile picture"
+					/>
+					<img
+						v-if="!dog.picture"
+						class="profile--picture"
+						src="./../../assets/DefaultDog.svg"
+						alt="Profile picture"
+					/>
 				</div>
 			</div>
 		</div>
@@ -35,14 +46,20 @@ export default {
 	grid-area: pic;
 	grid-row: 1 / span 2;
 	justify-self: end;
-	align-self: center;
+	align-self: start;
+	margin-right: 0.5em;
 }
 
 .dog-name {
 	grid-area: name;
+	text-align: left;
+	margin-left: 0.5em;
+	margin-bottom: 0;
 }
 
 .dog-info {
 	grid-area: breed;
+	text-align: left;
+	margin-left: 0.5em;
 }
 </style>

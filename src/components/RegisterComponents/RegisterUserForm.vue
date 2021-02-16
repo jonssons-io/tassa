@@ -561,7 +561,7 @@ export default {
 					email: this.registeruserform.email,
 					phoneNumber: this.registeruserform.phoneNumber,
 					gdpr: this.consent[0],
-					geoPosition: this.registeruserform.area,
+					area: this.registeruserform.area,
 					password: this.registeruserform.password
 				};
 				let accountInfo = {
