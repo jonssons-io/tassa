@@ -28,7 +28,6 @@ export default {
 	},
 	beforeCreate() {
 		ApiHandler.getUser(this.$route.params.id).then(res => {
-			console.log("res", res);
 			this.profileHeader.firstname = res.data.result.firstName;
 			this.profileHeader.lastname = res.data.result.lastName;
 			this.profileHeader.area = res.data.result.geoPosition;
@@ -50,10 +49,8 @@ export default {
 	computed: {
 		getBtnText() {
 			if (this.$route.params.id == CookieHandler.getCookie("userid")) {
-				console.log("hello");
 				return "Editera profil";
 			} else {
-				console.log("bye");
 				return "Föreslå promenad";
 			}
 		}

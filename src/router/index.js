@@ -9,9 +9,7 @@ Vue.use(VueRouter);
 const isNotExpired = token => {
 	if (token && jwt.decode(token)) {
 		const expiry = jwt.decode(token).exp;
-		console.log("expiry ", expiry * 1000);
 		const now = new Date();
-		console.log(now.getTime());
 		return now.getTime() < expiry * 1000;
 	}
 	return false;
@@ -20,8 +18,6 @@ const isNotExpired = token => {
 const loggedIn = () => {
 	let token = CookieHandler.getCookie("authtoken");
 	let authStatus = isNotExpired(token);
-	console.log("token ", token);
-	console.log("authstatus from isNotExpired ", authStatus);
 	return authStatus;
 };
 

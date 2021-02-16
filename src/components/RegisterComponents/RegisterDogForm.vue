@@ -336,8 +336,7 @@ export default {
 					size: this.registerdogform.size,
 					breed: this.registerdogform.breed
 				};
-				ApiHandler.createDog(newDog).then(res => {
-					console.log(res);
+				ApiHandler.createDog(newDog).then(() => {
 					this.$router.push({
 						name: "ProfilePage",
 						params: {

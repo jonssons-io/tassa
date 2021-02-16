@@ -132,7 +132,6 @@ export default {
 		},
 		deleteData() {
 			this.ondelete = true;
-			console.log("Button pushed");
 			ApiHandler.deletePerson(this.$route.params.id).then(() => {
 				setTimeout(() => {
 					this.$router.push({ path: "/" });
@@ -148,7 +147,6 @@ export default {
 			this.form.area = data.area;
 			this.form.firstName = data.firstName;
 			this.form.lastName = data.lastName;
-			console.log(res);
 		});
 		ApiHandler.getAreas().then(res => {
 			this.areas = res.data.result;

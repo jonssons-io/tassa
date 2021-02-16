@@ -34,28 +34,24 @@ function deleteReq(path) {
 
 // Request for user login.
 function userAuth(loginform) {
-	return postReq("/auth/login", loginform)
-		.then(res => {
-			CookieHandler.setCookie(
-				"authstatus",
-				true,
-				res.data.result.token.expires
-			);
-			CookieHandler.setCookie(
-				"authtoken",
-				res.data.result.token.token,
-				res.data.result.token.expires
-			);
-			CookieHandler.setCookie(
-				"userid",
-				res.data.result.user._id,
-				res.data.result.token.expires
-			);
-			return res;
-		})
-		.catch(error => {
-			return error;
-		});
+	return postReq("/auth/login", loginform).then(res => {
+		CookieHandler.setCookie(
+			"authstatus",
+			true,
+			res.data.result.token.expires
+		);
+		CookieHandler.setCookie(
+			"authtoken",
+			res.data.result.token.token,
+			res.data.result.token.expires
+		);
+		CookieHandler.setCookie(
+			"userid",
+			res.data.result.user._id,
+			res.data.result.token.expires
+		);
+		return res;
+	});
 }
 
 // User requests
@@ -66,7 +62,6 @@ function getUsers(query) {
 	return getReq(`/account${query}`);
 }
 function createUser(userInfo) {
-	console.log("createuser ", userInfo);
 	return postReq(`/account`, userInfo);
 }
 

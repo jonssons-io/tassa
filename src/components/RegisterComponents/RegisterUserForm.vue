@@ -575,6 +575,7 @@ export default {
 								this.registerButton.showBtnSpinner = false;
 								this.registerButton.btnText = "Gå med";
 								this.checkboxLabelColor("white");
+								this.$store.dispatch("SET_NAVBAR");
 								this.$router.push({
 									path: "/registrera-hund"
 								});
