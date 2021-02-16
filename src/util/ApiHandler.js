@@ -28,8 +28,8 @@ function putReq(path, data) {
 	return axios.put(`${BASE_URL}${path}`, data, getAuthHeader());
 }
 
-function deleteReq(path, data) {
-	return axios.delete(`${BASE_URL}${path}`, data, getAuthHeader());
+function deleteReq(path) {
+	return axios.delete(`${BASE_URL}${path}`, getAuthHeader());
 }
 
 // Request for user login.
@@ -62,7 +62,9 @@ function userAuth(loginform) {
 function getUser(id) {
 	return getReq(`/account/${id}`);
 }
-
+function getUsers(query) {
+	return getReq(`/account${query}`);
+}
 function createUser(userInfo) {
 	console.log("createuser ", userInfo);
 	return postReq(`/account`, userInfo);
@@ -71,6 +73,10 @@ function createUser(userInfo) {
 // Dog requests
 function createDog(dogInfo) {
 	return postReq(`/dog`, dogInfo);
+}
+
+function getDogs(dogInfo) {
+	return getReq(`/dog`, dogInfo);
 }
 // Edit preference
 function getPrefe(userId) {
@@ -83,22 +89,28 @@ function updatePrefe(userId, preferenceForm) {
 function getPerson(userId) {
 	return getReq(`/account/${userId}`);
 }
-function updatePerson(userId) {
-	return putReq(`/account/${userId}`);
+function updatePerson(userId, editForm) {
+	return putReq(`/account/${userId}`, editForm);
 }
 function deletePerson(userId) {
 	return deleteReq(`/account/${userId}`);
+}
+function getAreas() {
+	return getReq(`/area/kommun`);
 }
 export default {
 	putReq,
 	deleteReq,
 	userAuth,
 	getUser,
+	getUsers,
 	createUser,
 	createDog,
+	getDogs,
 	getPrefe,
 	updatePrefe,
 	getPerson,
 	updatePerson,
-	deletePerson
+	deletePerson,
+	getAreas
 };
