@@ -37,6 +37,15 @@ export default {
 		ApiHandler.getDogs(userid).then(res => {
 			this.profileFamily = res.data.result;
 		});
+		ApiHandler.getPrefe(userid).then(res => {
+			if (res.data.result.description) {
+				this.profileDesc = res.data.result.description;
+			} else {
+				this.profileDesc = `Hej! Mitt namn är ${this.profileHeader.firstname}.
+				Jag bor i ${this.profileHeader.area} och vill gärna träffa nya människor
+				i mitt närområde.`;
+			}
+		});
 	},
 	data() {
 		return {
