@@ -1,39 +1,39 @@
 .B-C-A:nth-child(even) {
   background-color: #00554c;
-  width: 100%;
+  width: 125%;
+  margin-left: -5%;
 }
 .B-C-A{
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 125%;
+  margin-left: -5%;
 }
 .matchTable--headers{
   display: flex;
-  justify-content: space-between;
-  margin-right: 12%;
+  justify-content: space-around;
+  
 }
 .matchTable--persons {
-  font-size: 0.65em;
+  font-size: 0.695em;
   text-align: left;
   text-transform: none;
   padding-left: 2%;
-  width: 80px;
+  width:35%;
 }
 .matchTable--area{
-  
+  font-size: 0.695em;
   text-transform: none;
-  
+  text-align: left;
+  float: right;
+  width: 20%;
 }
 .matchTable--family{
-  font-size: 0.65em;
+  font-size: 0.695em;
   text-align: left;
+  float: left;
   text-transform: none;
-  width: 80%;
-  padding-left: 10%;
-  float: right;
-  overflow: hidden;
-text-overflow: "----";
-
+  width: 100%;
 }
 .B-C-A:last-child {
   margin-bottom: 15vh;
@@ -50,6 +50,6 @@ text-overflow: "----";
   color: white;
   margin-top: 5%;
   display: flex;
-  
+  padding-left: 5%;
 }
 /*# sourceMappingURL=matchingPage.css.map */
