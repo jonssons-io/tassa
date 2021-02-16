@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div
-			class="profile-family--container"
+			class="profile-family--container one-dog"
 			v-for="dog in userFamily"
 			:key="dog._id"
 		>
@@ -23,6 +23,10 @@
 					alt="Profile picture"
 				/>
 			</div>
+			<font-awesome-icon
+				class="remove-dog--icon"
+				icon="times"
+			></font-awesome-icon>
 		</div>
 		<div class="">
 			<b-form-textarea
@@ -72,4 +76,41 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.one-dog {
+	display: grid;
+	grid-template-columns: 25vw auto 15vw;
+	grid-template-areas:
+		"pic name delete"
+		"pic breed delete";
+}
+
+.dog-pic {
+	grid-area: pic;
+	grid-row: 1 / span 2;
+	justify-self: end;
+	align-self: start;
+	margin-right: 0.5em;
+}
+
+.dog-name {
+	grid-area: name;
+	text-align: left;
+	margin-left: 0.5em;
+	margin-bottom: 0;
+}
+
+.dog-info {
+	grid-area: breed;
+	text-align: left;
+	margin-left: 0.5em;
+}
+
+.remove-dog--icon {
+	grid-area: delete;
+	height: 2em;
+	width: 2em;
+	color: #b23850;
+	margin-top: 0.8em;
+}
+</style>

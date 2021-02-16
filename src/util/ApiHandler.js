@@ -67,6 +67,9 @@ function createDog(dogInfo) {
 function getDogs(id) {
 	return getReq(`/dog/${id}`);
 }
+function deleteDog(dogId) {
+	return deleteReq(`/dog/${dogId}`);
+}
 // Edit preference
 function getPrefe(userId) {
 	return getReq(`/preference/${userId}`);
@@ -95,6 +98,7 @@ export default {
 	getUsers,
 	createUser,
 	createDog,
+	deleteDog,
 	getDogs,
 	getPrefe,
 	updatePrefe,
