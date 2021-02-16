@@ -22,23 +22,23 @@
 						v-for="(person, index) in this.persons"
 						v-bind:key="index"
 					>
-						<h6 class="matchTable--headings">
+						<h6 class="matchTable--persons">
 							{{ person.firstName }} {{ person.lastName }}
 						</h6>
 						<div
 							v-for="(area, index) in person.area"
 							v-bind:key="index"
 						>
-							<h6>{{ area.area }}</h6>
+							<h6 class="matchTable--area">{{ area }}</h6>
 						</div>
 
 						<div
 							v-for="(dog, index) in person.dog"
 							v-bind:key="index"
 						>
-							<h6 class="matchTable--headingsThird">
+							<h6 class="matchTable--family">
 								{{ dog.name }} {{ dog.age }} År <br />
-								{{ dog.breed }} {{ dog.gender }}
+								{{ dog.breed }}, {{ dog.gender }}
 							</h6>
 						</div>
 					</td>

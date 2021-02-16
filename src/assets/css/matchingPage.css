@@ -5,22 +5,35 @@
 .B-C-A{
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 .matchTable--headers{
   display: flex;
   justify-content: space-between;
+  margin-right: 12%;
 }
-.matchTable--headings {
-  font-size: 0.75em;
+.matchTable--persons {
+  font-size: 0.65em;
   text-align: left;
-  margin-right: 6%;
   text-transform: none;
+  padding-left: 2%;
+  width: 80px;
 }
-.matchTable--headingsThird{
-  font-size: 0.75em;
-  text-align: left;
-  margin-left: 20%;
+.matchTable--area{
+  
   text-transform: none;
+  
+}
+.matchTable--family{
+  font-size: 0.65em;
+  text-align: left;
+  text-transform: none;
+  width: 80%;
+  padding-left: 10%;
+  float: right;
+  overflow: hidden;
+text-overflow: "----";
+
 }
 .B-C-A:last-child {
   margin-bottom: 15vh;
