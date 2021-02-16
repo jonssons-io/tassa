@@ -35,6 +35,7 @@
 
 <script>
 import CookieHandler from "../../util/CookieHandler";
+import ApiHandler from "../../util/ApiHandler";
 export default {
 	name: "ProfileHeader",
 	props: ["firstname", "lastname", "area", "picture", "btnText"],
@@ -58,8 +59,12 @@ export default {
 					console.log(
 						"fixa så att notifikation dyker upp hos mottagare"
 					);
-				} else {
-					console.log("MICKIS LOGIK HÄR!!");
+				} else if (this.btnText == "Spara ändringar") {
+					let userid = CookieHandler.getCookie("userid");
+					let description = {
+						description: this.$store.state.userDesc
+					};
+					ApiHandler.updatePrefe(userid, description);
 				}
 			} else {
 				this.$router.push({

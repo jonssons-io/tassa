@@ -64,7 +64,6 @@ function createUser(userInfo) {
 function createDog(dogInfo) {
 	return postReq(`/dog`, dogInfo);
 }
-
 function getDogs(id) {
 	return getReq(`/dog/${id}`);
 }

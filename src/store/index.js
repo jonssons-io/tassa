@@ -6,11 +6,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		navbarState: CookieHandler.getCookie("authstatus") === "true"
+		navbarState: CookieHandler.getCookie("authstatus") === "true",
+		userDesc: "Här var det tomt.. Skriv gärna en kort presentation!"
 	},
 	mutations: {
-		updateNavbar(state, value) {
-			state.navbarState = value;
+		updateNavbar(state, payload) {
+			state.navbarState = payload;
+		},
+		updateDesc(state, payload) {
+			state.userDesc = payload;
 		}
 	},
 	actions: {
@@ -21,6 +25,16 @@ export default new Vuex.Store({
 					resolve();
 				} else {
 					commit("updateNavbar", false);
+					resolve();
+				}
+			});
+		},
+		SET_DESC({ commit }, newDesc) {
+			return new Promise(resolve => {
+				if (newDesc) {
+					commit("updateDesc", newDesc);
+					resolve();
+				} else {
 					resolve();
 				}
 			});
