@@ -2,10 +2,25 @@
   background-color: #00554c;
   width: 100%;
 }
-
-.B-C > span,
-.B-C-A > span {
-  font-size: 0.8em;
+.B-C-A{
+  display: flex;
+  flex-direction: row;
+}
+.matchTable--headers{
+  display: flex;
+  justify-content: space-between;
+}
+.matchTable--headings {
+  font-size: 0.75em;
+  text-align: left;
+  margin-right: 6%;
+  text-transform: none;
+}
+.matchTable--headingsThird{
+  font-size: 0.75em;
+  text-align: left;
+  margin-left: 20%;
+  text-transform: none;
 }
 .B-C-A:last-child {
   margin-bottom: 15vh;
@@ -18,9 +33,10 @@
 
 
 .match-label {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   color: white;
   margin-top: 5%;
-  text-align: left;
+  display: flex;
+  
 }
 /*# sourceMappingURL=matchingPage.css.map */

@@ -3,31 +3,43 @@
 		<b-col>
 			<h2 class="segment--title">Matchningar</h2>
 		</b-col>
-		<b-row>
-			<b-col cols="4">
-				<label class="match-label">Namn</label>
-				<b-col
+		<table>
+			<tr class="matchTable--headers">
+				<th>
+					<h4 class="match-label">Namn</h4>
+				</th>
+				<th>
+					<h4 class="match-label">Område</h4>
+				</th>
+				<th>
+					<h4 class="match-label">Familj</h4>
+				</th>
+			</tr>
+			<tr>
+				<td
 					class="B-C-A"
 					v-for="(person, index) in this.persons"
 					v-bind:key="index"
 				>
-					<h6>{{ person.firstName }} {{ person.lastName }}</h6>
-					<b-col
-						v-for="(dog, index) in person.dog"
+					<h6 class="matchTable--headings">
+						{{ person.firstName }} {{ person.lastName }}
+					</h6>
+					<div
+						v-for="(area, index) in person.area"
 						v-bind:key="index"
 					>
-						<h6>Hund: {{ dog.name }}</h6>
-					</b-col>
-					<span class="match-list"> </span>
-				</b-col>
-			</b-col>
-			<b-col cols="4">
-				<label class="match-label">Område</label>
-			</b-col>
-			<b-col cols="4">
-				<label class="match-label">Familj</label>
-			</b-col>
-		</b-row>
+						<h6>{{ area.area }}</h6>
+					</div>
+
+					<div v-for="(dog, index) in person.dog" v-bind:key="index">
+						<h6 class="matchTable--headingsThird">
+							{{ dog.name }} {{ dog.age }} År <br />
+							{{ dog.breed }} {{dog.gender}}
+						</h6>
+					</div>
+				</td>
+			</tr>
+		</table>
 	</b-container>
 </template>
 
