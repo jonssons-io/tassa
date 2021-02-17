@@ -56,7 +56,22 @@ const routes = [
 		}
 	},
 	{
-		path: "/editera-preferenser/:id",
+		path: "/inbjudningar",
+		name: "Invitations",
+		// route level code-splitting
+		// this generates a separate chunk (about.[hash].js) for this route
+		// which is lazy-loaded when the route is visited.
+		component: () =>
+			import(
+				/* webpackChunkName: "invitations" */ "../views/Invitations.vue"
+			),
+		meta: {
+			title: "Tassa - Dina notifikationer",
+			requiresAuth: true
+		}
+	},
+	{
+		path: "/redigera-preferenser/:id",
 		name: "EditPreferences",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
@@ -71,7 +86,7 @@ const routes = [
 		}
 	},
 	{
-		path: "/editera-familjen/:id",
+		path: "/redigera-familjen/:id",
 		name: "EditFamily",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route
@@ -86,7 +101,7 @@ const routes = [
 		}
 	},
 	{
-		path: "/editera-personligt/:id",
+		path: "/redigera-personuppgifter/:id",
 		name: "EditPersonal",
 		// route level code-splitting
 		// this generates a separate chunk (about.[hash].js) for this route

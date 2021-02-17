@@ -40,25 +40,25 @@
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						:to="`/editera-preferenser/${loggedInUser}`"
+						:to="`/redigera-preferenser/${loggedInUser}`"
 						>Ändra preferenser</b-nav-item
 					>
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						:to="`/editera-familjen/${loggedInUser}`"
-						>Editera beskrivning och familj</b-nav-item
+						:to="`/redigera-familjen/${loggedInUser}`"
+						>Redigera beskrivning och familj</b-nav-item
 					>
 					<b-nav-item
 						v-if="expandMenu"
 						class="nav--subitem"
-						:to="`/editera-personligt/${loggedInUser}`"
+						:to="`/redigera-personuppgifter/${loggedInUser}`"
 						>Personliga inställningar</b-nav-item
 					>
 				</b-nav-item>
-				<b-nav-item v-if="loggedInStatus" to="/"
+				<b-nav-item v-if="loggedInStatus" to="/inbjudningar"
 					><div
-						v-if="this.$store.state.notifications"
+						v-if="this.$store.state.notifications.length > 0"
 						class="has-notification"
 					>
 						{{ this.$store.state.notifications.length }}

@@ -51,7 +51,7 @@ export default {
 			if (CookieHandler.getCookie("authstatus") == "true") {
 				if (this.btnText == "Editera profil") {
 					this.$router.push({
-						path: `/editera-familjen/${CookieHandler.getCookie(
+						path: `/redigera-familjen/${CookieHandler.getCookie(
 							"userid"
 						)}`
 					});
