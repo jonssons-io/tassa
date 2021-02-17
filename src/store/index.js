@@ -8,7 +8,8 @@ export default new Vuex.Store({
 	state: {
 		navbarState: CookieHandler.getCookie("authstatus") === "true",
 		userDesc:
-			"Här var det tomt.. Klicka här för att skriva en presentation!"
+			"Här var det tomt.. Klicka här för att skriva en presentation!",
+		notifications: []
 	},
 	mutations: {
 		updateNavbar(state, payload) {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
 		},
 		updateDesc(state, payload) {
 			state.userDesc = payload;
+		},
+		updateNotifications(state, payload) {
+			state.notifications = payload;
 		}
 	},
 	actions: {
@@ -34,6 +38,16 @@ export default new Vuex.Store({
 			return new Promise(resolve => {
 				if (newDesc) {
 					commit("updateDesc", newDesc);
+					resolve();
+				} else {
+					resolve();
+				}
+			});
+		},
+		SET_NOTIFICATIONS({ commit }, notifications) {
+			return new Promise(resolve => {
+				if (notifications) {
+					commit("updateNotifications", notifications);
 					resolve();
 				} else {
 					resolve();

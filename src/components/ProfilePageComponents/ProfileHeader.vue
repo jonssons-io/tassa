@@ -56,9 +56,12 @@ export default {
 						)}`
 					});
 				} else if (this.btnText == "Föreslå promenad") {
-					console.log(
-						"fixa så att notifikation dyker upp hos mottagare"
-					);
+					let invitationData = {
+						invitingUserId: CookieHandler.getCookie("userid"),
+						invitedUserId: this.$route.params.id
+					};
+					ApiHandler.createInvitation(invitationData);
+					console.log("invitationData ", invitationData);
 				} else if (this.btnText == "Spara ändringar") {
 					let userid = CookieHandler.getCookie("userid");
 					let description = {

@@ -57,7 +57,13 @@
 					>
 				</b-nav-item>
 				<b-nav-item v-if="loggedInStatus" to="/"
-					>Notifikationer</b-nav-item
+					><div
+						v-if="this.$store.state.notifications"
+						class="has-notification"
+					>
+						{{ this.$store.state.notifications.length }}
+					</div>
+					Notifikationer</b-nav-item
 				>
 				<b-nav-item v-if="loggedInStatus" to="/matchning"
 					>Matchningar</b-nav-item
@@ -134,5 +140,15 @@ export default {
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:focus {
 	color: #fff;
+}
+.has-notification {
+	background-color: #b23850;
+	display: inline;
+	padding: 0 0.2em 0 0.2em;
+	margin: 0 0.4em 0 0.4em;
+	border-radius: 25px;
+	min-width: 25px;
+	height: 25px;
+	text-align: center;
 }
 </style>
