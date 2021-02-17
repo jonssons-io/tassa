@@ -5,17 +5,15 @@
 		</b-col>
 		<b-list-group>
 			<b-list-group-item
-				href="#"
 				class="flex-column align-items-start B-C-A"
 				v-for="(person, index) in this.persons"
 				v-bind:key="index"
-				><h5 class="matchHeader">
+				:to="{ name: 'ProfilePage', params: { id: person._id } }"
+				action
+			>
+				<h5 class="matchHeader">
 					{{ person.firstName }} {{ person.lastName }}
 				</h5>
-
-				<div class="d-flex w-80 justify-content-between">
-					<h5 class="mb-1"></h5>
-				</div>
 
 				<p
 					class="matchDog"
@@ -48,6 +46,7 @@
 <script>
 export default {
 	name: "Match",
+
 	data() {
 		return {
 			areas: [],

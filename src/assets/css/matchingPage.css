@@ -14,10 +14,12 @@
 }
 
 .B-C-A:last-child {
-  margin-bottom: 10vh;
+  margin-bottom: 8vh;
 }
 .matchHeader{
   float: left;
+  width: 80%;
+  text-align: left;
 }
 .matchDog{
   float: left;
@@ -33,8 +35,9 @@
   float: left;
 }
 .matchPicture{
- margin-top: 15%;
+  margin-top: 10%;
   height: 40px;
   width: 40px;
+  float: right;
 }
 /*# sourceMappingURL=matchingPage.css.map */
