@@ -46,15 +46,6 @@ export default {
 					this.userList.push(res.data.result);
 				});
 			});
-		},
-		translateGender(gender) {
-			if (gender == "other") {
-				return "hen";
-			} else if (gender == "female") {
-				return "henne";
-			} else {
-				return "honom";
-			}
 		}
 	}
 };
