@@ -155,7 +155,6 @@ export default {
 		},
 		onSubmit(event) {
 			event.preventDefault();
-			console.log(this.loginform.email);
 			this.login.btnText = "Laddar...";
 			this.login.showBtnSpinner = true;
 			if (this.rememberMe[0] == true) {
@@ -165,35 +164,30 @@ export default {
 				email: this.loginform.email,
 				password: this.loginform.password
 			};
-			ApiHandler.userAuth(loginform).then(res => {
-				console.log(res);
-				this.$store.dispatch("SET_NAVBAR");
-				this.$router
-					.push({
+			ApiHandler.userAuth(loginform)
+				.then(() => {
+					this.$store.dispatch("SET_NAVBAR");
+					this.$router.push({
 						name: "ProfilePage",
 						params: {
 							id: CookieHandler.getCookie("userid")
 						}
-					})
-					.catch(error => {
-						console.log("errorresponse ", error.response);
-						console.log("error ", error);
-						console.log("errorstatus ", error.response.status);
-						this.login.showLoginFailed = true;
-						this.login.showBtnSpinner = false;
-						this.login.btnText = "Logga in";
-						switch (error.response.status) {
-							case 401:
-								this.login.failedMsg =
-									"Fel inloggningsuppgifter";
-								break;
-							default:
-								this.login.failedMsg =
-									"Det går inte att logga in just nu. Försök igen om en stund.";
-								break;
-						}
 					});
-			});
+				})
+				.catch(error => {
+					this.login.showLoginFailed = true;
+					this.login.showBtnSpinner = false;
+					this.login.btnText = "Logga in";
+					switch (error.response.status) {
+						case 401:
+							this.login.failedMsg = "Fel inloggningsuppgifter";
+							break;
+						default:
+							this.login.failedMsg =
+								"Det går inte att logga in just nu. Försök igen om en stund.";
+							break;
+					}
+				});
 		}
 	}
 };

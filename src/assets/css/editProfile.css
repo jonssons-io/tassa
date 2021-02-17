@@ -8,61 +8,7 @@ h2 {
 
 .editProfile_header--background {
   background-color: #00554c;
-  width: 100%;
-  height: 1px;
-}
-.editProfile_change-HeaderSecond{
-
-  padding-top: 1.4%;
-  padding-left: 4%;
-}
-.editProfile_change-Header {
-   font-size: clamp(1.4rem, 3vw, 1.6rem);
-    color: white;
-    padding-top: 1.5rem;
-}
-.editProfile_change-location{
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  color: white;
-}
-.information_gender{
-  margin-top: 1.3%;
-}
-
-.editProfile_changePresentation-Header{
-  color: white;
-  margin-top: 1.2%;
-  text-align: left;
-  margin-left: 3.7%;
-}
-.editProfile_changePresentation-text{
-  color: white;
-  margin-top: 1.3%;
-  text-align: left;
-}
-
-.editProfile_changePresentation-last{
-margin-top:1%;
-margin-left: 1.4%;
-
-}
-.editProfile_changePresentation-text-last_text{
-  color: white;
-  margin-left: 0.5%;
-  margin-top: 0.6%;
-}
-
-.information_container{
-margin-top: 1.5%;
-padding-left: 1.3%;
-}
-
-button{
-   color: white;
-   background-color: #B23850;
-   width: 110%;
-   height: 95%;
-   font-size: 14px;
-   border-radius: 15px 15px 15px 15px;
+  widht: 100%;
+  height: 147px;
 }
 /*# sourceMappingURL=editProfile.css.map */

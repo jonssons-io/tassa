@@ -26,13 +26,20 @@ export default {
 		ProfileFamily,
 		ProfileDescription
 	},
-	beforeCreate() {
-		ApiHandler.getUser(this.$route.params.id).then(res => {
-			console.log("res", res);
-			this.profileHeader.firstname = res.data.result.firstName;
-			this.profileHeader.lastname = res.data.result.lastName;
-			this.profileHeader.area = res.data.result.geoPosition;
-		});
+	watch: {
+		//Set up a route watcher. Listens to changes in the route for a preexisting component.
+		//(e.g. routed from ProfilePage to ProfilePage)
+
+		//When components are reused through routers, lifecycle hooks are not called
+		$route(to) {
+			this.initializeUserData(to.params.id);
+		}
+	},
+	//Runs once when component is created.
+	//Does not run when routed from ProfilePage to ProfilePage, as the component is reused.
+	//E.g. when page is refreshed or when routed from another component to a ProfilePage
+	created() {
+		this.initializeUserData(this.$route.params.id);
 	},
 	data() {
 		return {
@@ -50,12 +57,27 @@ export default {
 	computed: {
 		getBtnText() {
 			if (this.$route.params.id == CookieHandler.getCookie("userid")) {
-				console.log("hello");
 				return "Editera profil";
 			} else {
-				console.log("bye");
 				return "Föreslå promenad";
 			}
+		}
+	},
+	methods: {
+		//Retrieves user data and sets variables - rerendering child components who use them
+		initializeUserData(userid) {
+			ApiHandler.getUser(userid).then(res => {
+				this.profileHeader.firstname = res.data.result.firstName;
+				this.profileHeader.lastname = res.data.result.lastName;
+				this.profileHeader.area = res.data.result.area;
+				this.profileHeader.picture = res.data.result.picture;
+			});
+			ApiHandler.getDogs(userid).then(res => {
+				this.profileFamily = res.data.result;
+			});
+			ApiHandler.getPrefe(userid).then(res => {
+				this.profileDesc = res.data.result.description;
+			});
 		}
 	}
 };

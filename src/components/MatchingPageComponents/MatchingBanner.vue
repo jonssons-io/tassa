@@ -66,7 +66,6 @@ export default {
 		getData() {
 			ApiHandler.getUsers("?include=dog").then(res => {
 				this.persons = res.data.result;
-				console.log(res.data.result);
 			});
 		},
 		getDogs() {
@@ -78,7 +77,6 @@ export default {
 		getLocation() {
 			ApiHandler.getAreas().then(res => {
 				this.areas = res.data.result;
-				console.log(res.data.result);
 			});
 		},
 		getDog(accountId) {

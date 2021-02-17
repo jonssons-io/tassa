@@ -1,42 +1,24 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import ApiHandler from "@/util/ApiHandler.js";
 import CookieHandler from "../util/CookieHandler";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		dogRegistration: {
-			name: "",
-			gender: "",
-			age: "",
-			size: "",
-			breed: ""
-		},
-		navbarState: false
+		navbarState: CookieHandler.getCookie("authstatus") === "true",
+		userDesc:
+			"Här var det tomt.. Klicka här för att skriva en presentation!"
 	},
 	mutations: {
-		saveDogForm(state, payload) {
-			state.dogRegistration = payload.registerdogform;
+		updateNavbar(state, payload) {
+			state.navbarState = payload;
 		},
-		updateNavbar(state, value) {
-			state.navbarState = value;
+		updateDesc(state, payload) {
+			state.userDesc = payload;
 		}
 	},
 	actions: {
-		GET_USER({ commit }, userid) {
-			return new Promise((resolve, reject) => {
-				return ApiHandler.getUser(userid)
-					.then(res => {
-						commit("updateUserInfo", res);
-						resolve(res);
-					})
-					.catch(error => {
-						reject(error);
-					});
-			});
-		},
 		SET_NAVBAR({ commit }) {
 			return new Promise(resolve => {
 				if (CookieHandler.getCookie("authstatus")) {
@@ -44,6 +26,16 @@ export default new Vuex.Store({
 					resolve();
 				} else {
 					commit("updateNavbar", false);
+					resolve();
+				}
+			});
+		},
+		SET_DESC({ commit }, newDesc) {
+			return new Promise(resolve => {
+				if (newDesc) {
+					commit("updateDesc", newDesc);
+					resolve();
+				} else {
 					resolve();
 				}
 			});

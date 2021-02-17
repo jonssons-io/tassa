@@ -211,7 +211,7 @@
 		>
 		<b-alert
 			variant="danger"
-			v-model="submit.showLoginFailed"
+			v-model="submit.showSubmitFailed"
 			dismissible
 			>{{ this.submit.failedMsg }}</b-alert
 		>
@@ -277,9 +277,9 @@ export default {
 				large: "> 46 cm"
 			},
 			submit: {
-				showLoginFailed: false,
+				showSubmitFailed: false,
 				failedMsg: "",
-				btnText: "Gå med",
+				btnText: "Lägg till",
 				showBtnSpinner: false
 			}
 		};
@@ -324,7 +324,11 @@ export default {
 			// let registerdogform = this.registerdogform;
 			// Changes color of checkboxlabel to red if state is unchecked.
 			if (this.$v.registerdogform.$anyError) {
-				console.log("ERROR");
+				this.submit.btnText = "Lägg till";
+				this.submit.showBtnSpinner = false;
+				this.submit.failedMsg =
+					"Det finns fel i formuläret som behöver åtgärdas.";
+				this.submit.showSubmitFailed = true;
 			}
 			// Sends userinput to Store, sets color of checkboxlabel to white and re-routes user to RegisterDog-view.
 			else {
@@ -336,8 +340,7 @@ export default {
 					size: this.registerdogform.size,
 					breed: this.registerdogform.breed
 				};
-				ApiHandler.createDog(newDog).then(res => {
-					console.log(res);
+				ApiHandler.createDog(newDog).then(() => {
 					this.$router.push({
 						name: "ProfilePage",
 						params: {

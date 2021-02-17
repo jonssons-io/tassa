@@ -1,7 +1,8 @@
 <template>
 	<div class="profile-desc--container">
 		<h5 class="profile-desc-title">Beskrivning</h5>
-		<p class="profile-desc">{{ desc }}</p>
+		<p v-if="desc" class="profile-desc">{{ desc }}</p>
+		<p v-if="!desc" class="profile-desc">Oj, här var det tomt!</p>
 	</div>
 </template>
 

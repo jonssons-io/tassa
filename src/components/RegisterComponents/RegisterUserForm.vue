@@ -350,14 +350,16 @@
 					name="consent-checkbox"
 					v-model="consent"
 					class="form-control move-left checkbox-form-control"
-					>Jag samtycker till behandling av mina
-					personuppgifter</b-form-checkbox
+					>Jag samtycker till
+					<a v-b-modal="'gdpr-modal'"
+						>behandling av mina personuppgifter</a
+					></b-form-checkbox
 				>
 			</b-form-checkbox-group>
 		</b-form-group>
 		<b-button type="submit" variant="outline-tassabtnred"
 			>Ladda upp bild</b-button
-		>
+		><b-modal id="gdpr-modal" ok-only>{{ gdprText }} </b-modal>
 		<b-alert
 			variant="danger"
 			v-model="registerButton.showLoginFailed"
@@ -462,7 +464,11 @@ export default {
 				failedMsg: "",
 				btnText: "Gå med",
 				showBtnSpinner: false
-			}
+			},
+			gdprText: `Tassa behöver lagra uppgifterna du registrerar hos oss, för att sidan ska fungera som tänkt. \n
+			Du avgör själv om du vill lämna några uppgifter till oss. \n
+			Uppgifterna kommer endast att behandlas av oss inom Tassa. \n
+			Du har enligt dataskyddsförordningen rätt att gratis, en gång per kalenderår, efter skriftligt undertecknad ansökan ställd till oss, få besked om vilka personuppgifter om dig som vi behandlar och hur vi behandlar dessa. Du har också rätt att begära rättelse i fråga om personuppgifter som vi behandlar om dig.\n`
 		};
 	},
 	props: ["ctabtntext"],
@@ -561,7 +567,7 @@ export default {
 					email: this.registeruserform.email,
 					phoneNumber: this.registeruserform.phoneNumber,
 					gdpr: this.consent[0],
-					geoPosition: this.registeruserform.area,
+					area: this.registeruserform.area,
 					password: this.registeruserform.password
 				};
 				let accountInfo = {
@@ -575,6 +581,7 @@ export default {
 								this.registerButton.showBtnSpinner = false;
 								this.registerButton.btnText = "Gå med";
 								this.checkboxLabelColor("white");
+								this.$store.dispatch("SET_NAVBAR");
 								this.$router.push({
 									path: "/registrera-hund"
 								});
@@ -612,5 +619,10 @@ export default {
 
 .btn-register--bottom {
 	margin: 1em 0 13vh 0;
+}
+
+#__BVID__273 {
+	display: flex;
+	flex-wrap: wrap;
 }
 </style>

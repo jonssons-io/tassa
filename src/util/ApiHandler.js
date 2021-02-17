@@ -34,28 +34,19 @@ function deleteReq(path) {
 
 // Request for user login.
 function userAuth(loginform) {
-	return postReq("/auth/login", loginform)
-		.then(res => {
-			CookieHandler.setCookie(
-				"authstatus",
-				true,
-				res.data.result.token.expires
-			);
-			CookieHandler.setCookie(
-				"authtoken",
-				res.data.result.token.token,
-				res.data.result.token.expires
-			);
-			CookieHandler.setCookie(
-				"userid",
-				res.data.result.user._id,
-				res.data.result.token.expires
-			);
-			return res;
-		})
-		.catch(error => {
-			return error;
-		});
+	return postReq("/auth/login", loginform).then(res => {
+		let today = Date.now() / 1000;
+		let validUntil = res.data.result.token.exp_epoch;
+		let maxage = validUntil - today;
+		CookieHandler.setCookie("authstatus", true, maxage);
+		CookieHandler.setCookie(
+			"authtoken",
+			res.data.result.token.token,
+			maxage
+		);
+		CookieHandler.setCookie("userid", res.data.result.user._id, maxage);
+		return res;
+	});
 }
 
 // User requests
@@ -66,7 +57,6 @@ function getUsers(query) {
 	return getReq(`/account${query}`);
 }
 function createUser(userInfo) {
-	console.log("createuser ", userInfo);
 	return postReq(`/account`, userInfo);
 }
 
@@ -74,9 +64,11 @@ function createUser(userInfo) {
 function createDog(dogInfo) {
 	return postReq(`/dog`, dogInfo);
 }
-
-function getDogs(dogInfo) {
-	return getReq(`/dog`, dogInfo);
+function getDogs(id) {
+	return getReq(`/dog/${id}`);
+}
+function deleteDog(dogId) {
+	return deleteReq(`/dog/${dogId}`);
 }
 // Edit preference
 function getPrefe(userId) {
@@ -106,6 +98,7 @@ export default {
 	getUsers,
 	createUser,
 	createDog,
+	deleteDog,
 	getDogs,
 	getPrefe,
 	updatePrefe,

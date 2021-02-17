@@ -5,28 +5,31 @@
 			:lastname="profileHeader.lastname"
 			:area="profileHeader.area"
 			:picture="profileHeader.picture"
+			:btnText="'Spara ändringar'"
 		/>
-		<ProfileFamily :family="profileFamily" />
+		<EditFamilyBody />
 	</div>
 </template>
 
 <script>
-import ProfileFamily from "@/components/ProfilePageComponents/ProfileFamily.vue";
 import ProfileHeader from "@/components/ProfilePageComponents/ProfileHeader.vue";
+import EditFamilyBody from "@/components/EditProfileComponents/EditFamilyBody.vue";
 import ApiHandler from "./../util/ApiHandler.js";
+import CookieHandler from "../util/CookieHandler.js";
 
 export default {
-	name: "EditPersonal",
+	name: "EditFamily",
 	components: {
 		ProfileHeader,
-		ProfileFamily
+		EditFamilyBody
 	},
 	beforeCreate() {
-		ApiHandler.getUser(this.$route.params.id).then(res => {
-			console.log("res", res);
+		let userid = CookieHandler.getCookie("userid");
+		ApiHandler.getUser(userid).then(res => {
 			this.profileHeader.firstname = res.data.result.firstName;
 			this.profileHeader.lastname = res.data.result.lastName;
 			this.profileHeader.area = res.data.result.area;
+			this.profileHeader.picture = res.data.result.picture;
 		});
 	},
 	data() {
@@ -36,17 +39,10 @@ export default {
 				lastname: "",
 				area: "",
 				picture: "default"
-			},
-			profileFamily: [],
-			profileDesc: ""
+			}
 		};
 	}
 };
 </script>
 
-<style>
-.editProfile_banner {
-	background-color: #005b52;
-	height: 100%;
-}
-</style>
+<style></style>
