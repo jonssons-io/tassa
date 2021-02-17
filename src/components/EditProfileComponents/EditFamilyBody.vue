@@ -1,5 +1,8 @@
 <template>
 	<div>
+		<b-alert variant="success" v-model="showAlertMsg" dismissible>{{
+			this.alertMsg
+		}}</b-alert>
 		<div
 			class="profile-family--container one-dog"
 			v-for="dog in userFamily"
@@ -51,9 +54,6 @@
 				autofocus
 			></b-form-textarea>
 		</div>
-		<b-alert variant="success" v-model="showAlertMsg" dismissible>{{
-			this.alertMsg
-		}}</b-alert>
 	</div>
 </template>
 
@@ -149,6 +149,7 @@ h5 {
 #textarea {
 	margin: 0 5vw 0 5vw;
 	width: 90vw;
+	margin-bottom: 15vh;
 }
 
 .btn-container {

@@ -39,26 +39,26 @@ export default {
 		};
 	},
 	created() {
-		this.getUserArea();
 		this.getUsers();
 	},
 	methods: {
-		getUserArea() {
-			ApiHandler.getUser(this.currentUserId).then(res => {
-				this.currentUserArea = res.data.result.area;
-			});
-		},
 		getUsers() {
-			ApiHandler.getUsers()
+			ApiHandler.getUser(this.currentUserId)
 				.then(res => {
-					this.allAccounts = res.data.result.filter(
-						item => item._id !== this.currentUserId
-					);
+					this.currentUserArea = res.data.result.area;
 				})
 				.then(() => {
-					this.matches = this.allAccounts.filter(
-						item => item.area == this.currentUserArea
-					);
+					ApiHandler.getUsers()
+						.then(res => {
+							this.allAccounts = res.data.result.filter(
+								item => item._id !== this.currentUserId
+							);
+						})
+						.then(() => {
+							this.matches = this.allAccounts.filter(
+								item => item.area == this.currentUserArea
+							);
+						});
 				});
 		}
 	}

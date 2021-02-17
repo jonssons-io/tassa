@@ -22,13 +22,16 @@
 				@click="this.profileHeaderBtnAction"
 				variant="tassabtnred"
 				class="profile-header--btn"
-				:disabled="profileBtn.showBtnSpinner"
+				:disabled="profileBtn.disabledBtn"
 				><b-spinner
 					style="width: 1.5em; height: 1.5em;"
 					v-if="profileBtn.showBtnSpinner"
 				></b-spinner
 				>{{ btnText }}</b-button
 			>
+			<b-alert variant="success" v-model="showAlertMsg" dismissible>{{
+				this.alertMsg
+			}}</b-alert>
 		</div>
 	</div>
 </template>
@@ -42,8 +45,11 @@ export default {
 	data() {
 		return {
 			profileBtn: {
-				showBtnSpinner: false
-			}
+				showBtnSpinner: false,
+				disabledBtn: false
+			},
+			showAlertMsg: false,
+			alertMsg: ""
 		};
 	},
 	methods: {
@@ -61,13 +67,18 @@ export default {
 						invitedUserId: this.$route.params.id
 					};
 					ApiHandler.createInvitation(invitationData);
-					console.log("invitationData ", invitationData);
+					this.profileBtn.disabledBtn = true;
+					this.showAlertMsg = true;
+					this.alertMsg = "Förslag skickat!";
 				} else if (this.btnText == "Spara ändringar") {
 					let userid = CookieHandler.getCookie("userid");
 					let description = {
 						description: this.$store.state.userDesc
 					};
 					ApiHandler.updatePrefe(userid, description);
+					this.$router.push({
+						path: `/profil/${CookieHandler.getCookie("userid")}`
+					});
 				}
 			} else {
 				this.$router.push({

@@ -78,9 +78,11 @@ export default {
 			ApiHandler.getPrefe(userid).then(res => {
 				this.profileDesc = res.data.result.description;
 			});
-			ApiHandler.getInvitation(userid).then(res => {
-				this.$store.dispatch("SET_NOTIFICATIONS", res.data.result);
-			});
+			ApiHandler.getInvitation(CookieHandler.getCookie("userid")).then(
+				res => {
+					this.$store.dispatch("SET_NOTIFICATIONS", res.data.result);
+				}
+			);
 		}
 	}
 };

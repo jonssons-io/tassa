@@ -58,10 +58,14 @@ export default {
 .person-link--wrapper {
 	display: grid;
 	border-top: 2px solid #e6e6e6;
-	border-bottom: 2px solid #e6e6e6;
 	padding: 0.5em 2em;
 }
 .contact {
 	margin-bottom: 0.2em;
+}
+
+.match--field-result-container:last-child {
+	border-bottom: 2px solid #e6e6e6;
+	margin-bottom: 8vh;
 }
 </style>
