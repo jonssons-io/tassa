@@ -33,7 +33,13 @@
 					v-bind:key="index"
 					>{{ area }}</small
 				>
-				<img src="src/assets/p.png" alt="paws" /> 
+				<div>
+					<img
+						class="matchPicture"
+						src="./../../assets/paw-black-shape.svg"
+						alt="paw"
+					/>
+				</div>
 			</b-list-group-item>
 		</b-list-group>
 	</b-container>
