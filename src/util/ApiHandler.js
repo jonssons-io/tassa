@@ -53,8 +53,8 @@ function userAuth(loginform) {
 function getUser(id) {
 	return getReq(`/account/${id}`);
 }
-function getUsers(query) {
-	return getReq(`/account${query}`);
+function getUsers() {
+	return getReq(`/account`);
 }
 function createUser(userInfo) {
 	return postReq(`/account`, userInfo);
