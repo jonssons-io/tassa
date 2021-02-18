@@ -31,31 +31,31 @@
 						icon="times"
 						v-if="expandMenu"
 					></font-awesome-icon>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
-						:to="`/profil/${loggedInUser}`"
-						>Visa Profil</b-nav-item
-					>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
-						:to="`/redigera-preferenser/${loggedInUser}`"
-						>Ändra preferenser</b-nav-item
-					>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
-						:to="`/redigera-familjen/${loggedInUser}`"
-						>Redigera beskrivning och familj</b-nav-item
-					>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
-						:to="`/redigera-personuppgifter/${loggedInUser}`"
-						>Personliga inställningar</b-nav-item
-					>
 				</b-nav-item>
+				<b-nav-item
+					v-if="expandMenu"
+					class="nav--subitem"
+					:to="`/profil/${loggedInUser}`"
+					>Visa Profil</b-nav-item
+				>
+				<b-nav-item
+					v-if="expandMenu"
+					class="nav--subitem"
+					:to="`/redigera-preferenser/${loggedInUser}`"
+					>Ändra preferenser</b-nav-item
+				>
+				<b-nav-item
+					v-if="expandMenu"
+					class="nav--subitem"
+					:to="`/redigera-familjen/${loggedInUser}`"
+					>Redigera beskrivning och familj</b-nav-item
+				>
+				<b-nav-item
+					v-if="expandMenu"
+					class="nav--subitem"
+					:to="`/redigera-personuppgifter/${loggedInUser}`"
+					>Personliga inställningar</b-nav-item
+				>
 				<b-nav-item v-if="loggedInStatus" to="/inbjudningar"
 					><div
 						v-if="this.$store.state.notifications.length > 0"
