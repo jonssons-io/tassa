@@ -4,10 +4,16 @@
   padding-bottom: 3%;
   margin-left: 4%;
 }
-
+.editLable{
+  font-size: 0.9em;
+  text-align: left;
+  text-transform: none;
+}
 .editPersonal_changeInput {
   padding-bottom: 3%;
   width: 100%;
+  color: white;
+  padding-left: 6%;
   background-color: #006C61;
   border-radius: 20px 20px 20px 20px;
 }
@@ -15,6 +21,7 @@
 input::-webkit-input-placeholder {
   color: white;
   padding-left: 4%;
+  text-align: left;
 }
 
 input:-ms-input-placeholder {
@@ -29,6 +36,7 @@ input::-ms-input-placeholder {
 
 input::placeholder {
   color: white;
+  text-align: left;
   padding-left: 4%;
 }
 /*# sourceMappingURL=editPersonal.css.map */

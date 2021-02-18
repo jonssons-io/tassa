@@ -5,16 +5,18 @@
 .B-C-A:nth-child(even) {
   background-color: #00554c;
   width: 100%;
-  
+
 }
 .B-C-A{
   background-color: #006C61;
   width: 100%;
   padding-top: 2%;
+ 
+
 }
 
 .B-C-A:last-child {
-  margin-bottom: 8vh;
+  margin-bottom: 10vh;
 }
 .matchHeader{
   float: left;
@@ -22,20 +24,18 @@
   text-align: left;
 }
 .matchDog{
-  float: left;
+ flex-direction: column;
+flex-wrap: wrap;
   text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   width: 40%;
 }
 .matchArea{
-  font-size: 1.1em;
-  color: white;
   float: left;
+  font-size: 1.2em;
+  color: white;
+  justify-self: right;
 }
 .matchPicture{
-  margin-top: 10%;
   height: 40px;
   width: 40px;
   float: right;

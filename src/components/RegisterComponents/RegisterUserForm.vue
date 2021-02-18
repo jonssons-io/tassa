@@ -453,11 +453,23 @@ export default {
 			},
 			areas: [
 				{ text: "-- Ange din kommun --", value: null, disabled: true },
-				{ text: "Botkyrka", value: "botkyrka" },
-				{ text: "Huddinge", value: "huddinge" },
-				{ text: "Solna", value: "solna" },
-				{ text: "Sundbyberg", value: "sundbyberg" },
-				{ text: "Ekerö", value: "ekero" }
+				{ text: "Botkyrka", value: "Botkyrka" },
+				{ text: "Ekerö", value: "Ekerö" },
+				{ text: "Huddinge", value: "Huddinge" },
+				{ text: "Haninge", value: "Haninge" },
+				{ text: "Järfälla", value: "Järfälla" },
+				{ text: "Lidingö", value: "Lidingö" },
+				{ text: "Nacka", value: "Nacka" },
+				{ text: "Sigtuna", value: "Sigtuna" },
+				{ text: "Solna", value: "Solna" },
+				{ text: "Sundbyberg", value: "Sundbyberg" },
+				{ text: "Tyresö", value: "Tyresö" },
+				{ text: "Täby", value: "Täby" },
+				{ text: "Upplands-bro", value: "Upplands-bro" },
+				{ text: "Vallentuna", value: "Vallentuna" },
+				{ text: "Vaxholm", value: "Vaxholm" },
+				{ text: "Värmdö", value: "Värmdö" },
+				{ text: "Österåker", value: "Österåker" }
 			],
 			registerButton: {
 				showRegisterFailed: false,

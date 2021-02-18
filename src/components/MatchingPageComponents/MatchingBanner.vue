@@ -61,10 +61,25 @@ export default {
 			dogs: []
 		};
 	},
+//Filter on user for dogsize preference criteria 
 	methods: {
 		getData() {
 			ApiHandler.getUsers("?include=dog").then(res => {
-				this.persons = res.data.result;
+				var persons = res.data.result;
+				for (const key in persons) {
+					var person = persons[key];
+					persons[key].dog = person.dog
+						.filter(x => x.size === "medium")
+						.map(x => x);
+
+					if (persons[key].dog.length == 0) {
+						persons.splice(key, 1);
+						//delete persons[key];
+					}
+				}
+
+				this.persons = persons;
+				console.log(this.persons);
 			});
 		},
 		getDogs() {
