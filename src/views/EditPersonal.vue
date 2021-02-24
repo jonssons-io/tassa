@@ -28,7 +28,6 @@ export default {
 			this.profileHeader.lastname = res.data.result.lastName;
 			this.profileHeader.area = res.data.result.area;
 			this.profileHeader.picture = res.data.result.picture;
-
 		});
 	},
 	data() {

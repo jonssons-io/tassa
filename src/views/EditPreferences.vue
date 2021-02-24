@@ -23,13 +23,14 @@ export default {
 		EditPreferencesBanner
 	},
 	beforeCreate() {
+		//Hämta användare med id
 		ApiHandler.getUser(this.$route.params.id).then(res => {
 			this.profileHeader.firstname = res.data.result.firstName;
 			this.profileHeader.lastname = res.data.result.lastName;
 			this.profileHeader.area = res.data.result.area;
 			this.profileHeader.picture = res.data.result.picture;
-
 		});
+		//Hämta inloggad användare
 	},
 	data() {
 		return {

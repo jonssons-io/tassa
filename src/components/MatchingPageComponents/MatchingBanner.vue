@@ -58,38 +58,67 @@ export default {
 				name: false
 			},
 			persons: [],
-			dogs: []
+			dogs: [],
+			signedinUser: {}
 		};
 	},
-//Filter on user for dogsize preference criteria 
+	//Filter on user for dogsize preference criteria
 	methods: {
 		getData() {
-			ApiHandler.getUsers("?include=dog").then(res => {
-				var persons = res.data.result;
-				for (const key in persons) {
-					var person = persons[key];
-					persons[key].dog = person.dog
-						.filter(x => x.size === "medium")
-						.map(x => x);
-
-					if (persons[key].dog.length == 0) {
-						persons.splice(key, 1);
-						//delete persons[key];
+			ApiHandler.getPerson("me").then(res => {
+				var user = res.data.result;
+				console.log(user);
+				ApiHandler.getUsers(
+					"?" + encodeURI("include=dog&sysquery=area=" + user.area)
+				).then(res => {
+					var persons = res.data.result;
+					for (const key in persons) {
+						var person = persons[key];
+						persons[key].dog = person.dog
+							.filter(
+								x =>
+									(x.size === "small" &&
+										user.preference.size.small === true) ||
+									(x.size === "medium" &&
+										user.preference.size.medium === true) ||
+									(x.size === "large" &&
+										user.preference.size.large === true) ||
+									(x.dogGender === "female" &&
+										user.preference.preferredDogGender
+											.female === true) ||
+									(x.dogGender === "male" &&
+										user.preference.preferredDogGender ===
+											true)
+							)
+							.map(x => x);
+						console.log(person.gender);
+						if (
+							persons[key].dog.length == 0 ||
+							(person.gender === "man" &&
+								user.preference.preferredGender.man === false) ||
+							(person.gender === "woman" &&
+								user.preference.preferredGender.woman === false) ||
+							(person.gender === "other" &&
+								user.preference.preferredGender.other === false)
+						) {
+							persons.splice(key, 1);
+							console.log("he");
+							//delete persons[key];
+						}
 					}
-				}
 
-				this.persons = persons;
-				console.log(this.persons);
+					this.persons = persons;
+				});
 			});
 		},
 		getDogs() {
-			ApiHandler.getDogs().then(res => {
-				this.dogs = res.data.result;
-			});
+			//ApiHandler.getDogs().then(res => {
+			//	this.dogs = res.data.result;
+			//});
 		},
 
 		getLocation() {
-			ApiHandler.getAreas().then(res => {
+			ApiHandler.getAreas("me").then(res => {
 				this.areas = res.data.result;
 			});
 		},
@@ -98,9 +127,9 @@ export default {
 		}
 	},
 	mounted: function() {
-		this.getData();
-		this.getDogs();
-		this.getLocation();
+		this.getData("me");
+		//this.getDogs();
+		this.getLocation("me");
 	}
 };
 import "./../../assets/css/matchingPage.css";
