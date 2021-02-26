@@ -160,7 +160,7 @@ export default {
 				preferredGender: {
 					man: false,
 					woman: false,
-					other: false
+					ace: false
 				},
 				preferredDogGender: {
 					female: false,

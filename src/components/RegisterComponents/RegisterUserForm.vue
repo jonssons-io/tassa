@@ -225,14 +225,14 @@
 					{{ this.genders.woman }}
 				</b-form-radio>
 				<b-form-radio
-					id="register-gender-other"
+					id="register-gender-ace"
 					v-model="$v.registeruserform.gender.$model"
 					name="register-gender"
 					:state="validateState('gender')"
 					aria-describedby="register-gender-live-feedback"
-					value="other"
+					value="ace"
 				>
-					{{ this.genders.other }}
+					{{ this.genders.ace }}
 				</b-form-radio>
 			</div>
 		</b-form-group>
@@ -449,7 +449,7 @@ export default {
 			genders: {
 				man: "Man",
 				woman: "Kvinna",
-				other: "Annat"
+				ace: "Annat"
 			},
 			areas: [
 				{ text: "-- Ange din kommun --", value: null, disabled: true },
@@ -564,7 +564,7 @@ export default {
 				this.registerButton.showBtnSpinner = false;
 				this.registerButton.btnText = "Gå med";
 			}
-			// Changes color of checkboxlabel to white if state is checked, but the form has other invalid fields.
+			// Changes color of checkboxlabel to white if state is checked, but the form has ace invalid fields.
 			else if (this.$v.registeruserform.$anyError) {
 				this.checkboxLabelColor("white");
 				this.registerButton.showBtnSpinner = false;
