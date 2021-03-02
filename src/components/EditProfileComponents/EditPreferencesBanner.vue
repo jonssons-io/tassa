@@ -2,7 +2,7 @@
 	<b-container class="bv-example-row editProfile_header--background">
 		<b-row>
 			<b-col>
-				<button class="editProfile-button float-right">
+				<button class="editProfile-button">
 					Spara profil
 				</button>
 			</b-col>
@@ -10,7 +10,7 @@
 		</b-row>
 		<b-row>
 			<div class="information_container">
-				<h5 class="editProfile_changePresentation-Header">
+				<h5 class="editProfile_changePresentation">
 					Presentation
 				</h5>
 			</div>
@@ -63,7 +63,7 @@
 			</b-row>
 		</div>
 		<b-row>
-			<div class="information_gender ">
+			<div class="information_dog ">
 				<h6 class="editProfile_changePresentation-Header">
 					Mina hundar kommer överens med
 				</h6>

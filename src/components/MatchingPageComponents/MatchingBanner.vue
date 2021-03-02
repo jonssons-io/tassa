@@ -66,49 +66,57 @@ export default {
 	methods: {
 		getData() {
 			ApiHandler.getPerson("me").then(res => {
-				var retArr =[];
+				var retArr = [];
 				var user = res.data.result;
-				console.log(user);
+				console.log(user._id);
 				ApiHandler.getUsers(
-					"?" + encodeURI("include=dog&sysquery=area=" + user.area)
+					"?" +
+						encodeURI(
+							"include=dog&sysquery=area=" +
+								user.area 
+						)
 				).then(res => {
 					var persons = res.data.result;
-					console.log(persons);
+
 					for (const key in persons) {
 						var person = persons[key];
-						persons[key].dog = person.dog;
+
+						if (
+							(person.gender === "woman" &&
+								user.preference.preferredGender.woman ===
+									true) ||
+							(person.gender === "man" &&
+								user.preference.preferredGender.man === true) ||
+							(person.gender === "ace" &&
+								user.preference.preferredGender.ace === true)
+						) {
+							for (const key2 in person.dog) {
+								//person.dog[key2] = person.dog[key2];
+								var data = person.dog[key2];
+
+								if (
+									((data.size === "small" &&
+										user.preference.size.small === true) ||
+										(data.size === "medium" &&
+											user.preference.size.medium ===
+												true) ||
+										(data.size === "large" &&
+											user.preference.size.large ===
+												true)) &&
+									((data.gender === "female" &&
+										user.preference.preferredDogGender
+											.female === true) ||
+										(data.gender === "male" &&
+											user.preference.preferredDogGender
+												.male === true))
+								) {
+									retArr.push(person);
+									continue;
+								}
+							}
+						}
 					}
-					if (
-						person.preference.size === "small" &&
-						user.preference.size.small === true
-					) {
-						retArr.push(person);
-					}
-					console.log(this.person.preference.size.small);
-					if (
-						person.preference.size === "medium" &&
-						user.preference.size.medium === true
-					) {
-						return this.persons;
-					}
-					if (
-						person.preference.size === "large" &&
-						user.preference.size.large === true
-					) {
-						return this.user;
-					}
-					if (
-						person.preference.preferredDogGender === "male" &&
-						user.preference.preferredDogGender.male === true
-					) {
-						return this.user;
-					}
-					if (
-						person.preference.preferredDogGender === "female" &&
-						user.preference.preferredDogGender.female === true
-					) {
-						return this.user;
-					}
+
 					this.persons = retArr;
 					console.log(this.persons);
 				});
