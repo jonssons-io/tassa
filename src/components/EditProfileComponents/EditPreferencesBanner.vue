@@ -11,7 +11,7 @@
 		<b-row>
 			<div class="information_container">
 				<h5 class="editProfile_changePresentation">
-					Presentation
+					Preferenser
 				</h5>
 			</div>
 		</b-row>
@@ -160,7 +160,7 @@ export default {
 				preferredGender: {
 					man: false,
 					woman: false,
-					ace: false
+					other: false
 				},
 				preferredDogGender: {
 					female: false,

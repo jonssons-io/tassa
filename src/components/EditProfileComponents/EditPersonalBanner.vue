@@ -1,10 +1,10 @@
 <template>
-	<b-container>
+	<b-container class="bigContainer">
 		<div v-show="ondelete" class="alert alert-danger" role="alert">
 			Ditt konto raderas
 		</div>
 		<h4 class="editPersonal_changeLabel">Personligt</h4>
-		<h6 class="editLable">Här nedan kan du ändra din uppgifter</h6>
+		<h6 class="editLableHeader">Här nedan kan du ändra din uppgifter</h6>
 		<b-col cols="6">
 			<button
 				color="success"

@@ -6,21 +6,32 @@
 .editPersonal_changeLabel {
   text-align: left;
   padding-top: 3%;
-  padding-bottom: 3%;
-  margin-left: 4%;
+
+  padding-left: 8%;
+}
+.editLableHeader{
+  font-size: 1em;
+  text-align: left;
+  text-transform: none;
+  padding-left: 8%;
 }
 .editLable{
   font-size: 0.9em;
-  text-align: left;
-  text-transform: none;
+text-align: left;
+text-transform: none;
+padding-left: 17%;
 }
 .editPersonal_changeInput {
-  padding-bottom: 3%;
+ 
   width: 100%;
   color: white;
-  padding-left: 6%;
+  padding-left: 8%;
   background-color: #006C61;
   border-radius: 20px 20px 20px 20px;
+}
+.my-3{
+  padding-right: 4%;
+  padding-bottom: 2%;
 }
 
 input::-webkit-input-placeholder {
@@ -43,5 +54,24 @@ input::placeholder {
   color: white;
   text-align: left;
   padding-left: 4%;
+}
+ .btn-success, .btn-danger{
+  border-radius: 20px 20px 20px 20px;
+}
+.profile-header--btn {
+  visibility: hidden;
+}
+
+.navbar-collapse, .collapse, .show{
+  padding-right: 3%;
+  padding-bottom: 8%;
+  
+}
+.navbar-toggler, .not-collapsed{
+  padding-right:6%;
+}
+
+.navbar, .navbar-light, .fixed-bottom{
+  padding-bottom: 10%;
 }
 /*# sourceMappingURL=editPersonal.css.map */

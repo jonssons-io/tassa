@@ -68,7 +68,7 @@ export default {
 			ApiHandler.getPerson("me").then(res => {
 				var retArr = [];
 				var user = res.data.result;
-				console.log(user._id);
+				console.log(user);
 				ApiHandler.getUsers(
 					"?" +
 						encodeURI(
@@ -87,8 +87,8 @@ export default {
 									true) ||
 							(person.gender === "man" &&
 								user.preference.preferredGender.man === true) ||
-							(person.gender === "ace" &&
-								user.preference.preferredGender.ace === true)
+							(person.gender === "other" &&
+								user.preference.preferredGender.other === true)
 						) {
 							for (const key2 in person.dog) {
 								//person.dog[key2] = person.dog[key2];

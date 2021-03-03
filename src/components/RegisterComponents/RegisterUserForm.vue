@@ -225,14 +225,14 @@
 					{{ this.genders.woman }}
 				</b-form-radio>
 				<b-form-radio
-					id="register-gender-ace"
+					id="register-gender-other"
 					v-model="$v.registeruserform.gender.$model"
 					name="register-gender"
 					:state="validateState('gender')"
 					aria-describedby="register-gender-live-feedback"
-					value="ace"
+					value="other"
 				>
-					{{ this.genders.ace }}
+					{{ this.genders.other }}
 				</b-form-radio>
 			</div>
 		</b-form-group>
@@ -449,7 +449,7 @@ export default {
 			genders: {
 				man: "Man",
 				woman: "Kvinna",
-				ace: "Annat"
+				other: "Annat"
 			},
 			areas: [
 				{ text: "-- Ange din kommun --", value: null, disabled: true },

@@ -16,26 +16,14 @@ h2 {
   height: 1px;
   padding: 10%;
 }
-.editProfile_change-HeaderSecond {
-
-  padding-left: 4%;
-}
-.editProfile_change-Header {
-  font-size: clamp(1.4rem, 3vw, 1.6rem);
+.editProfile_changePresentation {
   color: white;
-  padding-top: 2rem;
+  padding-left: 12%;
 }
-.information_gender {
+.information_gender, .information_dog {
   margin-top: 1.5%;
   padding-left: 0%;
   width: 100%;
-  text-align: left;
-}
-.information_dog{
-  margin-top: 1.5%;
-  padding-left:0%;
-  width: 100%;
-  color: white;
   text-align: left;
 }
 .information_size{
@@ -43,9 +31,7 @@ h2 {
   text-align: left;
 }
 .editProfile_changePresentation-Header {
- 
   margin-top: 1.5%;
-  
   padding-left: 7%;
   text-transform: none;
   
@@ -57,10 +43,7 @@ h2 {
   padding-left: 7%;
 }
 
-.editProfile_changePresentation-last {
-  margin-top: 1%;
-  padding-left: 7%;
-}
+
 .editProfile_changePresentation-text-last_text {
   color: white;
   padding-left: 0.8%;
@@ -75,11 +58,19 @@ h2 {
 .editProfile-button {
   color: white;
   background-color: #b23850;
-  width: 100%;
+  width: 90%;
   height: 95%;
   font-size: 14px;
   border-radius: 15px 15px 15px 15px;
   padding-left: 11%;
+}
+.profile-header--btn {
+  visibility: hidden;
+}
+.navbar,
+.navbar-light,
+.fixed-bottom {
+  padding-bottom: 10%;
 }
 
 /*# sourceMappingURL=editProfile.css.map */
