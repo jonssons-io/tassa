@@ -68,13 +68,10 @@ export default {
 			ApiHandler.getPerson("me").then(res => {
 				var retArr = [];
 				var user = res.data.result;
-				console.log(user);
+				console.log(user._id);
+				
 				ApiHandler.getUsers(
-					"?" +
-						encodeURI(
-							"include=dog&sysquery=area=" +
-								user.area 
-						)
+					"?" + encodeURI("include=dog&sysquery=area=" + user.area )
 				).then(res => {
 					var persons = res.data.result;
 
@@ -82,6 +79,7 @@ export default {
 						var person = persons[key];
 
 						if (
+							(person._id != user._id) &&
 							(person.gender === "woman" &&
 								user.preference.preferredGender.woman ===
 									true) ||

@@ -5,7 +5,7 @@
 		</div>
 		<h4 class="editPersonal_changeLabel">Personligt</h4>
 		<h6 class="editLableHeader">Här nedan kan du ändra din uppgifter</h6>
-		<b-col cols="6">
+		<div>
 			<button
 				color="success"
 				class="btn btn-danger"
@@ -13,8 +13,8 @@
 			>
 				Spara ändringar
 			</button>
-		</b-col>
-		<b-row class="my-3">
+		</div>
+		<div class="my-3">
 			<b-col cols="6">
 				<h6 class="editLable">Telefonnummer</h6>
 			</b-col>
@@ -27,8 +27,8 @@
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
-		</b-row>
-		<b-row class="my-3">
+		</div>
+		
 			<b-col cols="6">
 				<h6 class="editLable">E-postadress</h6>
 			</b-col>
@@ -40,8 +40,8 @@
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
-		</b-row>
-		<b-row class="my-3">
+	
+		
 			<b-col cols="6"><h6 class="editLable">Ändra område</h6> </b-col>
 			<b-col cols="6"
 				><select v-model="form.area" class="editPersonal_changeInput">
@@ -50,8 +50,8 @@
 					}}</option>
 				</select>
 			</b-col>
-		</b-row>
-		<b-row class="my-3">
+		
+		
 			<b-col cols="6"><h6 class="editLable">Ändra namn</h6></b-col>
 			<b-col cols="6"
 				><input
@@ -61,8 +61,8 @@
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
-		</b-row>
-		<b-row class="my-3">
+	
+
 			<b-col cols="6"><h6 class="editLable">Ändra efternamn</h6></b-col>
 			<b-col cols="6"
 				><input
@@ -72,17 +72,14 @@
 					class="editPersonal_changeInput"
 				/>
 			</b-col>
-		</b-row>
-
-		<b-row class="my-3">
+	
 			<b-col cols="6"><h6 class="editLable">Ladda upp bild</h6></b-col>
 			<b-col cols="6"
 				><button color="success" class="btn btn-success">
 					{{ "Ladda upp bild" }}
 				</button></b-col
 			>
-		</b-row>
-		<b-row class="my-3">
+		
 			<b-col cols="6"><h6 class="editLable">Radera ditt konto</h6></b-col>
 			<b-col cols="6"
 				><button
@@ -94,7 +91,7 @@
 					{{ "Radera" }}
 				</button></b-col
 			>
-		</b-row>
+	
 	</b-container>
 </template>
 
