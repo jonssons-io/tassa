@@ -1,11 +1,11 @@
 <template class="profile_banner">
-	<b-container class="bv-example-row editProfile_header--background">
+	<b-container class=" editProfile_header--background">
 		<b-col>
 			<button class="editProfile-button">
-				Spara profil
+				Spara 
 			</button>
 		</b-col>
-		<b-col></b-col>
+		
 
 		<div class="information_container" lable-align="left">
 			<h5 class="editProfile_changePresentation">
@@ -49,7 +49,7 @@
 			</h6>
 		</div>
 
-		<div>
+		<div class="information_changePresentationGender ">
 			<div class="editProfile_changePresentation-text ">
 				<input
 					type="checkbox"
@@ -72,7 +72,7 @@
 			</h6>
 		</div>
 
-		<div>
+		<div class="information_changePresentationGender ">
 			<div class="editProfile_changePresentation-text">
 				<input
 					type="checkbox"
@@ -90,7 +90,7 @@
 				/><lable for="size"> Medel hundar</lable>
 			</div>
 
-			<div class="editProfile_changePresentation-text">
+			<div class="editProfile_changePresentation-text last">
 				<input
 					type="checkbox"
 					:checked="form.size.large"
