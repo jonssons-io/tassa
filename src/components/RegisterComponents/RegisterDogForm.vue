@@ -206,7 +206,7 @@
 				<!-- Shows validation errormessage if field is filled in, correct length but has characters that are not UNICODE-approved letters -->
 			</b-input-group>
 		</b-form-group>
-		<b-button type="submit" variant="outline-tassabtnred"
+		<b-button type="" variant="outline-tassabtnred" disabled
 			>Ladda upp bild</b-button
 		>
 		<b-alert

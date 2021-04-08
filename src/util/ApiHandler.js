@@ -3,7 +3,6 @@ import CookieHandler from "./CookieHandler.js";
 
 const BASE_URL = "/api/v1";
 
-// TODO: Flytta token osv till annan storage
 function getAuthHeader() {
 	let token = CookieHandler.getCookie("authtoken");
 	if (token != "") {
@@ -53,13 +52,20 @@ function userAuth(loginform) {
 function getUser(id) {
 	return getReq(`/account/${id}`);
 }
-function getUsers(query) {
-	return getReq(`/account${query}`);
+function getUsers() {
+	return getReq(`/account`);
 }
 function createUser(userInfo) {
 	return postReq(`/account`, userInfo);
 }
 
+// Notifications - Invitations
+function getInvitation(id) {
+	return getReq(`/invitation/${id}`);
+}
+function createInvitation(invitationData) {
+	return postReq(`/invitation`, invitationData);
+}
 // Dog requests
 function createDog(dogInfo) {
 	return postReq(`/dog`, dogInfo);
@@ -70,6 +76,7 @@ function getDogs(id) {
 function deleteDog(dogId) {
 	return deleteReq(`/dog/${dogId}`);
 }
+
 // Edit preference
 function getPrefe(userId) {
 	return getReq(`/preference/${userId}`);
@@ -77,6 +84,7 @@ function getPrefe(userId) {
 function updatePrefe(userId, preferenceForm) {
 	return putReq(`/preference/${userId}`, preferenceForm);
 }
+
 // Edit personal
 function getPerson(userId) {
 	return getReq(`/account/${userId}`);
@@ -90,13 +98,14 @@ function deletePerson(userId) {
 function getAreas() {
 	return getReq(`/area/kommun`);
 }
+
 export default {
-	putReq,
-	deleteReq,
 	userAuth,
 	getUser,
 	getUsers,
 	createUser,
+	getInvitation,
+	createInvitation,
 	createDog,
 	deleteDog,
 	getDogs,

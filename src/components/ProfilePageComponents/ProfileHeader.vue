@@ -22,28 +22,34 @@
 				@click="this.profileHeaderBtnAction"
 				variant="tassabtnred"
 				class="profile-header--btn"
-				:disabled="profileBtn.showBtnSpinner"
+				:disabled="profileBtn.disabledBtn"
 				><b-spinner
 					style="width: 1.5em; height: 1.5em;"
 					v-if="profileBtn.showBtnSpinner"
 				></b-spinner
 				>{{ btnText }}</b-button
 			>
+			<b-alert variant="success" v-model="showAlertMsg" dismissible>{{
+				this.alertMsg
+			}}</b-alert>
 		</div>
 	</div>
 </template>
 
 <script>
 import CookieHandler from "../../util/CookieHandler";
-//import ApiHandler from "../../util/ApiHandler";
+import ApiHandler from "../../util/ApiHandler";
 export default {
 	name: "ProfileHeader",
 	props: ["firstname", "lastname", "area", "picture", "btnText"],
 	data() {
 		return {
 			profileBtn: {
-				showBtnSpinner: false
-			}
+				showBtnSpinner: false,
+				disabledBtn: false
+			},
+			showAlertMsg: false,
+			alertMsg: ""
 		};
 	},
 	methods: {
@@ -51,15 +57,29 @@ export default {
 			if (CookieHandler.getCookie("authstatus") == "true") {
 				if (this.btnText == "Editera profil") {
 					this.$router.push({
-						path: `/editera-familjen/${CookieHandler.getCookie(
+						path: `/redigera-familjen/${CookieHandler.getCookie(
 							"userid"
 						)}`
 					});
 				} else if (this.btnText == "Föreslå promenad") {
-					console.log(
-						"fixa så att notifikation dyker upp hos mottagare"
-					);
-				} 
+					let invitationData = {
+						invitingUserId: CookieHandler.getCookie("userid"),
+						invitedUserId: this.$route.params.id
+					};
+					ApiHandler.createInvitation(invitationData);
+					this.profileBtn.disabledBtn = true;
+					this.showAlertMsg = true;
+					this.alertMsg = "Förslag skickat!";
+				} else if (this.btnText == "Spara ändringar") {
+					let userid = CookieHandler.getCookie("userid");
+					let description = {
+						description: this.$store.state.userDesc
+					};
+					ApiHandler.updatePrefe(userid, description);
+					this.$router.push({
+						path: `/profil/${CookieHandler.getCookie("userid")}`
+					});
+				}
 			} else {
 				this.$router.push({
 					path: "/logga-in"

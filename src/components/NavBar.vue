@@ -31,33 +31,41 @@
 						icon="times"
 						v-if="expandMenu"
 					></font-awesome-icon>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
-						:to="`/profil/${loggedInUser}`"
-						>Visa Profil</b-nav-item
-					>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
-						:to="`/editera-preferenser/${loggedInUser}`"
-						>Ändra preferenser</b-nav-item
-					>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
-						:to="`/editera-familjen/${loggedInUser}`"
-						>Editera beskrivning och familj</b-nav-item
-					>
-					<b-nav-item
-						v-if="expandMenu"
-						class="nav--subitem"
-						:to="`/editera-personligt/${loggedInUser}`"
-						>Personliga inställningar</b-nav-item
-					>
 				</b-nav-item>
-				<b-nav-item v-if="loggedInStatus" to="/"
-					>Notifikationer</b-nav-item
+				<b-nav-item
+					v-if="expandMenu && loggedInStatus"
+					class="nav--subitem"
+					:to="`/profil/${loggedInUser}`"
+					>Visa Profil</b-nav-item
+				>
+				<b-nav-item
+					v-if="expandMenu && loggedInStatus"
+					class="nav--subitem"
+					:to="`/redigera-preferenser/${loggedInUser}`"
+					disabled
+					>Ändra preferenser</b-nav-item
+				>
+				<b-nav-item
+					v-if="expandMenu && loggedInStatus"
+					class="nav--subitem"
+					:to="`/redigera-familjen/${loggedInUser}`"
+					>Redigera beskrivning och familj</b-nav-item
+				>
+				<b-nav-item
+					v-if="expandMenu && loggedInStatus"
+					class="nav--subitem"
+					:to="`/redigera-personuppgifter/${loggedInUser}`"
+					disabled
+					>Personliga inställningar</b-nav-item
+				>
+				<b-nav-item v-if="loggedInStatus" to="/inbjudningar"
+					><div
+						v-if="this.$store.state.notifications.length > 0"
+						class="has-notification"
+					>
+						{{ this.$store.state.notifications.length }}
+					</div>
+					Notifikationer</b-nav-item
 				>
 				<b-nav-item v-if="loggedInStatus" to="/matchning"
 					>Matchningar</b-nav-item
@@ -134,5 +142,15 @@ export default {
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:focus {
 	color: #fff;
+}
+.has-notification {
+	background-color: #b23850;
+	display: inline;
+	padding: 0 0.2em 0 0.2em;
+	margin: 0 0.4em 0 0.4em;
+	border-radius: 25px;
+	min-width: 25px;
+	height: 25px;
+	text-align: center;
 }
 </style>

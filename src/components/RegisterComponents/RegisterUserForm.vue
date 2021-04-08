@@ -352,12 +352,12 @@
 					class="form-control move-left checkbox-form-control"
 					>Jag samtycker till
 					<a v-b-modal="'gdpr-modal'"
-						>behandling av mina personuppgifter</a
+						>cookies och behandling av mina personuppgifter</a
 					></b-form-checkbox
 				>
 			</b-form-checkbox-group>
 		</b-form-group>
-		<b-button type="submit" variant="outline-tassabtnred"
+		<b-button type="" variant="outline-tassabtnred" disabled
 			>Ladda upp bild</b-button
 		><b-modal id="gdpr-modal" ok-only>{{ gdprText }} </b-modal>
 		<b-alert
@@ -427,7 +427,7 @@ export default {
 				phoneNumber: {
 					isRequired: "Du måste ange ditt mobilnummer.",
 					isNotValidPhoneNumber:
-						"Telefonnumret måste vara 10 siffror utan mellanslag och bindestreck."
+						"Telefonnumret måste vara 10 siffror och börja med +46, 0046, 46 eller 07."
 				},
 				gender: {
 					isRequired: "Du måste ange kön."
@@ -480,7 +480,8 @@ export default {
 			gdprText: `Tassa behöver lagra uppgifterna du registrerar hos oss, för att sidan ska fungera som tänkt. \n
 			Du avgör själv om du vill lämna några uppgifter till oss. \n
 			Uppgifterna kommer endast att behandlas av oss inom Tassa. \n
-			Du har enligt dataskyddsförordningen rätt att gratis, en gång per kalenderår, efter skriftligt undertecknad ansökan ställd till oss, få besked om vilka personuppgifter om dig som vi behandlar och hur vi behandlar dessa. Du har också rätt att begära rättelse i fråga om personuppgifter som vi behandlar om dig.\n`
+			Du har enligt dataskyddsförordningen rätt att gratis, en gång per kalenderår, efter skriftligt undertecknad ansökan ställd till oss, få besked om vilka personuppgifter om dig som vi behandlar och hur vi behandlar dessa. Du har också rätt att begära rättelse i fråga om personuppgifter som vi behandlar om dig.
+			Vi behöver även skapa och spara kakor gällande din inloggning.\n`
 		};
 	},
 	props: ["ctabtntext"],
