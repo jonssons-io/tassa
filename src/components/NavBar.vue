@@ -33,27 +33,29 @@
 					></font-awesome-icon>
 				</b-nav-item>
 				<b-nav-item
-					v-if="expandMenu"
+					v-if="expandMenu && loggedInStatus"
 					class="nav--subitem"
 					:to="`/profil/${loggedInUser}`"
 					>Visa Profil</b-nav-item
 				>
 				<b-nav-item
-					v-if="expandMenu"
+					v-if="expandMenu && loggedInStatus"
 					class="nav--subitem"
 					:to="`/redigera-preferenser/${loggedInUser}`"
+					disabled
 					>Ändra preferenser</b-nav-item
 				>
 				<b-nav-item
-					v-if="expandMenu"
+					v-if="expandMenu && loggedInStatus"
 					class="nav--subitem"
 					:to="`/redigera-familjen/${loggedInUser}`"
 					>Redigera beskrivning och familj</b-nav-item
 				>
 				<b-nav-item
-					v-if="expandMenu"
+					v-if="expandMenu && loggedInStatus"
 					class="nav--subitem"
 					:to="`/redigera-personuppgifter/${loggedInUser}`"
+					disabled
 					>Personliga inställningar</b-nav-item
 				>
 				<b-nav-item v-if="loggedInStatus" to="/inbjudningar"
